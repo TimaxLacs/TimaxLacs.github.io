@@ -660,4 +660,29 @@ section {
     margin-top: 1.2rem;
     font-size: 8.6pt;
   }
+
+  body.compact {
+    font-size: 9.2pt;
+    line-height: 1.4;
+  }
+
+  body.compact .masthead h1 {
+    font-size: 19pt;
+  }
+
+  body.compact section {
+    padding-top: 1rem;
+  }
+
+  body.compact .entry {
+    padding: 0.55rem 0;
+  }
+
+  body.compact .entry h3 {
+    font-size: 11.2pt;
+  }
+
+  body.compact .entry-body li {
+    margin-bottom: 0.36rem;
+  }
 }

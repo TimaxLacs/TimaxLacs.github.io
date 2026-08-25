@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тимур Шакиров - резюме, краткая версия</title>
+    <meta
+      name="description"
+      content="Краткое резюме Тимура Шакирова: LLM-шлюз в продакшене, e-commerce платформа, гео-модуль, ИИ-конвейеры."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="compact">
+    <div class="wrap">
+      <header class="masthead">
+        <h1>Шакиров Тимур Эдуардович</h1>
+        <p class="tagline">
+          Инженер. Языковые модели в продакшене: шлюзы, биллинг, конвейеры
+          контента. Последний год - e-commerce платформы на React и GraphQL.
+        </p>
+
+        <ul class="contacts">
+          <li>Санкт-Петербург · удалённо</li>
+          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+        </ul>
+
+        <p class="accounts">
+          <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
+          <a href="https://github.com/TimaxHack">github.com/TimaxHack</a>
+          <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a>
+        </p>
+
+        <div class="actions no-print">
+          <a class="btn btn--primary" href="index.html">Полная версия</a>
+          <a class="btn" href="resume-short.pdf" download>Скачать PDF</a>
+        </div>
+      </header>
+
+      <section id="skills">
+        <h2 class="section-title">Навыки</h2>
+        <dl class="skills">
+          <div class="skill-row">
+            <dt>Языки</dt>
+            <dd>Python, TypeScript, JavaScript</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Фронтенд</dt>
+            <dd>React, Next.js, Vite, Tailwind, Capacitor (iOS и Android)</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Бэкенд</dt>
+            <dd>
+              Node.js, Express, FastAPI, GraphQL (Hasura), PostgreSQL / PostGIS,
+              Redis, MongoDB, MinIO
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>ИИ</dt>
+            <dd>
+              маршрутизация между провайдерами и фолбэк, биллинг токенов, RAG и
+              MCP, очереди генерации текста и изображений, reasoning-конвейеры,
+              распознавание и синтез речи
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Прод</dt>
+            <dd>Docker, nginx, systemd, Linux, Git, CI, настройка DNS и почты</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Опыт работы</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>E-commerce платформа (проект заказчика, под NDA)</h3>
+            <span class="entry-meta">декабрь 2025 - настоящее время</span>
+          </div>
+          <p class="entry-role">
+            Контрактный инженер · маркетплейс с каталогом и картами, монорепо
+            фронтенда и восьми сервисов
+          </p>
+          <div class="entry-body">
+            <ul>
+              <li>
+                Клиентское приложение веду один: каталог и карточка товара, поиск
+                с автодополнением, фильтры, регистрация нескольких типов
+                аккаунтов с многофакторным подтверждением, общая библиотека
+                UI-компонентов.
+              </li>
+              <li>
+                <strong>Двуязычный каталог и автоперевод карточек:</strong>
+                словари вынесены из компонентов, перевод идёт через хук,
+                серверный роут и CLI-скрипт, прогоняющий каталог пачкой.
+                Добавление языка не требует правки разметки.
+              </li>
+              <li>
+                <strong>Гео-модуль, около 11 700 строк, написан целиком мной:</strong>
+                единый интерфейс поверх Яндекса, Google и 2ГИС на адаптерах,
+                смена провайдера - один параметр. Геометрия зон на 1 700 строк:
+                буферы вдоль маршрута через кривые Безье, объединение полигонов с
+                отверстиями, хранение в PostGIS.
+              </li>
+              <li>
+                <strong>Конвейер наполнения каталога:</strong> источники за общим
+                контрактом, дедупликация по внешнему id, штрихкоду и отпечатку
+                характеристик. Нейросети работают после сбора отдельными
+                очередями, поэтому упавший воркер оставляет товар на витрине с
+                исходными данными.
+              </li>
+              <li>
+                Мобильные сборки Capacitor под iOS и Android с прохождением
+                требований App Store; развёртывание через Docker и systemd,
+                миграция базы на PostGIS.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Deep.Assistant - агрегатор нейросетей</h3>
+            <span class="entry-meta">2024-2025</span>
+          </div>
+          <p class="entry-role">
+            Сооснователь, backend и DevOps · команда из трёх человек
+          </p>
+          <div class="entry-body">
+            <ul>
+              <li>
+                <strong>LLM-шлюз</strong>
+                (<a href="https://github.com/deep-assistant/api-gateway"
+                  >github.com/deep-assistant/api-gateway</a
+                >): спроектировал, написал первую версию и веду репозиторий.
+                Около 37 моделей от шести поставщиков за одним
+                OpenAI-совместимым интерфейсом.
+              </li>
+              <li>
+                <strong>Таблица деградации вместо ретрая:</strong> для каждой
+                модели прописана цепочка из 12-16 замен, подобранных так, чтобы
+                ответ оставался пригодным для того же сценария. Упавший
+                провайдер не роняет продукт.
+              </li>
+              <li>
+                <strong>Единый счёт поверх несопоставимых прайсов:</strong> у
+                каждой модели свой коэффициент пересчёта токенов во внутреннюю
+                валюту, от 1.7 до 40. Продукт считает себестоимость запроса и
+                наценку.
+              </li>
+              <li>
+                Переводы между счетами на файловом хранилище: эксклюзивные
+                блокировки с распознаванием зависших, атомарная запись с
+                обратной вычиткой, восстановление незавершённых операций при
+                старте.
+              </li>
+              <li>
+                В Telegram-боте написал модуль переводов внутренней валюты на
+                конечном автомате, сервис синхронизации пользователей, режим
+                транскрибации аудио, разделение окружений TEST и PROD. Бот
+                <a href="https://t.me/DeepGPTBot">@DeepGPTBot</a>.
+              </li>
+              <li>
+                Подключал reasoning-модели в течение 10-15 дней после публичного
+                релиза вместе с тарификацией: o1-preview и o1-mini - 27.09.2024,
+                DeepSeek-R1 - 30.01.2025.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>ManyAir - платформа международных денежных переводов</h3>
+            <span class="entry-meta">август 2025 - май 2026</span>
+          </div>
+          <p class="entry-role">
+            Проект заказчика: фронтенд и смежный бэкенд · микросервисы вокруг
+            Hasura GraphQL
+          </p>
+          <div class="entry-body">
+            <ul>
+              <li>
+                Аукционная механика: публичные лоты и адресные предложения,
+                ролевая модель компаний и их сотрудников.
+              </li>
+              <li>
+                Устойчивость доставки уведомлений: при недоступном канале статус
+                возвращает «не отправлено», а приглашение не помечается
+                доставленным.
+              </li>
+              <li>
+                Изоляция данных между ролями: сброс кеша запросов при смене
+                пользователя, ограничение подписок на детали сделки.
+              </li>
+              <li>
+                Удалил устаревший домен приглашений целиком: таблицы, права
+                Hasura, роуты, обработчики, сгенерированные типы. Миграция
+                корпоративной почты на связку Selectel MTA и Яндекс 360.
+              </li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Matreshka - AI/e-commerce платформа</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            Проект заказчика: фронтенд и запуск публичного сайта ·
+            <a href="https://matreshka.club">matreshka.club</a>
+          </p>
+          <div class="entry-body">
+            <p>
+              React, Vite, TypeScript, Tailwind; фирменный стиль, деплой на nginx
+              с SSL, настройка DNS и корпоративной почты. Второй проект для того
+              же заказчика.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Проекты</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Reasoning-конвейер поверх обычных чат-моделей</h3>
+            <span class="entry-meta">апрель 2025</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Пять стадий: предсказание намерения, пошаговое решение,
+              состязательная критика собственного ответа, доработка, синтез.
+              Написан до того, как режим рассуждений стал стандартной функцией
+              продуктов; ни одна стадия не опирается на встроенный reasoning.
+              <a href="https://github.com/TimaxLacs/test-resorning"
+                >github.com/TimaxLacs/test-resorning</a
+              >
+            </p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Контент-конвейер с ИИ-модерацией</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Одна модель пишет черновик, вторая проверяет отдельным вызовом,
+              замечания возвращаются на правку до трёх кругов. Состояние в
+              SQLite, чтобы конвейер переживал падение процесса; публикаторы
+              вынесены в стратегии под Telegram, VK и MAX.
+              <a href="https://github.com/TimaxLacs/ai-post-generator"
+                >github.com/TimaxLacs/ai-post-generator</a
+              >
+            </p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Память для агентов и методология работы с ними</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Self-hosted LightRAG и собственный MCP-сервер к нему: режимы
+              поиска, реранкинг, цитирование источников, конфигурация через zod
+              (<a href="https://github.com/TimaxLacs/lightrag-mcp"
+                >lightrag-mcp</a
+              >). Отдельно - набор агентных процессов на 1 900 строк
+              спецификаций: конвейер безопасного изменения кода из пяти агентов с
+              запечатанными границами задачи и параллельными потоками
+              (<a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+                >cursor-agent-workflows</a
+              >).
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-foot">
+        <p>
+          Развёрнутая версия с фильтрами по технологиям:
+          <a href="https://timaxlacs.github.io">timaxlacs.github.io</a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
