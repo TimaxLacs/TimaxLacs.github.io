@@ -8,6 +8,8 @@
   const resetButton = document.getElementById("reset");
   const emptyMessage = document.getElementById("empty");
   const printButton = document.getElementById("print-btn");
+  const toggleButton = document.getElementById("toggle");
+  const filterBody = document.getElementById("filter-body");
 
   const activeTags = new Set();
 
@@ -83,6 +85,11 @@
     apply();
   };
 
+  const setPanelOpen = (isOpen) => {
+    toggleButton.setAttribute("aria-expanded", String(isOpen));
+    filterBody.hidden = !isOpen;
+  };
+
   const resetAll = () => {
     activeTags.clear();
     for (const chip of chips) chip.setAttribute("aria-pressed", "false");
@@ -110,6 +117,10 @@
   searchInput.addEventListener("input", apply);
   resetButton.addEventListener("click", resetAll);
 
+  toggleButton.addEventListener("click", () => {
+    setPanelOpen(toggleButton.getAttribute("aria-expanded") !== "true");
+  });
+
   if (printButton) {
     printButton.addEventListener("click", () => window.print());
   }
@@ -122,5 +133,6 @@
   });
 
   restoreFromLocation();
+  setPanelOpen(activeTags.size > 0);
   apply();
 })();
