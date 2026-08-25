@@ -1,0 +1,1116 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Тимур Шакиров — инженер, ИИ в продуктах</title>
+    <meta
+      name="description"
+      content="Резюме Тимура Шакирова: LLM-шлюз в продакшене, e-commerce платформа, гео-модуль, ИИ-конвейеры. Python, TypeScript, React, Docker."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <h1>Шакиров Тимур Эдуардович</h1>
+        <p class="tagline">
+          Инженер, который доводит языковые модели до продакшена: шлюзы,
+          биллинг, конвейеры контента, каталоги.
+        </p>
+
+        <ul class="contacts">
+          <li>Санкт-Петербург · удалённо</li>
+          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+        </ul>
+
+        <p class="accounts">
+          <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
+          <a href="https://github.com/TimaxHack">github.com/TimaxHack</a>
+          <a href="https://github.com/timaxlax">github.com/timaxlax</a>
+          <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a>
+        </p>
+        <p class="note-accounts">
+          Аккаунтов три не для красоты: часть продакшн-работы лежит под
+          <code>TimaxHack</code> — например, 150 из 194 коммитов в LLM-шлюзе. По
+          одному аккаунту видно меньше трети.
+        </p>
+
+        <div class="actions no-print">
+          <button class="btn btn--primary" id="print-btn" type="button">
+            Скачать PDF
+          </button>
+          <a class="btn" href="resume.pdf" download>Готовый файл PDF</a>
+        </div>
+      </header>
+
+      <section id="about">
+        <h2 class="section-title">Кратко</h2>
+        <div class="lede">
+          <p>
+            Написал первую версию LLM-шлюза, который стал продакшн-инфраструктурой
+            компании: маршрутизация между провайдерами, фолбэк, биллинг по
+            токенам. Последний год по контракту веду e-commerce платформу —
+            витрина, каталог, гео, мобильные сборки, деплой.
+          </p>
+          <p>
+            PHP и 1С-Битрикс в продакшене не писал. Захожу в них так же, как
+            коллега, который сейчас работает в компании: с ИИ, по живому
+            магазину, <strong>без имитации стажа</strong>.
+          </p>
+          <p>
+            Ищу роль, где модели ускоряют магазин: мультиязычные карточки,
+            подбор аромата и слоек, поддержка покупателя, фиды на маркетплейсы.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Навыки</h2>
+        <dl class="skills">
+          <div class="skill-row">
+            <dt>Языки</dt>
+            <dd>Python, TypeScript, JavaScript</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Фронтенд</dt>
+            <dd>
+              React, Next.js, Vite, Tailwind, Capacitor (сборки под iOS и
+              Android)
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Бэкенд</dt>
+            <dd>
+              Node.js, Express, FastAPI, GraphQL (Hasura), REST, PostgreSQL /
+              PostGIS, Redis, MongoDB, SQLite, MinIO
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>ИИ</dt>
+            <dd>
+              маршрутизация между провайдерами и фолбэк, биллинг токенов, RAG и
+              MCP, очереди генерации текста и изображений, reasoning-конвейеры,
+              распознавание и синтез речи, LangChain
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Прод</dt>
+            <dd>Docker, nginx, systemd, Linux, Git, CI, настройка DNS и почты</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="filters no-print" id="filters">
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-area">Направление</span>
+          <div class="chips" role="group" aria-labelledby="lbl-area">
+            <button class="chip" type="button" data-tag="ai" aria-pressed="false">
+              ИИ и LLM
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="ecommerce"
+              aria-pressed="false"
+            >
+              E-commerce
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="frontend"
+              aria-pressed="false"
+            >
+              Фронтенд
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="backend"
+              aria-pressed="false"
+            >
+              Бэкенд
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="devops"
+              aria-pressed="false"
+            >
+              DevOps
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="bots"
+              aria-pressed="false"
+            >
+              Боты и автоматизация
+            </button>
+            <button class="chip" type="button" data-tag="oss" aria-pressed="false">
+              Открытый код
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-tech">Технологии</span>
+          <div class="chips" role="group" aria-labelledby="lbl-tech">
+            <button
+              class="chip"
+              type="button"
+              data-tag="python"
+              aria-pressed="false"
+            >
+              Python
+            </button>
+            <button class="chip" type="button" data-tag="ts" aria-pressed="false">
+              TypeScript
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="react"
+              aria-pressed="false"
+            >
+              React
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="node"
+              aria-pressed="false"
+            >
+              Node.js
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="graphql"
+              aria-pressed="false"
+            >
+              GraphQL
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="docker"
+              aria-pressed="false"
+            >
+              Docker
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="postgres"
+              aria-pressed="false"
+            >
+              PostgreSQL
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="telegram"
+              aria-pressed="false"
+            >
+              Telegram API
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-type">Тип</span>
+          <div class="chips" role="group" aria-labelledby="lbl-type">
+            <button
+              class="chip"
+              type="button"
+              data-tag="commercial"
+              aria-pressed="false"
+            >
+              Коммерческое
+            </button>
+            <button class="chip" type="button" data-tag="pet" aria-pressed="false">
+              Своё и пет-проекты
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-status">
+          <input
+            class="search"
+            id="search"
+            type="search"
+            placeholder="Поиск по тексту…"
+            aria-label="Поиск по резюме"
+          />
+          <span id="counter">Показано всё</span>
+          <button class="reset" id="reset" type="button" hidden>Сбросить</button>
+        </div>
+      </div>
+
+      <p class="empty" id="empty" hidden>
+        Под такой набор фильтров ничего нет. Попробуйте снять часть условий.
+      </p>
+
+      <section id="experience">
+        <h2 class="section-title">Опыт работы</h2>
+
+        <article
+          class="entry"
+          data-tags="ai backend devops node commercial telegram bots"
+        >
+          <div class="entry-head">
+            <h3>Deep.Assistant — агрегатор нейросетей</h3>
+            <span class="entry-meta">2024 — 2025</span>
+          </div>
+          <p class="entry-role">Сооснователь, backend и DevOps · команда из трёх человек</p>
+
+          <div class="entry-body">
+            <p>
+              Коммерческий продукт: чат с моделями, генерация изображений,
+              музыки и голоса, API-шлюз, мини-приложения в Telegram и VK.
+            </p>
+
+            <div class="subblock">
+              <h4>
+                LLM-шлюз —
+                <a
+                  class="print-url"
+                  href="https://github.com/deep-assistant/api-gateway"
+                  >github.com/deep-assistant/api-gateway</a
+                >
+              </h4>
+              <p>
+                Спроектировал и написал первую версию. Проект вырос из моего
+                личного репозитория в продакшн-инфраструктуру компании:
+                <span class="metric">231 коммит из 362 — 64%</span>. Владею
+                ключевыми файлами: сервер, конфигурация моделей, менеджер
+                токенов, работа с БД, реферальная система.
+              </p>
+              <ul>
+                <li>
+                  Десятки логических моделей поверх OpenAI, OpenRouter,
+                  DeepInfra, DeepSeek и реселлеров.
+                </li>
+                <li>
+                  <strong>Упорядоченный фолбэк:</strong> запрос идёт по цепочке
+                  провайдеров, пока кто-то не ответит. Один упавший провайдер не
+                  роняет продукт.
+                </li>
+                <li>
+                  <strong>Биллинг:</strong> токены провайдера пересчитываются во
+                  внутреннюю валюту с наценкой, единый счёт для бота и внешнего
+                  API.
+                </li>
+                <li>
+                  Авторизация, реферальная программа, учёт себестоимости по
+                  каждой модели.
+                </li>
+              </ul>
+            </div>
+
+            <div class="subblock">
+              <h4>
+                Telegram-бот —
+                <a
+                  class="print-url"
+                  href="https://github.com/deep-assistant/telegram-bot"
+                  >github.com/deep-assistant/telegram-bot</a
+                >
+              </h4>
+              <p>
+                <span class="metric">63 коммита из 384</span>. Боевой
+                мультимодельный ассистент на aiogram и grammY: стриминг ответов,
+                генерация изображений, распознавание речи, платежи, реферальная
+                программа, энергобаланс пользователя. Бот
+                <a class="print-url" href="https://t.me/DeepGPTBot">@DeepGPTBot</a>,
+                канал
+                <a class="print-url" href="https://t.me/gptDeep">@gptDeep</a> —
+                1 553 подписчика.
+              </p>
+            </div>
+
+            <div class="subblock">
+              <h4>Скорость вывода моделей в прод</h4>
+              <p>
+                Подключал reasoning-модели в течение
+                <span class="metric">10–15 дней</span> после публичного релиза,
+                вместе с тарификацией и цепочками фолбэка: o1-preview и o1-mini —
+                27.09.2024, DeepSeek-R1 — 30.01.2025.
+              </p>
+            </div>
+
+            <div class="subblock">
+              <h4>Продуктовая работа</h4>
+              <p>
+                Завёл 14 продуктовых задач по боту: умный приоритет провайдеров,
+                режим экспресс-ответов, напоминания, сохранение прошлых
+                контекстов, подключение новых моделей. Задачу про умный приоритет
+                API коллега реализовал через неделю.
+              </p>
+            </div>
+          </div>
+
+          <ul class="tags">
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>Python</li>
+            <li>aiogram</li>
+            <li>OpenAI · OpenRouter · DeepSeek</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="ecommerce frontend backend devops react ts graphql postgres docker commercial ai"
+        >
+          <div class="entry-head">
+            <h3>E-commerce платформа (проект заказчика, под NDA)</h3>
+            <span class="entry-meta">декабрь 2025 — настоящее время</span>
+          </div>
+          <p class="entry-role">
+            Контрактный инженер: фронтенд, гео, мобильные сборки, смежный DevOps
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Маркетплейс с каталогом и картами. React, Hasura GraphQL, восемь
+              микросервисов, PostgreSQL/PostGIS, Redis, MinIO, nginx, Docker,
+              Capacitor. Второй по объёму вклада разработчик в монорепозитории:
+              <span class="metric">около 130 коммитов из 415</span>. Детали
+              продукта под NDA, о модулях рассказываю свободно.
+            </p>
+            <ul>
+              <li>
+                <strong>Витрина:</strong> каталог, поиск с автодополнением и
+                пагинацией, карточки товара, фильтры, мультиязычность RU/EN,
+                аутентификация через SMS, email и MFA.
+              </li>
+              <li>
+                <strong>Мобильные сборки Capacitor</strong> под iOS и Android:
+                геолокация, платформенная навигация, прохождение требований App
+                Store, механика жалоб и блокировок для пользовательского
+                контента.
+              </li>
+              <li>
+                <strong>Прод:</strong> инструкция развёртывания, systemd для
+                backend-сервисов, Docker с политикой перезапуска, nginx, миграция
+                базы на PostGIS.
+              </li>
+              <li>
+                <strong>Конвейер наполнения каталога</strong> — спроектировал:
+                источники за общим контрактом, дедупликация по внешнему id,
+                штрихкоду и отпечатку характеристик, очереди нейросетей
+                <em>после</em> сбора данных — отдельный воркер текста RU/EN и
+                воркер изображений. Сбор не ждёт модель, характеристики модель не
+                переписывает, упавший воркер не убирает товар с витрины.
+              </li>
+            </ul>
+
+            <div class="subblock">
+              <h4>Гео-модуль — отдельный продукт внутри платформы</h4>
+              <p>
+                <span class="metric">48 коммитов, весь код мой.</span> Единый
+                интерфейс поверх трёх картографических провайдеров: Яндекс, Google
+                и 2ГИС. Архитектура на адаптерах — React-компоненты карты,
+                маркера и зоны ничего не знают о конкретном провайдере; движки
+                маркеров и зон принимают команду и переадресуют её адаптеру, а
+                тот переводит унифицированные данные в вызовы своего SDK. Смена
+                провайдера — это смена одного параметра, остальной код приложения
+                не трогается.
+              </p>
+              <ul>
+                <li>
+                  <strong>Геометрия зон, около 2 700 строк логики:</strong>
+                  буферные зоны вдоль маршрута с плавными переходами к круговым
+                  зонам маркеров через квадратичные кривые Безье, объединение
+                  полигонов с поддержкой отверстий и мультиполигонов, несколько
+                  режимов объединения, валидация геометрии и кэширование
+                  расчётов.
+                </li>
+                <li>
+                  Перетаскиваемые маркеры, пользовательские зоны, изменения с
+                  карты поднимаются в состояние приложения через колбэки.
+                </li>
+                <li>
+                  Геокодинг вынесен на серверный роут, чтобы ключи API не
+                  попадали в браузер.
+                </li>
+                <li>
+                  Хранение геометрии в PostGIS, поиск по радиусу,
+                  мультиязычность, Docker, смоук-тесты и документация по выносу
+                  модуля в самостоятельное приложение.
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <ul class="tags">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Hasura GraphQL</li>
+            <li>PostGIS</li>
+            <li>Capacitor</li>
+            <li>Docker · nginx · systemd</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="frontend backend ts graphql postgres devops commercial"
+        >
+          <div class="entry-head">
+            <h3>ManyAir — платформа международных денежных переводов</h3>
+            <span class="entry-meta">август 2025 — май 2026</span>
+          </div>
+          <p class="entry-role">Проект заказчика: фронтенд и смежный бэкенд</p>
+
+          <div class="entry-body">
+            <p>
+              Микросервисная система вокруг Hasura GraphQL: router, обработчик
+              событий, рассылка сообщений, Telegram-бот, генератор документов,
+              сервис курсов валют; PostgreSQL, Redis, MinIO, уведомления по SMS и
+              email.
+            </p>
+            <ul>
+              <li>
+                <strong>Аукционная механика:</strong> публичные лоты и адресные
+                предложения, ролевая модель компаний и их сотрудников.
+              </li>
+              <li>
+                <strong>Устойчивость доставки уведомлений:</strong> если канал
+                недоступен, статус честно возвращает «не отправлено», а
+                приглашение не помечается доставленным при неработающей рассылке.
+              </li>
+              <li>
+                <strong>Изоляция данных между ролями:</strong> сброс кеша
+                запросов при смене пользователя, ограничение подписок на детали
+                сделки до появления безопасного превью.
+              </li>
+              <li>
+                Удаление устаревшего домена приглашений целиком: таблицы, права
+                Hasura, роуты, обработчики уведомлений, сгенерированные типы и
+                сценарии ручного тестирования.
+              </li>
+              <li>
+                Миграция корпоративной почты проекта на связку Selectel MTA и
+                Яндекс 360 с перенастройкой DNS.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Hasura GraphQL</li>
+            <li>PostgreSQL · Redis · MinIO</li>
+            <li>e2e-тесты</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="ecommerce frontend react ts devops commercial ai"
+        >
+          <div class="entry-head">
+            <h3>Matreshka — AI/e-commerce платформа</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            Проект заказчика: фронтенд и запуск публичного сайта ·
+            <a class="print-url" href="https://matreshka.club">matreshka.club</a>
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Позиционирование платформы «Where AI + Data Meets eCommerce»:
+              биржевое ценообразование, агрегация спроса, голосовые агенты.
+              React, Vite, TypeScript, Tailwind, shadcn/ui; фирменный стиль и
+              варианты логотипа; деплой на nginx с SSL, настройка DNS и
+              корпоративной почты на домене. Второй проект для того же
+              заказчика.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>React · Vite</li>
+            <li>Tailwind · shadcn/ui</li>
+            <li>nginx · SSL · DNS</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="bots python telegram commercial backend">
+          <div class="entry-head">
+            <h3>Такси 628 — биржа заказов</h3>
+            <span class="entry-meta">2024</span>
+          </div>
+          <p class="entry-role">
+            Fullstack, заказная разработка ·
+            <a class="print-url" href="https://taxi628.ru">taxi628.ru</a>
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Telegram-бот биржи заказов для таксопарка: оператор размещает
+              заказ, водители видят и подтверждают его в реальном времени.
+              Внедрён у заказчика, заменил ручную раздачу смен.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>Telegram Bot API</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="ai-cases">
+        <h2 class="section-title">Инженерные кейсы с ИИ</h2>
+
+        <article class="entry" data-tags="ai python pet bots">
+          <div class="entry-head">
+            <h3>Reasoning своими руками</h3>
+            <span class="entry-meta">апрель 2025</span>
+          </div>
+          <p class="entry-role">
+            <a
+              class="print-url"
+              href="https://github.com/TimaxLacs/test-resorning"
+              >github.com/TimaxLacs/test-resorning</a
+            >
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Собрал многоступенчатый reasoning-конвейер
+              <strong>поверх обычных чат-моделей</strong>, до того как режим
+              рассуждений стал стандартной кнопкой в продуктах.
+            </p>
+            <ul>
+              <li>
+                Пять стадий: предсказание намерения пользователя → пошаговое
+                решение → состязательная критика, где модель играет антагониста и
+                пытается опровергнуть собственный ответ → доработка по критике →
+                синтез финального ответа.
+              </li>
+              <li>
+                Вариант на LangChain: Tree of Thoughts с тремя независимыми
+                ветками рассуждений плюс самосогласованность — критическая оценка
+                всех веток и синтез лучшей.
+              </li>
+              <li>
+                Полная цепочка рассуждений выгружается файлом, чтобы решение
+                можно было проверить.
+              </li>
+            </ul>
+            <p>
+              Всё построено на не-reasoning моделях: поведение воспроизводится
+              оркестрацией промптов, а не вызовом o1.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>LangChain</li>
+            <li>Tree of Thoughts</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python bots pet">
+          <div class="entry-head">
+            <h3>Контент-конвейер с ИИ-модерацией</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            <a
+              class="print-url"
+              href="https://github.com/TimaxLacs/ai-post-generator"
+              >github.com/TimaxLacs/ai-post-generator</a
+            >
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Асинхронный конвейер: черновик от модели → отдельная LLM-модерация
+              → до трёх циклов правки → публикация. Состояние в SQLite вместо
+              файлов ради устойчивости к падениям, публикаторы вынесены в
+              отдельные стратегии под Telegram, VK и MAX, обработка ошибок и
+              тесты.
+            </p>
+            <p>
+              Ровно та схема, которая нужна для мультиязычных карточек товара:
+              генерация отделена от проверки, сбой не теряет данные.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>asyncio</li>
+            <li>SQLite</li>
+            <li>OpenRouter</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai node pet backend">
+          <div class="entry-head">
+            <h3>Память для агентов: RAG и MCP</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+
+          <div class="entry-body">
+            <p>
+              Развернул self-hosted LightRAG — граф плюс векторы — и написал
+              собственный MCP-сервер для интеграции с редактором: режимы поиска
+              mix, hybrid и local, реранкинг, цитирование источников. Около 250
+              строк на Node.js и 170 строк тестов, конфигурация валидируется через
+              zod.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Node.js</li>
+            <li>MCP</li>
+            <li>LightRAG</li>
+            <li>zod</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python pet">
+          <div class="entry-head">
+            <h3>Голосовой стек</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/InnerEcho"
+              >github.com/TimaxLacs/InnerEcho</a
+            >
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Голосовой ассистент целиком локально: распознавание речи →
+              языковая модель → синтез с клонированием голоса, автонастройка
+              аудиоустройств. Отдельно сравнивал модели синтеза речи на русском
+              корпусе. Исследовательский прототип, не прод.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>Whisper</li>
+            <li>XTTS</li>
+            <li>MCP</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai pet">
+          <div class="entry-head">
+            <h3>Собственная методология работы с ИИ-агентами</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+
+          <div class="entry-body">
+            <p>
+              Написал набор агентных процессов: пайплайн безопасного внесения
+              изменений из пяти специализированных агентов (анализ → план →
+              параллельная реализация → проверка → выводы), пятифазный бутстрап
+              нового проекта, процесс глубокого исследования. Около 1 900 строк
+              спецификаций, которыми пользуюсь ежедневно.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Агентные пайплайны</li>
+            <li>TDD</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="oss">
+        <h2 class="section-title">Открытый код и пакеты</h2>
+
+        <article class="entry" data-tags="oss node ts ai pet">
+          <div class="entry-head">
+            <h3>26 опубликованных npm-пакетов</h3>
+            <span class="entry-meta">2024 — 2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://www.npmjs.com/~timax"
+              >npmjs.com/~timax</a
+            >
+            · автор релиза
+          </p>
+
+          <div class="entry-body">
+            <ul>
+              <li>
+                <strong>ИИ-тулинг <code>@deep-foundation</code>:</strong>
+                <code>ai</code>, <code>ai-models</code>, <code>ai-tasks</code>,
+                <code>ai-templates</code>, <code>openai</code>,
+                <code>chatgpt-azure</code> (30 версий),
+                <code>function_generation</code>, <code>tests_generation</code>,
+                <code>messaging</code>, <code>4o-bot</code>.
+              </li>
+              <li>
+                <strong>Синтез речи с клонированием голоса:</strong>
+                <code>xtts-v2-js</code> (XTTS-v2, 17 языков, автоустановка
+                Python-окружения), <code>zonosjs</code>,
+                <code>zonos-client</code>.
+              </li>
+              <li>
+                <code>deep-files-sync</code> — двусторонняя синхронизация
+                файловой структуры с графом связей,
+                <span class="metric">102 коммита из 102</span>, 13 версий.
+              </li>
+              <li>
+                <code>@timax/passport-authorization</code> и связанные пакеты —
+                регистрация и подтверждение по email.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>npm</li>
+            <li>TypeScript</li>
+            <li>Node.js</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="oss python docker backend bots pet">
+          <div class="entry-head">
+            <h3>tg-runner — оркестрация ботов</h3>
+            <span class="entry-meta">январь 2026</span>
+          </div>
+          <p class="entry-role">Комплект из четырёх репозиториев</p>
+
+          <div class="entry-body">
+            <p>
+              Оркестратор запуска ботов на конечном автомате с Redis, воркер,
+              поднимающий ботов в Docker, публикуемый SDK для своих воркеров и
+              CLI. Docker Compose, pytest, документация.
+            </p>
+            <p>
+              github.com/TimaxLacs/ —
+              <a href="https://github.com/TimaxLacs/tg-runner-orchestrator"
+                >tg-runner-orchestrator</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-worker"
+                >tg-runner-worker</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-worker-sdk"
+                >tg-runner-worker-sdk</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-cli"
+                >tg-runner-cli</a
+              >
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>Redis</li>
+            <li>Docker</li>
+            <li>FastAPI</li>
+            <li>pytest</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="oss ts node ai">
+          <div class="entry-head">
+            <h3>Вклад в чужие проекты</h3>
+            <span class="entry-meta">2024 — 2026</span>
+          </div>
+
+          <div class="entry-body">
+            <ul>
+              <li>
+                <code>deep-foundation/deeplinks</code> (2 653 коммита, внешние
+                мейнтейнеры) — клиент интеграции и тесты к нему.
+              </li>
+              <li>
+                <code>deep-foundation/chatgpt-telegram-bot</code> —
+                <span class="metric">12 коммитов из 22</span>, влиты через pull
+                request.
+              </li>
+              <li>
+                Форк <code>hasyx</code> — голосовой слой: транскрибация через
+                Whisper, выбор аудиоустройств, память диалога, прерывание синтеза
+                речи.
+              </li>
+              <li>
+                Всего <span class="metric">10 принятых pull request</span> в
+                чужие репозитории и около 70 заведённых issue, в основном
+                баг-репорты с трейсбеками.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>Open source</li>
+            <li>Code review</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Проекты</h2>
+
+        <article class="entry" data-tags="bots ai pet docker">
+          <div class="entry-head">
+            <h3>Боты для мессенджера MAX</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Мультимодальная обработка фото нейросетью, квота на пользователя,
+              Docker, интеграция с асинхронным ИИ-воркером и запасной сценарий
+              при недоступности бэкенда.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>JavaScript</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python bots pet oss">
+          <div class="entry-head">
+            <h3>vk-tg-parser</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/vk-tg-parser"
+              >github.com/TimaxLacs/vk-tg-parser</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              pip-пакет: единый парсер Telegram через MTProto и VK через API с
+              общей моделью данных и мониторингом в реальном времени.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Telethon · MTProto</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python bots pet">
+          <div class="entry-head">
+            <h3>Автокомментер по хэштегам</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Комментирование по хэштегам в Telegram и VK с ограничением частоты
+              и дедупликацией. Реальный прогон в мае 2026.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Pyrogram</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python bots pet telegram">
+          <div class="entry-head">
+            <h3>ai-lector</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/ai-lector"
+              >github.com/TimaxLacs/ai-lector</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              Бот, перерабатывающий аудиолекции под нужный формат. Собрал
+              локальный Telegram Bot API server через cmake, чтобы обойти лимит
+              на размер файла.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>cmake</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python bots pet">
+          <div class="entry-head">
+            <h3>anti-cpam-ai</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              Антиспам-бот: модель через OpenRouter выставляет сообщению
+              спам-балл от 1 до 10.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>OpenRouter</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python frontend pet">
+          <div class="entry-head">
+            <h3>Orbiteer</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/Orbiteer"
+              >github.com/TimaxLacs/Orbiteer</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              Анализатор рисков космических миссий: расчёт вероятности
+              столкновений, 3D-визуализация орбит на three.js, API на Sanic.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python · Sanic</li>
+            <li>three.js</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="frontend react ts pet">
+          <div class="entry-head">
+            <h3>Сайты на React и Vite</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              <a href="https://github.com/TimaxLacs/HSK-Grom"
+                >github.com/TimaxLacs/HSK-Grom</a
+              >
+              и
+              <a href="https://github.com/TimaxLacs/chkalov-park"
+                >chkalov-park</a
+              >: календарь событий, карта, деплой на GitHub Pages.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>React · Vite</li>
+            <li>TypeScript</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="oss docker pet">
+          <div class="entry-head">
+            <h3>Техническая статья про изоляцию Docker-провайдеров</h3>
+            <span class="entry-meta">2024</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/articles"
+              >github.com/TimaxLacs/articles</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>Прошла внешнее ревью в четырёх pull request.</p>
+          </div>
+          <ul class="tags">
+            <li>Docker</li>
+            <li>Технописательство</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="early">
+        <h2 class="section-title">Ранние работы, для контекста</h2>
+
+        <article class="entry" data-tags="pet">
+          <div class="entry-head">
+            <h3>GEFFEST — перчатка-манипулятор</h3>
+            <span class="entry-meta">2021 — 2022</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxHack/GEFFEST"
+              >github.com/TimaxHack/GEFFEST</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              Датчики считывают положение руки через кватернионы, обмен между
+              перчаткой и манипулятором по радио, сглаживание движения
+              сервоприводов, своя пайка макетных плат. Плюс Android-приложение
+              голосового управления на Java и Vosk.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>C++ · Arduino</li>
+            <li>Java · Android</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python pet bots">
+          <div class="entry-head">
+            <h3>Ранние боты и компьютерное зрение</h3>
+            <span class="entry-meta">2021</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              <a class="print-url" href="https://github.com/TimaxLacs/Holy-Buble"
+                >Бот-библиотека</a
+              >
+              — карта библиотек с нужной книгой, командный проект. Бот замерзания
+              Онежского озера — определение уровня замерзания по кадрам с уличной
+              камеры компьютерным зрением.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Computer vision</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="pet">
+          <div class="entry-head">
+            <h3>Запуски, которые не взлетели</h3>
+            <span class="entry-meta">2023 — 2025</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              <strong>ArtApollo</strong> — студия, где заказы отрисовывают
+              нейросети. Собрал команду до 30 человек, взял первые платные
+              заказы, выполнил корпоративный заказ на 12 человек. Проект закрыт,
+              команда распалась, итоговый доход меньше 5 000 рублей.
+            </p>
+            <p>
+              <strong>Cyber Vestis</strong> — прототип умной одежды с
+              климат-контролем: ПО для сенсорного дисплея, телеметрия температуры
+              тела. Дошли до рабочего прототипа, до инвестиций не дошли.
+            </p>
+            <p>Упоминаю как опыт запуска и провала, а не как достижение.</p>
+          </div>
+          <ul class="tags">
+            <li>Управление командой</li>
+            <li>Питчинг</li>
+          </ul>
+        </article>
+      </section>
+
+      <footer class="site-foot">
+        <p>
+          <a class="print-url" href="https://timaxlacs.github.io">timaxlacs.github.io</a>
+          <a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a>
+          <a href="tel:+79816919436">+7 981 691-94-36</a>
+        </p>
+        <p class="no-print">
+          Страница без фреймворков и сборки: содержимое лежит в HTML и читается
+          при выключенном JavaScript, фильтры только прячут лишнее. PDF
+          печатается из этого же документа, поэтому версии не расходятся.
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
