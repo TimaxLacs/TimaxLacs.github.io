@@ -655,11 +655,16 @@
           </ul>
         </article>
 
-        <article class="entry" data-tags="ai node pet backend">
+        <article class="entry" data-tags="ai node pet backend oss">
           <div class="entry-head">
             <h3>Память для агентов: RAG и MCP</h3>
             <span class="entry-meta">2026</span>
           </div>
+          <p class="entry-role">
+            <a href="https://github.com/TimaxLacs/lightrag-mcp"
+              >github.com/TimaxLacs/lightrag-mcp</a
+            >
+          </p>
 
           <div class="entry-body">
             <p>
@@ -707,19 +712,32 @@
           </ul>
         </article>
 
-        <article class="entry" data-tags="ai pet">
+        <article class="entry" data-tags="ai pet oss">
           <div class="entry-head">
             <h3>Собственная методология работы с ИИ-агентами</h3>
             <span class="entry-meta">2026</span>
           </div>
+          <p class="entry-role">
+            <a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+              >github.com/TimaxLacs/cursor-agent-workflows</a
+            >
+          </p>
 
           <div class="entry-body">
             <p>
-              Написал набор агентных процессов: пайплайн безопасного внесения
+              Написал набор агентных процессов: конвейер безопасного внесения
               изменений из пяти специализированных агентов (анализ → план →
               параллельная реализация → проверка → выводы), пятифазный бутстрап
-              нового проекта, процесс глубокого исследования. Около 1 900 строк
-              спецификаций, которыми пользуюсь ежедневно.
+              нового проекта, процесс глубокого исследования. Около
+              <span class="metric">1 900 строк</span> спецификаций, которыми
+              пользуюсь ежедневно.
+            </p>
+            <p>
+              Ключевые решения: анализатор запечатывает границы задачи, и
+              реализация не может выйти за них; независимые куски работы идут
+              параллельными потоками с отдельной проверкой на коллизии; упавший
+              поток переигрывается сам по себе; правки в инструкции никогда не
+              применяются молча — их предлагает агент, а решает человек.
             </p>
           </div>
 
