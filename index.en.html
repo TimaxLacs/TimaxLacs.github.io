@@ -126,21 +126,30 @@
         <div class="lede">
           <p>
             Since 2024 language models have been part of daily development.
-            Environments: Cursor, Claude Code, ClawCode. Autocomplete is on at
-            all times.
+            Current environments: Cursor, Claude Code, ClawCode. I use
+            autocomplete constantly. I fix research, constraints and acceptance
+            criteria myself first, then fill in the solution myself or with a
+            model.
           </p>
           <p>
-            I sketch research and architecture myself first. Then I fill in the
-            solution myself or with a model. At the planning stage I look up
-            tools and libraries I do not yet know, when they might help.
+            Before working with a model I write a full set of rules into the
+            repository: how to run checks, what not to touch. The same
+            constraints go into CI and hooks so they cannot be skipped. Code
+            written with a model follows narrow steps and separate subagents:
+            plan, edit, run tests and linters.
           </p>
           <p>
-            Before working with a model I write styles, rules and constraints
-            into files in the repository. Code written with a model follows my
-            own cycle: plan, edit, test. The cycle is run by agents from
+            The cycle is run by agents from
             <a href="https://github.com/TimaxLacs/cursor-agent-workflows"
               >cursor-agent-workflows</a
-            >, with split roles. I always review the resulting code myself.
+            >
+            : analysis, plan, implementation and verification are split;
+            verification runs separately and does not accept the code the
+            implementer just wrote. File scope is sealed in advance; if I make
+            parallel edits, I isolate them. Tests the model wrote together with
+            the implementation are not enough: I check negative and edge cases,
+            secrets and dependencies. I always review the resulting code myself
+            and do not hand it off unreviewed.
           </p>
         </div>
       </section>
