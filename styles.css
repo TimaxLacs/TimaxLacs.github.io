@@ -70,7 +70,11 @@ h3 {
   line-height: 1.25;
   letter-spacing: -0.011em;
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
+}
+
+strong {
+  font-weight: 700;
 }
 
 /* ---------- header ---------- */
@@ -182,7 +186,7 @@ section {
   text-transform: uppercase;
   letter-spacing: 0.13em;
   color: var(--text-faint);
-  font-weight: 600;
+  font-weight: 700;
   margin-bottom: 1.4rem;
 }
 
@@ -194,7 +198,7 @@ section {
 
 .lede strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .lede p + p {
@@ -419,7 +423,7 @@ section {
 
 .entry-body strong {
   color: var(--text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .metric {
@@ -437,12 +441,12 @@ section {
   border-left: 2px solid var(--line);
 }
 
-.subblock h4 {
-  margin: 0 0 0.35rem;
-  font-size: 0.97rem;
-  font-weight: 600;
-  color: var(--text);
-}
+  .subblock h4 {
+    margin: 0 0 0.35rem;
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--text);
+  }
 
 .tags {
   margin: 0.9rem 0 0;
@@ -645,6 +649,7 @@ section {
   .metric {
     padding: 0;
     background: none;
+    font-weight: 700;
   }
 
   .tags {
@@ -669,8 +674,8 @@ section {
   }
 
   body.compact {
-    font-size: 8.6pt;
-    line-height: 1.3;
+    font-size: 8.3pt;
+    line-height: 1.28;
   }
 
   body.compact .masthead {
@@ -702,6 +707,19 @@ section {
 
   body.compact .section-title {
     margin-bottom: 0.45rem;
+  }
+
+  body.compact .section-title,
+  body.compact .entry h3,
+  body.compact .entry-head,
+  body.compact .subblock h4 {
+    break-after: auto;
+    page-break-after: auto;
+  }
+
+  body.compact .entry-head + .entry-role,
+  body.compact .entry-role + .entry-body {
+    break-before: auto;
   }
 
   body.compact .lede {
@@ -738,6 +756,7 @@ section {
 
   body.compact .entry-body li {
     margin-bottom: 0.28rem;
+    break-inside: auto;
   }
 
   body.compact .subblock {

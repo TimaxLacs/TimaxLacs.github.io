@@ -135,20 +135,16 @@
                 >
               </h4>
               <p>
-                Designed and wrote the first version; the gateway grew out of my
-                personal repository
+                Designed and wrote the first version; the gateway grew out of
                 <a href="https://github.com/TimaxLacs/resale-chatgpt-azure"
                   >resale-chatgpt-azure</a
                 >
                 into the infrastructure that carries every product request. Main
                 author of the HTTP server, model configuration, token manager and
-                database layer; I maintain the repository.
+                database layer; I maintain the repository. About 37 models from
+                six providers behind a single OpenAI-compatible interface.
               </p>
               <ul>
-                <li>
-                  About 37 models from six providers behind a single
-                  OpenAI-compatible interface.
-                </li>
                 <li>
                   <strong>A degradation table instead of a plain retry:</strong>
                   each model has a chain of 12-16 substitutes chosen so that the
@@ -213,9 +209,9 @@
             </p>
             <ul>
               <li>
-                Storefront: catalogue, product page, search with autocomplete,
-                filters, registration of several account types with MFA, a UI
-                component library.
+                <strong>Storefront:</strong> catalogue, product page, search with
+                autocomplete, filters, registration of several account types with
+                MFA, a UI component library.
               </li>
               <li>
                 <strong
@@ -235,9 +231,9 @@
                 product on the storefront with its source data.
               </li>
               <li>
-                Wallet and orders: balance and payment services, external
-                acquiring, status change handlers. Capacitor builds for iOS and
-                Android, deployment through Docker and systemd.
+                <strong>Wallet and orders:</strong> balance and payment services,
+                external acquiring, status change handlers. Capacitor builds for
+                iOS and Android, deployment through Docker and systemd.
               </li>
             </ul>
 
@@ -245,30 +241,19 @@
               <h4>Geo module</h4>
               <p>
                 A single interface over Yandex Maps, Google Maps and 2GIS. Map,
-                marker and zone components know nothing about the concrete
-                provider: engines accept a command and pass it to an adapter, and
-                the adapter translates unified data into calls of its own SDK.
-                Switching provider is one configuration parameter.
+                marker and zone components know nothing about the provider:
+                engines accept a command and pass it to an adapter, the adapter
+                translates unified data into calls of its own SDK. Switching
+                provider is one configuration parameter. Zone geometry: buffers
+                along a route with transitions into circular marker zones through
+                quadratic Bézier curves, polygon union with holes and
+                multipolygons, validation, caching of computations. Draggable
+                markers and user-defined zones; changes made on the map
+                propagate into application state through callbacks. Geocoding on
+                a server route so that API keys never reach the browser. Geometry
+                stored in PostGIS, radius search, smoke tests, documentation for
+                extracting the module into a standalone application.
               </p>
-              <ul>
-                <li>
-                  Zone geometry: buffer zones along a route with smooth
-                  transitions into circular marker zones through quadratic Bézier
-                  curves, polygon union with holes and multipolygons, geometry
-                  validation, caching of computations.
-                </li>
-                <li>
-                  Draggable markers and user-defined zones; changes made on the
-                  map propagate into application state through callbacks.
-                  Geocoding moved to a server route so that API keys never reach
-                  the browser.
-                </li>
-                <li>
-                  Geometry stored in PostGIS, radius search, smoke tests,
-                  documentation for extracting the module into a standalone
-                  application.
-                </li>
-              </ul>
             </div>
           </div>
         </article>
@@ -321,7 +306,7 @@
       </section>
 
       <section id="ai-cases">
-        <h2 class="section-title">AI cases</h2>
+        <h2 class="section-title">AI cases · 2025-2026</h2>
         <article class="entry">
           <div class="entry-body">
             <ul>
@@ -350,16 +335,62 @@
               </li>
               <li>
                 <strong>My own tooling for working with models.</strong> Deployed
-                a self-hosted LightRAG instance and wrote an MCP server for it -
-                search modes, reranking, answers with references to sources
+                a self-hosted LightRAG instance and wrote an MCP server for it:
+                search modes, reranking, answers with references
                 (<a href="https://github.com/TimaxLacs/lightrag-mcp"
                   >lightrag-mcp</a
-                >). Plus 1,900 lines of agent workflow specifications: a safe code
-                change pipeline of five agents, project bootstrap, a research
-                process
+                >). Plus 1,900 lines of agent workflow specifications: a safe
+                code change pipeline of five agents, project bootstrap, a
+                research process
                 (<a href="https://github.com/TimaxLacs/cursor-agent-workflows"
                   >cursor-agent-workflows</a
                 >). I use both daily.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="oss">
+        <h2 class="section-title">Open source · since 2023</h2>
+        <article class="entry">
+          <div class="entry-head">
+            <h3>deep.foundation</h3>
+            <span class="entry-meta">2023 - present</span>
+          </div>
+          <p class="entry-role">
+            Organisation member ·
+            <a href="https://github.com/deep-foundation"
+              >github.com/deep-foundation</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              An associative storage ecosystem. AI tooling packages in the
+              official scope: <code>@deep-foundation/ai</code>,
+              <code>ai-models</code>, <code>ai-templates</code>,
+              <code>ai-tasks</code> and neighbouring packages. My own package
+              <a href="https://github.com/TimaxLacs/deep-files-sync"
+                >deep-files-sync</a
+              >
+              (13 versions) projects a link graph onto the file system: the
+              contents of the database can be read and edited with
+              <code>grep</code>, an editor and git.
+            </p>
+            <ul>
+              <li>
+                <strong>InnerEcho</strong> - a local voice assistant: speech
+                recognition, a language model, synthesis with voice cloning;
+                npm synthesis clients <code>xtts-v2-js</code> and
+                <code>zonosjs</code> -
+                <a href="https://github.com/TimaxLacs/InnerEcho">InnerEcho</a>.
+              </li>
+              <li>
+                <strong>tg-runner</strong> - orchestration of Telegram bots: a
+                state machine with Redis, a Docker worker, SDK and CLI -
+                <a href="https://github.com/TimaxLacs/tg-runner-orchestrator"
+                  >tg-runner-orchestrator</a
+                >.
               </li>
             </ul>
           </div>
