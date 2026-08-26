@@ -123,6 +123,12 @@ h3 {
   max-width: 42rem;
 }
 
+.footnote {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+}
+
 .actions {
   margin-top: 1.8rem;
   display: flex;
@@ -587,7 +593,8 @@ section {
   }
 
   .accounts,
-  .note-accounts {
+  .note-accounts,
+  .footnote {
     font-size: 8.6pt;
     margin-top: 0.35rem;
   }
