@@ -285,23 +285,24 @@
             <span class="entry-meta">December 2025 - present</span>
           </div>
           <p class="entry-role">
-            Contract development: frontend, geo, mobile builds, adjacent DevOps
+            Contract work: frontend, geo module, mobile builds, adjacent backend
+            and deployment
           </p>
 
           <div class="entry-body">
             <p>
-              A marketplace with a catalogue and maps. React, TypeScript,
-              Hasura GraphQL, PostgreSQL / PostGIS, Redis, MinIO, Docker,
-              Capacitor. I run the client application, take part in
-              architecture decisions, and on the backend own payments, balances
-              and event handlers. I maintain the server. Product details are
-              under NDA.
+              A marketplace with a catalogue and maps. React, TypeScript, Hasura
+              GraphQL, eight services, PostgreSQL / PostGIS, Redis, MinIO,
+              Docker, Capacitor. I run the client application and take part in
+              design decisions; on the backend I own payments, balance and event
+              handlers. Product details are under NDA, the modules I can discuss
+              freely.
             </p>
             <ul>
               <li>
-                Catalogue, product page, search with autocomplete and filters,
-                registration of several account types with MFA, a UI component
-                library.
+                <strong>Storefront:</strong> catalogue, product page, search with
+                autocomplete and filters, registration of several account types
+                with MFA, a UI component library.
               </li>
               <li>
                 <strong>RU/EN bilingual support and automatic translation of
@@ -311,28 +312,50 @@
                 the catalogue in batches.
               </li>
               <li>
-                <strong>Geo module:</strong> a single interface over Yandex,
-                Google and 2GIS built on adapters, so switching provider is one
-                parameter. Zone geometry: buffers along a route via Bézier
-                curves, merging of polygons with holes, storage in PostGIS.
-                Geocoding runs on the server so that API keys never reach the
-                browser.
-              </li>
-              <li>
                 <strong>Catalogue ingestion pipeline:</strong> sources behind a
                 common contract, deduplication by external id, barcode and
                 attribute fingerprint. Models run after collection in separate
-                queues, so a failed worker still leaves the product on the
-                storefront with its source data.
+                queues - text and images. Card facts are never rewritten by a
+                model, otherwise deduplication breaks; a failed worker leaves the
+                product on the storefront with its source data.
               </li>
               <li>
-                Wallet and orders: balance and payment services, external
-                acquiring, event handlers for status changes. Capacitor builds
-                for iOS and Android, complaints and blocking for UGC.
-                Deployment via Docker and systemd, database migration to
-                PostGIS.
+                <strong>Wallet and orders:</strong> balance and payment services,
+                external acquiring, status change handlers. Capacitor builds for
+                iOS and Android, complaints and blocking for UGC. Deployment via
+                Docker and systemd, database migration to PostGIS.
               </li>
             </ul>
+
+            <div class="subblock">
+              <h4>Geo module</h4>
+              <p>
+                A single interface over Yandex Maps, Google Maps and 2GIS. Map,
+                marker and zone components know nothing about the provider:
+                engines accept a command and pass it to an adapter, the adapter
+                translates unified data into calls of its own SDK. Switching
+                provider is one configuration parameter.
+              </p>
+              <ul>
+                <li>
+                  Zone geometry: buffer zones along a route with smooth
+                  transitions into circular marker zones through quadratic Bézier
+                  curves, polygon union with holes and multipolygons, geometry
+                  validation, caching of computations.
+                </li>
+                <li>
+                  Draggable markers and user-defined zones; changes made on the
+                  map propagate into application state through callbacks.
+                  Geocoding moved to a server route so that API keys never reach
+                  the browser.
+                </li>
+                <li>
+                  Geometry stored in PostGIS, radius search, multilingual labels,
+                  smoke tests and documentation for extracting the module into a
+                  standalone application.
+                </li>
+              </ul>
+            </div>
           </div>
 
           <ul class="tags">
@@ -402,7 +425,13 @@
             <h3>Deep.Assistant - AI model aggregator</h3>
             <span class="entry-meta">2024-2025</span>
           </div>
-          <p class="entry-role">Founder, backend and DevOps · team of three</p>
+          <p class="entry-role">
+            Founder, backend and DevOps · team of three ·
+            <a class="print-url" href="https://t.me/DeepGPTBot">@DeepGPTBot</a>,
+            channel
+            <a class="print-url" href="https://t.me/gptDeep">@gptDeep</a> -
+            1,553 subscribers
+          </p>
 
           <div class="entry-body">
             <p>
@@ -474,8 +503,7 @@
                 >
               </h4>
               <p>
-                A multi-model assistant built on aiogram, worked on by four
-                people. My parts:
+                A multi-model assistant built on aiogram. My parts:
               </p>
               <ul>
                 <li>
@@ -504,13 +532,6 @@
                   environments, asynchronous provider availability checks.
                 </li>
               </ul>
-              <p>
-                The bot
-                <a class="print-url" href="https://t.me/DeepGPTBot">@DeepGPTBot</a>,
-                the channel
-                <a class="print-url" href="https://t.me/gptDeep">@gptDeep</a> -
-                1,553 subscribers.
-              </p>
             </div>
           </div>
 
