@@ -124,13 +124,22 @@
         <h2 class="section-title">Working with models</h2>
         <div class="lede">
           <p>
-            Since 2024 language models have been part of daily development. The
-            environment is Cursor, the main model is Claude. A task goes through
-            a fixed cycle: define the scope, plan, implement, check. The
-            specifications for that cycle are in
+            Since 2024 language models have been part of daily development.
+            Environments: Cursor, Claude Code, ClawCode. Autocomplete is on at
+            all times.
+          </p>
+          <p>
+            I sketch research and architecture myself first. Then I fill in the
+            solution myself or with a model. At the planning stage I look up
+            tools and libraries I do not yet know, when they might help.
+          </p>
+          <p>
+            Before working with a model I write styles, rules and constraints
+            into files in the repository. Code written with a model follows my
+            own cycle: plan, edit, test. The cycle is run by agents from
             <a href="https://github.com/TimaxLacs/cursor-agent-workflows"
               >cursor-agent-workflows</a
-            >; I use them on real work.
+            >, with split roles. I always review the resulting code myself.
           </p>
         </div>
       </section>
@@ -1069,9 +1078,11 @@
               <a class="print-url" href="https://github.com/TimaxLacs/Holy-Buble"
                 >Library bot</a
               >
-              - a map of libraries holding a given book, a team project. A Lake
-              Onega freezing bot - determining the freezing level from street
-              camera frames with computer vision.
+              - a map of libraries holding a given book, a team project.
+              <a href="https://github.com/TimaxHack/ghj">A Lake Onega freezing
+              bot</a>
+              - determining the freezing level from street camera frames with
+              computer vision.
             </p>
           </div>
           <ul class="tags">

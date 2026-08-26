@@ -714,8 +714,8 @@ section {
   }
 
   body.compact {
-    font-size: 8.1pt;
-    line-height: 1.26;
+    font-size: 8pt;
+    line-height: 1.25;
   }
 
   body.compact .portrait {
@@ -778,7 +778,7 @@ section {
   }
 
   body.compact .lede p + p {
-    margin-top: 0.45rem;
+    margin-top: 0.32rem;
   }
 
   body.compact .skills {
