@@ -16,16 +16,27 @@
   <body>
     <div class="wrap">
       <header class="masthead">
-        <h1>Timur Shakirov</h1>
-        <p class="tagline">
-          Fullstack developer. Language models in product systems.
-        </p>
-        <ul class="contacts">
-          <li>Saint Petersburg · remote, European company</li>
-          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
-          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
-          <li><a href="https://t.me/TimaxLacs">@TimaxLacs</a></li>
-        </ul>
+        <div class="masthead-row">
+          <img
+            class="portrait"
+            src="portrait.jpg"
+            alt="Timur Shakirov"
+            width="160"
+            height="160"
+          />
+          <div class="masthead-text">
+            <h1>Timur Shakirov</h1>
+            <p class="tagline">
+              Fullstack developer. Language models in product systems.
+            </p>
+            <ul class="contacts">
+              <li>20 · Saint Petersburg · remote</li>
+              <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+              <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+              <li><a href="https://t.me/TimaxLacs">@TimaxLacs</a></li>
+            </ul>
+          </div>
+        </div>
 
         <p class="accounts">
           <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
@@ -107,6 +118,21 @@
             <dd>PHP and 1C-Bitrix. Ready to take on an existing shop.</dd>
           </div>
         </dl>
+      </section>
+
+      <section id="ai-tools">
+        <h2 class="section-title">Working with models</h2>
+        <div class="lede">
+          <p>
+            Since 2024 language models have been part of daily development. The
+            environment is Cursor, the main model is Claude. A task goes through
+            a fixed cycle: define the scope, plan, implement, check. The
+            specifications for that cycle are in
+            <a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+              >cursor-agent-workflows</a
+            >; I use them on real work.
+          </p>
+        </div>
       </section>
 
       <div class="filters no-print" id="filters">
@@ -377,8 +403,7 @@
             <span class="entry-meta">August 2025 - May 2026</span>
           </div>
           <p class="entry-role">
-            Client project: frontend and adjacent backend work · ran in
-            parallel with the e-commerce platform from December 2025
+            Client project: frontend and adjacent backend work
           </p>
 
           <div class="entry-body">
@@ -570,31 +595,6 @@
             <li>React · Vite</li>
             <li>Tailwind · shadcn/ui</li>
             <li>nginx · SSL · DNS</li>
-          </ul>
-        </article>
-
-        <article class="entry" data-tags="bots python telegram commercial backend">
-          <div class="entry-head">
-            <h3>Taxi 628 - order exchange</h3>
-            <span class="entry-meta">2024</span>
-          </div>
-          <p class="entry-role">
-            Fullstack, contract development ·
-            <a class="print-url" href="https://taxi628.ru">taxi628.ru</a>
-          </p>
-
-          <div class="entry-body">
-            <p>
-              A Telegram bot order exchange for a taxi fleet: the operator
-              posts an order, drivers see it and accept it in real time.
-              Deployed at the client and replaced the manual allocation of
-              shifts.
-            </p>
-          </div>
-
-          <ul class="tags">
-            <li>Python</li>
-            <li>Telegram Bot API</li>
           </ul>
         </article>
       </section>

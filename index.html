@@ -16,16 +16,27 @@
   <body>
     <div class="wrap">
       <header class="masthead">
-        <h1>Шакиров Тимур Эдуардович</h1>
-        <p class="tagline">
-          Fullstack-разработчик. Языковые модели в продуктовых системах.
-        </p>
-        <ul class="contacts">
-          <li>Санкт-Петербург · удалённо, европейская компания</li>
-          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
-          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
-          <li><a href="https://t.me/TimaxLacs">@TimaxLacs</a></li>
-        </ul>
+        <div class="masthead-row">
+          <img
+            class="portrait"
+            src="portrait.jpg"
+            alt="Тимур Шакиров"
+            width="160"
+            height="160"
+          />
+          <div class="masthead-text">
+            <h1>Шакиров Тимур Эдуардович</h1>
+            <p class="tagline">
+              Fullstack-разработчик. Языковые модели в продуктовых системах.
+            </p>
+            <ul class="contacts">
+              <li>20 лет · Санкт-Петербург · удалённо</li>
+              <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+              <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+              <li><a href="https://t.me/TimaxLacs">@TimaxLacs</a></li>
+            </ul>
+          </div>
+        </div>
 
         <p class="accounts">
           <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
@@ -105,6 +116,21 @@
             <dd>PHP и 1С-Битрикс. Готов заходить в существующий магазин.</dd>
           </div>
         </dl>
+      </section>
+
+      <section id="ai-tools">
+        <h2 class="section-title">Работа с моделями</h2>
+        <div class="lede">
+          <p>
+            С 2024 года языковые модели входят в ежедневную разработку. Среда -
+            Cursor, основная модель - Claude. Задачу веду по фиксированному
+            циклу: границы изменения, план, реализация, проверка. Спецификации
+            цикла лежат в
+            <a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+              >cursor-agent-workflows</a
+            >; пользуюсь ими на рабочих задачах.
+          </p>
+        </div>
       </section>
 
       <div class="filters no-print" id="filters">
@@ -371,8 +397,7 @@
             <span class="entry-meta">август 2025 - май 2026</span>
           </div>
           <p class="entry-role">
-            Проект заказчика: фронтенд и смежный бэкенд · с декабря 2025 шёл
-            параллельно с e-commerce платформой
+            Проект заказчика: фронтенд и смежный бэкенд
           </p>
 
           <div class="entry-body">
@@ -560,30 +585,6 @@
             <li>React · Vite</li>
             <li>Tailwind · shadcn/ui</li>
             <li>nginx · SSL · DNS</li>
-          </ul>
-        </article>
-
-        <article class="entry" data-tags="bots python telegram commercial backend">
-          <div class="entry-head">
-            <h3>Такси 628 - биржа заказов</h3>
-            <span class="entry-meta">2024</span>
-          </div>
-          <p class="entry-role">
-            Fullstack, заказная разработка ·
-            <a class="print-url" href="https://taxi628.ru">taxi628.ru</a>
-          </p>
-
-          <div class="entry-body">
-            <p>
-              Telegram-бот биржи заказов для таксопарка: оператор размещает
-              заказ, водители видят и подтверждают его в реальном времени.
-              Внедрён у заказчика, заменил ручную раздачу смен.
-            </p>
-          </div>
-
-          <ul class="tags">
-            <li>Python</li>
-            <li>Telegram Bot API</li>
           </ul>
         </article>
       </section>
