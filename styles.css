@@ -669,27 +669,88 @@ section {
   }
 
   body.compact {
-    font-size: 9.2pt;
-    line-height: 1.4;
+    font-size: 8.6pt;
+    line-height: 1.3;
+  }
+
+  body.compact .masthead {
+    padding-bottom: 0.2rem;
   }
 
   body.compact .masthead h1 {
-    font-size: 19pt;
+    font-size: 14.5pt;
+  }
+
+  body.compact .tagline {
+    margin-top: 0.15rem;
+    font-size: 9pt;
+  }
+
+  body.compact .contacts {
+    margin-top: 0.25rem;
+    gap: 0.1rem 0.9rem;
+  }
+
+  body.compact .accounts,
+  body.compact .note-accounts {
+    margin-top: 0.25rem;
   }
 
   body.compact section {
-    padding-top: 1rem;
+    padding-top: 0.55rem;
+  }
+
+  body.compact .section-title {
+    margin-bottom: 0.45rem;
+  }
+
+  body.compact .lede {
+    font-size: 9.2pt;
+  }
+
+  body.compact .lede p + p {
+    margin-top: 0.45rem;
+  }
+
+  body.compact .skills {
+    gap: 0.4rem;
   }
 
   body.compact .entry {
-    padding: 0.55rem 0;
+    padding: 0.35rem 0;
   }
 
   body.compact .entry h3 {
-    font-size: 11.2pt;
+    font-size: 10.4pt;
+  }
+
+  body.compact .entry-body {
+    margin-top: 0.45rem;
+  }
+
+  body.compact .entry-body p {
+    margin-bottom: 0.4rem;
+  }
+
+  body.compact .entry-body ul {
+    margin-top: 0.35rem;
   }
 
   body.compact .entry-body li {
-    margin-bottom: 0.36rem;
+    margin-bottom: 0.28rem;
+  }
+
+  body.compact .subblock {
+    margin-top: 0.5rem;
+    padding-left: 0.6rem;
+  }
+
+  body.compact .subblock h4 {
+    font-size: 9.4pt;
+  }
+
+  body.compact .site-foot {
+    margin-top: 0.45rem;
+    padding-top: 0.4rem;
   }
 }

@@ -1,15 +1,24 @@
 (() => {
   "use strict";
 
-  const chips = Array.from(document.querySelectorAll(".chip"));
-  const entries = Array.from(document.querySelectorAll(".entry"));
+  const printButton = document.getElementById("print-btn");
+  if (printButton) {
+    printButton.addEventListener("click", () => window.print());
+  }
+
   const searchInput = document.getElementById("search");
   const counter = document.getElementById("counter");
   const resetButton = document.getElementById("reset");
   const emptyMessage = document.getElementById("empty");
-  const printButton = document.getElementById("print-btn");
   const toggleButton = document.getElementById("toggle");
   const filterBody = document.getElementById("filter-body");
+
+  const hasFilterUi =
+    searchInput && counter && resetButton && emptyMessage && toggleButton && filterBody;
+  if (!hasFilterUi) return;
+
+  const chips = Array.from(document.querySelectorAll(".chip"));
+  const entries = Array.from(document.querySelectorAll(".entry"));
 
   const activeTags = new Set();
 
@@ -28,6 +37,8 @@
 
   const matchesQuery = (text, query) => !query || text.includes(query);
 
+  const isEnglish = document.documentElement.lang === "en";
+
   const pluralize = (count) => {
     const tail = count % 100;
     if (tail >= 11 && tail <= 14) return "записей";
@@ -38,6 +49,12 @@
   };
 
   const describe = (visible, isFiltered) => {
+    if (isEnglish) {
+      if (!isFiltered) return "Showing all";
+      if (visible === 0) return "Nothing found";
+      return `${visible} of ${entryIndex.length} entries`;
+    }
+
     if (!isFiltered) return "Показано всё";
     if (visible === 0) return "Ничего не найдено";
     return `${visible} ${pluralize(visible)} из ${entryIndex.length}`;
@@ -120,10 +137,6 @@
   toggleButton.addEventListener("click", () => {
     setPanelOpen(toggleButton.getAttribute("aria-expanded") !== "true");
   });
-
-  if (printButton) {
-    printButton.addEventListener("click", () => window.print());
-  }
 
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && document.activeElement === searchInput) {

@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timur Shakirov - resume, short version</title>
+    <meta
+      name="description"
+      content="Short resume of Timur Shakirov: production LLM gateway, e-commerce platform, catalogue ingestion pipeline, geo module."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="alternate" hreflang="ru" href="short.html" />
+    <link rel="alternate" hreflang="en" href="short.en.html" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="compact">
+    <div class="wrap">
+      <header class="masthead">
+        <h1>Timur Shakirov</h1>
+        <p class="tagline">
+          Fullstack developer. Language models inside working products.
+        </p>
+        <ul class="contacts">
+          <li>Saint Petersburg · remote, European company</li>
+          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+        </ul>
+
+        <p class="accounts">
+          <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
+          <a href="https://github.com/TimaxHack">github.com/TimaxHack</a>
+          <a href="https://github.com/timaxlax">github.com/timaxlax</a>
+          <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a>
+        </p>
+        <p class="note-accounts">
+          The main account is <code>TimaxLacs</code>; most commits in the LLM
+          gateway sit under <code>TimaxHack</code>, so all three are listed.
+        </p>
+
+        <div class="actions no-print">
+          <button class="btn btn--primary" id="print-btn" type="button">
+            Download PDF
+          </button>
+          <a class="btn" href="resume-short.en.pdf" download>PDF file</a>
+          <a class="btn" href="index.en.html">Full portfolio</a>
+          <a class="btn" href="short.html" hreflang="ru">Русский</a>
+        </div>
+      </header>
+
+      <section id="summary">
+        <h2 class="section-title">Summary</h2>
+        <div class="lede">
+          <p>
+            Engineer who puts language models into working products. Designed and
+            wrote the first version of an LLM gateway - provider routing,
+            fallback, token billing - and every request of a commercial AI
+            aggregator goes through it. For the past year I have been
+            running an e-commerce platform under contract: storefront, catalogue,
+            bilingual product cards, an ingestion pipeline with generation
+            queues, deployment.
+          </p>
+          <p>
+            I have not written PHP or 1C-Bitrix in production: I would enter an
+            existing shop with AI tooling and without pretending to have that
+            experience. I am looking for work where models speed up a shop -
+            product descriptions and translations, product matching, customer
+            support, marketplace feeds.
+          </p>
+          <p>
+            Education: 11 years of Russian general school, no degree in the
+            field. I have been programming since 2021 and taking commercial
+            projects since 2024; everything below was built in practice and can
+            be checked in the repositories.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <dl class="skills">
+          <div class="skill-row">
+            <dt>Languages</dt>
+            <dd>Python, TypeScript, JavaScript</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Frontend</dt>
+            <dd>React, Vite, Tailwind, Capacitor (iOS and Android)</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Backend</dt>
+            <dd>
+              Node.js, Express, FastAPI, GraphQL (Hasura), REST, PostgreSQL /
+              PostGIS, Redis, SQLite, MinIO
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>AI</dt>
+            <dd>
+              provider routing and fallback, token billing, text and image
+              generation queues, RAG and MCP, speech recognition
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Production</dt>
+            <dd>Docker, nginx, systemd, Linux, Git, CI, DNS and mail setup</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="experience">
+        <h2 class="section-title">Work experience</h2>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Deep.Assistant - AI model aggregator</h3>
+            <span class="entry-meta">2024-2025</span>
+          </div>
+          <p class="entry-role">
+            Co-founder, backend and DevOps · team of three ·
+            <a href="https://t.me/DeepGPTBot">@DeepGPTBot</a>, channel
+            <a href="https://t.me/gptDeep">@gptDeep</a> - 1,553 subscribers
+          </p>
+          <div class="entry-body">
+            <p>
+              A commercial product in operation: chat with models, image, music
+              and voice generation, an API gateway, mini-applications in Telegram
+              and VK.
+            </p>
+
+            <div class="subblock">
+              <h4>
+                LLM gateway -
+                <a href="https://github.com/deep-assistant/api-gateway"
+                  >github.com/deep-assistant/api-gateway</a
+                >
+              </h4>
+              <p>
+                Designed and wrote the first version; the gateway grew out of my
+                personal repository
+                <a href="https://github.com/TimaxLacs/resale-chatgpt-azure"
+                  >resale-chatgpt-azure</a
+                >
+                into the infrastructure that carries every product request. Main
+                author of the HTTP server, model configuration, token manager and
+                database layer; I maintain the repository.
+              </p>
+              <ul>
+                <li>
+                  About 37 models from six providers behind a single
+                  OpenAI-compatible interface.
+                </li>
+                <li>
+                  <strong>A degradation table instead of a plain retry:</strong>
+                  each model has a chain of 12-16 substitutes chosen so that the
+                  answer stays usable for the same scenario. One unavailable
+                  provider does not stop the product.
+                </li>
+                <li>
+                  <strong>One account across incomparable price lists:</strong>
+                  every model has its own conversion factor from tokens into the
+                  internal currency, from 1.7 to 40. The product knows the cost of
+                  a request and its margin.
+                </li>
+                <li>
+                  <strong>Idempotent transfers between accounts:</strong>
+                  exclusive locks with stale-lock detection, atomic writes,
+                  recovery of unfinished operations on start-up.
+                </li>
+                <li>
+                  <strong>Time to production for new models:</strong> o1-preview
+                  and o1-mini on 27 September 2024, deepseek-reasoner on
+                  30 January 2025, each with pricing and fallback from day one.
+                </li>
+              </ul>
+            </div>
+
+            <div class="subblock">
+              <h4>
+                Telegram bot -
+                <a href="https://github.com/deep-assistant/telegram-bot"
+                  >github.com/deep-assistant/telegram-bot</a
+                >
+              </h4>
+              <p>
+                My parts: transfers of the internal currency between users built
+                as a state machine (written from scratch), a user
+                synchronisation service with limited concurrency to stay inside
+                Telegram rate limits, audio transcription with its own pricing
+                factor, payments via Telegram Stars, separated TEST and PROD
+                environments.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>E-commerce platform (client project, under NDA)</h3>
+            <span class="entry-meta">December 2025 - present</span>
+          </div>
+          <p class="entry-role">
+            Contract work: frontend, geo module, mobile builds, adjacent backend
+            and deployment
+          </p>
+          <div class="entry-body">
+            <p>
+              A marketplace with a catalogue and maps: React, TypeScript, Hasura
+              GraphQL, eight services, PostgreSQL / PostGIS, Redis, MinIO, Docker,
+              Capacitor. I run the client application and take part in design
+              decisions; on the backend I own payments, balance and event
+              handlers. Product details are under NDA, the modules I can discuss
+              freely.
+            </p>
+            <ul>
+              <li>
+                Storefront: catalogue, product page, search with autocomplete,
+                filters, registration of several account types with MFA, a UI
+                component library.
+              </li>
+              <li>
+                <strong
+                  >RU/EN bilingual catalogue and automatic translation of product
+                  cards:</strong
+                >
+                dictionaries moved out of components, translation runs through a
+                hook, a server route and a CLI script that processes the
+                catalogue in batches.
+              </li>
+              <li>
+                <strong>Catalogue ingestion pipeline:</strong> sources behind a
+                shared contract, deduplication by external id, barcode and
+                attribute fingerprint. Models run after collection in separate
+                queues - text and images. Card facts are never rewritten by a
+                model, otherwise deduplication breaks; a failed worker leaves the
+                product on the storefront with its source data.
+              </li>
+              <li>
+                Wallet and orders: balance and payment services, external
+                acquiring, status change handlers. Capacitor builds for iOS and
+                Android, deployment through Docker and systemd.
+              </li>
+            </ul>
+
+            <div class="subblock">
+              <h4>Geo module</h4>
+              <p>
+                A single interface over Yandex Maps, Google Maps and 2GIS. Map,
+                marker and zone components know nothing about the concrete
+                provider: engines accept a command and pass it to an adapter, and
+                the adapter translates unified data into calls of its own SDK.
+                Switching provider is one configuration parameter.
+              </p>
+              <ul>
+                <li>
+                  Zone geometry: buffer zones along a route with smooth
+                  transitions into circular marker zones through quadratic Bézier
+                  curves, polygon union with holes and multipolygons, geometry
+                  validation, caching of computations.
+                </li>
+                <li>
+                  Draggable markers and user-defined zones; changes made on the
+                  map propagate into application state through callbacks.
+                  Geocoding moved to a server route so that API keys never reach
+                  the browser.
+                </li>
+                <li>
+                  Geometry stored in PostGIS, radius search, smoke tests,
+                  documentation for extracting the module into a standalone
+                  application.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>ManyAir - international money transfer platform</h3>
+            <span class="entry-meta">August 2025 - May 2026</span>
+          </div>
+          <p class="entry-role">
+            Client project: frontend, adjacent backend and server maintenance ·
+            ran in parallel with the e-commerce platform from December 2025
+          </p>
+          <div class="entry-body">
+            <p>
+              Microservices around Hasura GraphQL: router, event handler,
+              messaging, Telegram bot, document generator, currency rates;
+              PostgreSQL, Redis, MinIO. I was responsible for reliable
+              notification delivery (when a channel is unavailable the status
+              returns "not sent" and the invitation is not marked as delivered),
+              data isolation between roles, service deployment, and mail and DNS
+              setup for the project.
+            </p>
+          </div>
+        </article>
+
+        <article class="entry">
+          <div class="entry-head">
+            <h3>Other commercial projects</h3>
+            <span class="entry-meta">2024-2026</span>
+          </div>
+          <div class="entry-body">
+            <ul>
+              <li>
+                <strong>Matreshka, 2026</strong> - frontend and launch of the
+                public website of an AI/e-commerce platform: React, Vite,
+                TypeScript, Tailwind, nginx with SSL, DNS and mail. Second
+                project for the same client -
+                <a href="https://matreshka.club">matreshka.club</a>.
+              </li>
+              <li>
+                <strong>Taxi 628, 2024</strong> - a Telegram bot for a taxi fleet
+                order exchange: the dispatcher posts an order, drivers confirm it
+                in real time. Deployed at the client and replaced manual shift
+                allocation - <a href="https://taxi628.ru">taxi628.ru</a>.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="ai-cases">
+        <h2 class="section-title">AI cases</h2>
+        <article class="entry">
+          <div class="entry-body">
+            <ul>
+              <li>
+                <strong>Content pipeline with separate AI review.</strong> One
+                model writes the draft, a second one reviews it in a separate
+                call, remarks go back for revision for up to three rounds, then
+                the text is published; state is kept in SQLite to survive a
+                process crash. The same scheme applies to product descriptions in
+                several languages: generation is separated from review, and a
+                failure does not lose data -
+                <a href="https://github.com/TimaxLacs/ai-post-generator"
+                  >ai-post-generator</a
+                >.
+              </li>
+              <li>
+                <strong>Reasoning pipeline on top of ordinary chat models</strong
+                >, April 2025. Five stages: intent prediction, step-by-step
+                solution, adversarial critique of its own answer, revision,
+                synthesis; a variant on LangChain with Tree of Thoughts. No
+                built-in reasoning mode is used - the behaviour is reproduced by
+                prompt orchestration -
+                <a href="https://github.com/TimaxLacs/test-resorning"
+                  >test-resorning</a
+                >.
+              </li>
+              <li>
+                <strong>My own tooling for working with models.</strong> Deployed
+                a self-hosted LightRAG instance and wrote an MCP server for it -
+                search modes, reranking, answers with references to sources
+                (<a href="https://github.com/TimaxLacs/lightrag-mcp"
+                  >lightrag-mcp</a
+                >). Plus 1,900 lines of agent workflow specifications: a safe code
+                change pipeline of five agents, project bootstrap, a research
+                process
+                (<a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+                  >cursor-agent-workflows</a
+                >). I use both daily.
+              </li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-foot">
+        <p>
+          26 npm packages -
+          <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a> · full
+          portfolio -
+          <a href="https://timaxlacs.github.io/index.en.html"
+            >timaxlacs.github.io</a
+          >
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

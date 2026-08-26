@@ -1,0 +1,1119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Timur Shakirov - resume</title>
+    <meta
+      name="description"
+      content="Resume of Timur Shakirov: production LLM gateway, e-commerce platform, geo module, AI pipelines. Python, TypeScript, React, Docker."
+    />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="alternate" hreflang="ru" href="index.html" />
+    <link rel="alternate" hreflang="en" href="index.en.html" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="masthead">
+        <h1>Timur Shakirov</h1>
+        <p class="tagline">
+          Fullstack developer. Language models in product systems.
+        </p>
+        <ul class="contacts">
+          <li>Saint Petersburg · remote, European company</li>
+          <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
+          <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
+        </ul>
+
+        <p class="accounts">
+          <a href="https://github.com/TimaxLacs">github.com/TimaxLacs</a>
+          <a href="https://github.com/TimaxHack">github.com/TimaxHack</a>
+          <a href="https://github.com/timaxlax">github.com/timaxlax</a>
+          <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a>
+        </p>
+        <p class="note-accounts">
+          The main account is <code>TimaxLacs</code>. Part of the production
+          code was written under <code>TimaxHack</code>: most of the commits to
+          the <code>deep-assistant</code> LLM gateway sit there. A single
+          account shows about a third of the work, so all of them are listed.
+        </p>
+
+        <div class="actions no-print">
+          <button class="btn btn--primary" id="print-btn" type="button">
+            Download PDF
+          </button>
+          <a class="btn" href="resume.en.pdf" download>PDF file</a>
+          <a class="btn" href="short.en.html">Short version, 2 pages</a>
+          <a class="btn" href="index.html" hreflang="ru">Русский</a>
+        </div>
+      </header>
+
+      <section id="summary">
+        <h2 class="section-title">Summary</h2>
+        <div class="lede">
+          <p>
+            An engineer who embeds language models into working products. I
+            designed and wrote the first version of an LLM gateway that became
+            the infrastructure of a commercial AI aggregator: routing between
+            providers, fallback, token-based billing. For the past year I have
+            been running an e-commerce platform under contract: storefront,
+            catalogue, multilingual product cards, generation queues,
+            deployment.
+          </p>
+          <p>
+            I have not written PHP or 1C-Bitrix in production. I can take over
+            an existing shop with AI tooling around it, without claiming
+            experience I do not have.
+          </p>
+        </div>
+      </section>
+
+      <section id="skills">
+        <h2 class="section-title">Skills</h2>
+        <dl class="skills">
+          <div class="skill-row">
+            <dt>Languages</dt>
+            <dd>Python, TypeScript, JavaScript</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Frontend</dt>
+            <dd>React, Vite, Tailwind, Capacitor (iOS and Android builds)</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Backend</dt>
+            <dd>
+              Node.js, Express, FastAPI, GraphQL (Hasura), REST, PostgreSQL /
+              PostGIS, Redis, SQLite, MinIO
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>AI</dt>
+            <dd>
+              routing between providers and fallback, token billing, RAG and
+              MCP, text and image generation queues, reasoning pipelines,
+              speech recognition and synthesis
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Production</dt>
+            <dd>
+              Docker, nginx, systemd, Linux, Git, CI, DNS and mail
+              configuration
+            </dd>
+          </div>
+          <div class="skill-row">
+            <dt>Not used in production</dt>
+            <dd>PHP and 1C-Bitrix. Ready to take on an existing shop.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <div class="filters no-print" id="filters">
+        <div class="filter-head">
+          <button
+            class="summary-toggle"
+            id="toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="filter-body"
+          >
+            Filters
+          </button>
+          <input
+            class="search"
+            id="search"
+            type="search"
+            placeholder="Search"
+            aria-label="Search the resume"
+          />
+          <span id="counter">Showing all</span>
+          <button class="reset" id="reset" type="button" hidden>Reset</button>
+        </div>
+
+        <div class="filter-body" id="filter-body" hidden>
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-area">Area</span>
+          <div class="chips" role="group" aria-labelledby="lbl-area">
+            <button class="chip" type="button" data-tag="ai" aria-pressed="false">
+              AI and LLM
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="ecommerce"
+              aria-pressed="false"
+            >
+              E-commerce
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="frontend"
+              aria-pressed="false"
+            >
+              Frontend
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="backend"
+              aria-pressed="false"
+            >
+              Backend
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="devops"
+              aria-pressed="false"
+            >
+              DevOps
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="bots"
+              aria-pressed="false"
+            >
+              Bots and automation
+            </button>
+            <button class="chip" type="button" data-tag="oss" aria-pressed="false">
+              Open source
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-tech">Technologies</span>
+          <div class="chips" role="group" aria-labelledby="lbl-tech">
+            <button
+              class="chip"
+              type="button"
+              data-tag="python"
+              aria-pressed="false"
+            >
+              Python
+            </button>
+            <button class="chip" type="button" data-tag="ts" aria-pressed="false">
+              TypeScript
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="react"
+              aria-pressed="false"
+            >
+              React
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="node"
+              aria-pressed="false"
+            >
+              Node.js
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="graphql"
+              aria-pressed="false"
+            >
+              GraphQL
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="docker"
+              aria-pressed="false"
+            >
+              Docker
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="postgres"
+              aria-pressed="false"
+            >
+              PostgreSQL
+            </button>
+            <button
+              class="chip"
+              type="button"
+              data-tag="telegram"
+              aria-pressed="false"
+            >
+              Telegram API
+            </button>
+          </div>
+        </div>
+
+        <div class="filter-row">
+          <span class="filter-label" id="lbl-type">Type</span>
+          <div class="chips" role="group" aria-labelledby="lbl-type">
+            <button
+              class="chip"
+              type="button"
+              data-tag="commercial"
+              aria-pressed="false"
+            >
+              Commercial
+            </button>
+            <button class="chip" type="button" data-tag="pet" aria-pressed="false">
+              Own and pet projects
+            </button>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <p class="empty" id="empty" hidden>
+        Nothing matches this set of filters. Try removing some of the
+        conditions.
+      </p>
+
+      <section id="experience">
+        <h2 class="section-title">Experience</h2>
+
+        <article
+          class="entry"
+          data-tags="ecommerce frontend backend devops react ts graphql postgres docker commercial ai"
+        >
+          <div class="entry-head">
+            <h3>E-commerce platform (client project, under NDA)</h3>
+            <span class="entry-meta">December 2025 - present</span>
+          </div>
+          <p class="entry-role">
+            Contract development: frontend, geo, mobile builds, adjacent DevOps
+          </p>
+
+          <div class="entry-body">
+            <p>
+              A marketplace with a catalogue and maps. React, TypeScript,
+              Hasura GraphQL, PostgreSQL / PostGIS, Redis, MinIO, Docker,
+              Capacitor. I run the client application, take part in
+              architecture decisions, and on the backend own payments, balances
+              and event handlers. I maintain the server. Product details are
+              under NDA.
+            </p>
+            <ul>
+              <li>
+                Catalogue, product page, search with autocomplete and filters,
+                registration of several account types with MFA, a UI component
+                library.
+              </li>
+              <li>
+                <strong>RU/EN bilingual support and automatic translation of
+                product cards:</strong>
+                dictionaries moved out of the components, translation runs
+                through a hook, a server route and a CLI script that processes
+                the catalogue in batches.
+              </li>
+              <li>
+                <strong>Geo module:</strong> a single interface over Yandex,
+                Google and 2GIS built on adapters, so switching provider is one
+                parameter. Zone geometry: buffers along a route via Bézier
+                curves, merging of polygons with holes, storage in PostGIS.
+                Geocoding runs on the server so that API keys never reach the
+                browser.
+              </li>
+              <li>
+                <strong>Catalogue ingestion pipeline:</strong> sources behind a
+                common contract, deduplication by external id, barcode and
+                attribute fingerprint. Models run after collection in separate
+                queues, so a failed worker still leaves the product on the
+                storefront with its source data.
+              </li>
+              <li>
+                Wallet and orders: balance and payment services, external
+                acquiring, event handlers for status changes. Capacitor builds
+                for iOS and Android, complaints and blocking for UGC.
+                Deployment via Docker and systemd, database migration to
+                PostGIS.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Hasura GraphQL</li>
+            <li>PostGIS</li>
+            <li>Capacitor</li>
+            <li>Docker · nginx · systemd</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="frontend backend ts graphql postgres devops commercial"
+        >
+          <div class="entry-head">
+            <h3>ManyAir - international money transfer platform</h3>
+            <span class="entry-meta">August 2025 - May 2026</span>
+          </div>
+          <p class="entry-role">
+            Client project: frontend and adjacent backend work · ran in
+            parallel with the e-commerce platform from December 2025
+          </p>
+
+          <div class="entry-body">
+            <p>
+              A microservice system around Hasura GraphQL: router, event
+              handler, mailing service, Telegram bot, document generator,
+              currency rates; PostgreSQL, Redis, MinIO.
+            </p>
+            <ul>
+              <li>
+                <strong>Resilient notification delivery:</strong> when a
+                channel is unavailable the status returns “not sent” and the
+                invitation is not marked as delivered.
+              </li>
+              <li>
+                <strong>Data isolation between roles:</strong> query cache
+                reset on user change, restricted subscriptions to deal details.
+              </li>
+              <li>
+                Removal of the legacy invitations domain from the system:
+                tables, Hasura permissions, routes, handlers, generated types.
+              </li>
+              <li>
+                Server-side maintenance: service deployment, failure analysis,
+                mail and DNS configuration for the project.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>React</li>
+            <li>TypeScript</li>
+            <li>Hasura GraphQL</li>
+            <li>PostgreSQL · Redis · MinIO</li>
+            <li>e2e tests</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="ai backend devops node commercial telegram bots"
+        >
+          <div class="entry-head">
+            <h3>Deep.Assistant - AI model aggregator</h3>
+            <span class="entry-meta">2024-2025</span>
+          </div>
+          <p class="entry-role">Co-founder, backend and DevOps · team of three</p>
+
+          <div class="entry-body">
+            <p>
+              A commercial product: chat with models, generation of images,
+              music and voice, an API gateway, mini-apps in Telegram and VK.
+            </p>
+
+            <div class="subblock">
+              <h4>
+                LLM gateway -
+                <a
+                  class="print-url"
+                  href="https://github.com/deep-assistant/api-gateway"
+                  >github.com/deep-assistant/api-gateway</a
+                >
+              </h4>
+              <p>
+                I designed and wrote the first version; it grew out of my
+                personal repository
+                <a href="https://github.com/TimaxLacs/resale-chatgpt-azure"
+                  >resale-chatgpt-azure</a
+                >
+                into the infrastructure that carries every request in the
+                product. Main author of the code: HTTP server, model
+                configuration, token manager, database layer.
+              </p>
+              <ul>
+                <li>
+                  About 37 models from six providers behind a single
+                  OpenAI-compatible interface.
+                </li>
+                <li>
+                  <strong>Degradation table instead of a plain retry:</strong>
+                  each model has a chain of 12-16 substitutes, selected so that
+                  the answer remains usable for the same scenario.
+                </li>
+                <li>
+                  <strong>A single account across incomparable price
+                  lists:</strong> every model has its own coefficient for
+                  converting tokens into the internal currency, from 1.7 to 40.
+                  The product calculates the cost of a request and the markup.
+                </li>
+                <li>
+                  <strong>Idempotent transfers between accounts:</strong>
+                  exclusive locks with stale-lock detection, atomic writes with
+                  read-back verification, recovery of unfinished operations at
+                  startup.
+                </li>
+                <li>
+                  <strong>Speed of adding new models:</strong> o1-preview and
+                  o1-mini were connected on 27 September 2024,
+                  deepseek-reasoner on 30 January 2025, each time together with
+                  pricing and fallback chains.
+                </li>
+              </ul>
+              <p>
+                I maintain the repository and review changes from the second
+                developer.
+              </p>
+            </div>
+
+            <div class="subblock">
+              <h4>
+                Telegram bot -
+                <a
+                  class="print-url"
+                  href="https://github.com/deep-assistant/telegram-bot"
+                  >github.com/deep-assistant/telegram-bot</a
+                >
+              </h4>
+              <p>
+                A multi-model assistant built on aiogram, worked on by four
+                people. My parts:
+              </p>
+              <ul>
+                <li>
+                  <strong>Transfers of the internal currency between
+                  users.</strong>
+                  A state-machine dialogue: recipient, amount, confirmation,
+                  cancellation, operation history. I wrote the module from
+                  scratch.
+                </li>
+                <li>
+                  User synchronisation service: lazy profile loading on first
+                  request and bulk reconciliation with limited concurrency, so
+                  as not to hit Telegram rate limits.
+                </li>
+                <li>
+                  Audio transcription mode with a separate pricing coefficient,
+                  custom system messages.
+                </li>
+                <li>
+                  Behaviour in group chats: replies only when addressed,
+                  parsing of mentions in photo and document captions, export of
+                  the dialogue history as a file.
+                </li>
+                <li>
+                  Payment via Telegram Stars, separation of the TEST and PROD
+                  environments, asynchronous provider availability checks.
+                </li>
+              </ul>
+              <p>
+                The bot
+                <a class="print-url" href="https://t.me/DeepGPTBot">@DeepGPTBot</a>,
+                the channel
+                <a class="print-url" href="https://t.me/gptDeep">@gptDeep</a> -
+                1,553 subscribers.
+              </p>
+            </div>
+          </div>
+
+          <ul class="tags">
+            <li>Node.js</li>
+            <li>Express</li>
+            <li>Python</li>
+            <li>aiogram</li>
+            <li>OpenAI · OpenRouter · DeepSeek</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+
+        <article
+          class="entry"
+          data-tags="ecommerce frontend react ts devops commercial ai"
+        >
+          <div class="entry-head">
+            <h3>Matreshka - public website of an AI/e-commerce platform</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            Client project: frontend and site launch ·
+            <a class="print-url" href="https://matreshka.club">matreshka.club</a>
+          </p>
+
+          <div class="entry-body">
+            <p>
+              The public website of the platform: React, Vite, TypeScript,
+              Tailwind, brand identity. Deployed on nginx with SSL, configured
+              DNS and mail on the domain. Second project for the same client.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>React · Vite</li>
+            <li>Tailwind · shadcn/ui</li>
+            <li>nginx · SSL · DNS</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="bots python telegram commercial backend">
+          <div class="entry-head">
+            <h3>Taxi 628 - order exchange</h3>
+            <span class="entry-meta">2024</span>
+          </div>
+          <p class="entry-role">
+            Fullstack, contract development ·
+            <a class="print-url" href="https://taxi628.ru">taxi628.ru</a>
+          </p>
+
+          <div class="entry-body">
+            <p>
+              A Telegram bot order exchange for a taxi fleet: the operator
+              posts an order, drivers see it and accept it in real time.
+              Deployed at the client and replaced the manual allocation of
+              shifts.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>Telegram Bot API</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="deep-foundation">
+        <h2 class="section-title">The deep.foundation ecosystem</h2>
+
+        <article class="entry" data-tags="oss ts node ai pet backend">
+          <div class="entry-head">
+            <h3>Associative data model: contributor since 2024</h3>
+            <span class="entry-meta">2024-2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/deep-foundation"
+              >github.com/deep-foundation</a
+            >
+            · member of the organisation
+          </p>
+
+          <div class="entry-body">
+            <p>
+              Deep.Foundation is building a store in which the only entity is a
+              link: a tuple of an identifier, a type and references to other
+              links. A link can reference a link, so a single table describes
+              the data, the schema and the handlers alike.
+            </p>
+            <ul>
+              <li>
+                <strong
+                  ><code>deep-files-sync</code> - a projection of the link
+                  graph onto the file system.</strong
+                >
+                My package, 13 versions. Links are laid out into directories,
+                the value sits in a text file next to the object, and folder
+                nesting expresses the relations: a path through directories is
+                isomorphic to a database query. Edits on both sides are kept in
+                sync, a subscription to changes is materialised as a file, and
+                deleting the file means unsubscribing. The point is that the
+                contents of the database can be read and edited with ordinary
+                tools -
+                <code>grep</code>, an editor, git.
+                <a href="https://github.com/TimaxLacs/deep-files-sync"
+                  >github.com/TimaxLacs/deep-files-sync</a
+                >
+              </li>
+              <li>
+                <strong>AI tooling packages in the official scope.</strong> I
+                released versions of
+                <code>@deep-foundation/ai</code>,
+                <code>ai-models</code>, <code>ai-templates</code>,
+                <code>ai-tasks</code>, <code>4o-bot</code>,
+                <code>chatgpt-azure-deep</code>,
+                <code>function_generation</code>,
+                <code>tests_generation</code>. Such a package is not a library
+                but a dump of a configured link graph that is deployed inside
+                someone else's instance.
+              </li>
+              <li>
+                <strong>Bot dialogues as a graph.</strong> I implemented
+                writing conversations into the associative store: dialogue,
+                message, author and reply are expressed as link types, with no
+                separate table per entity. The solution ran in production for
+                about six weeks and was then replaced by file storage - the
+                complexity did not pay off.
+              </li>
+              <li>
+                Co-author of the Russian-language theoretical documentation for
+                the model, about 1,000 lines. Filed around 36 issues - mostly
+                bug reports on platform deployment, with tracebacks.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>Associative databases</li>
+            <li>npm</li>
+            <li>GraphQL · Hasura</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="oss ai pet">
+          <div class="entry-head">
+            <h3>Meta-theory of links - co-author</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+
+          <div class="entry-body">
+            <p>
+              A formal system whose only primitive is a directed link and in
+              which data is addressed by associative numbers. I take part in
+              developing the theory and in the discussions; the document
+              repository is maintained by the author of the theory.
+            </p>
+            <p>
+              <a
+                class="print-url"
+                href="https://atlas.metasteme.dev/profiles/meta-theory-of-connections/"
+                >atlas.metasteme.dev</a
+              >
+              ·
+              <a class="print-url" href="https://github.com/netkeep80/anum_docs"
+                >github.com/netkeep80/anum_docs</a
+              >
+            </p>
+            <p class="footnote">
+              The theory has a profile in the Atlas of Limit Theories of the
+              Runet.
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Formal models</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="ai-cases">
+        <h2 class="section-title">AI cases</h2>
+
+        <article class="entry" data-tags="ai python node pet bots oss">
+          <div class="entry-head">
+            <h3>Pipelines and agent workflows</h3>
+            <span class="entry-meta">2025-2026</span>
+          </div>
+
+          <div class="entry-body">
+            <ul>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/test-resorning"
+                    >test-resorning</a
+                  ></strong
+                >
+                - a reasoning pipeline on models without a built-in reasoning
+                mode: intent prediction, step-by-step solution, adversarial
+                critique of its own answer, refinement, synthesis. A LangChain
+                variant with Tree of Thoughts and self-consistency. April 2025;
+                the behaviour is reproduced by prompt orchestration rather than
+                by calling a reasoning model.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/lightrag-mcp"
+                    >lightrag-mcp</a
+                  ></strong
+                >
+                - an MCP server for a self-hosted LightRAG deployment: graph
+                and vectors, search modes, reranking, answers with links to
+                sources. The configuration is validated with zod, tests run on
+                the built-in
+                <code>node --test</code>. Connected to my working editor as
+                persistent memory across projects.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/ai-post-generator"
+                    >ai-post-generator</a
+                  ></strong
+                >
+                - a content pipeline with separate AI moderation: draft, review
+                by a second call, up to three rounds of edits, publication.
+                State is kept in SQLite so it survives a process crash;
+                publishers for Telegram, VK and MAX are extracted into
+                strategies.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/cursor-agent-workflows"
+                    >cursor-agent-workflows</a
+                  ></strong
+                >
+                - a set of agent workflows in 1,900 lines of specifications: a
+                safe code change pipeline of five agents with sealed task
+                boundaries and parallel streams, project bootstrap, and a
+                research workflow. I use it daily.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>LangChain</li>
+            <li>asyncio · SQLite</li>
+            <li>Agent pipelines</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <section id="oss">
+        <h2 class="section-title">Open source and packages</h2>
+
+        <article class="entry" data-tags="oss node ts ai python pet">
+          <div class="entry-head">
+            <h3>Voice: local stack and npm packages</h3>
+            <span class="entry-meta">2024-2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/InnerEcho"
+              >github.com/TimaxLacs/InnerEcho</a
+            >
+            ·
+            <a class="print-url" href="https://www.npmjs.com/~timax"
+              >npmjs.com/~timax</a
+            >
+          </p>
+
+          <div class="entry-body">
+            <ul>
+              <li>
+                Local voice assistant
+                <a href="https://github.com/TimaxLacs/InnerEcho">InnerEcho</a>:
+                speech recognition, a language model, synthesis with voice
+                cloning, automatic setup of audio devices. Comparison of
+                synthesis models on a Russian corpus. A research prototype.
+              </li>
+              <li>
+                <code>xtts-v2-js</code> - a wrapper over XTTS-v2 with voice
+                cloning in 17 languages: it provisions the Python environment
+                itself, so the package installs like an ordinary Node.js
+                dependency. 7 versions.
+              </li>
+              <li>
+                <code>zonosjs</code> and <code>zonos-client</code> - a client
+                for the local Zonos speech synthesis server, 10 versions in
+                total.
+              </li>
+              <li>
+                <code>@timax/passport-authorization</code> and related packages
+                - registration and confirmation by email.
+              </li>
+            </ul>
+          </div>
+
+          <ul class="tags">
+            <li>Python · Whisper · XTTS</li>
+            <li>npm</li>
+            <li>TypeScript</li>
+            <li>Node.js</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="oss python docker backend bots pet">
+          <div class="entry-head">
+            <h3>tg-runner - bot orchestration</h3>
+            <span class="entry-meta">January 2026</span>
+          </div>
+          <p class="entry-role">A set of four components</p>
+
+          <div class="entry-body">
+            <p>
+              A state-machine orchestrator for launching bots on Redis, a
+              worker that starts bots in Docker, a published SDK for custom
+              workers, and a CLI. Docker Compose, pytest, documentation.
+            </p>
+            <p>
+              github.com/TimaxLacs/ -
+              <a href="https://github.com/TimaxLacs/tg-runner-orchestrator"
+                >tg-runner-orchestrator</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-worker"
+                >tg-runner-worker</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-worker-sdk"
+                >tg-runner-worker-sdk</a
+              >
+              ·
+              <a href="https://github.com/TimaxLacs/tg-runner-cli"
+                >tg-runner-cli</a
+              >
+            </p>
+          </div>
+
+          <ul class="tags">
+            <li>Python</li>
+            <li>Redis</li>
+            <li>Docker</li>
+            <li>FastAPI</li>
+            <li>pytest</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <section id="projects">
+        <h2 class="section-title">Projects</h2>
+
+        <article class="entry" data-tags="bots ai pet docker node">
+          <div class="entry-head">
+            <h3>Bots for the MAX messenger</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            <a href="https://github.com/TimaxLacs/max-bot"
+              >github.com/TimaxLacs/max-bot</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              Multimodal photo processing by a model, a per-user quota, Docker,
+              integration with an asynchronous AI worker and a fallback
+              scenario when the backend is unavailable.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>JavaScript</li>
+            <li>Docker</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python bots pet oss">
+          <div class="entry-head">
+            <h3>vk-tg-parser</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/vk-tg-parser"
+              >github.com/TimaxLacs/vk-tg-parser</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              A pip package: a single parser for Telegram over MTProto and VK
+              over the API, with a shared data model and real-time monitoring.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Telethon · MTProto</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python bots pet">
+          <div class="entry-head">
+            <h3>Hashtag auto-commenter</h3>
+            <span class="entry-meta">2026</span>
+          </div>
+          <p class="entry-role">
+            <a
+              class="print-url"
+              href="https://github.com/TimaxLacs/tg-hashtag-commenter"
+              >github.com/TimaxLacs/tg-hashtag-commenter</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              Commenting by hashtags in Telegram and VK with rate limiting and
+              deduplication. Live run in May 2026.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Pyrogram</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python bots pet telegram">
+          <div class="entry-head">
+            <h3>ai-lector</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/ai-lector"
+              >github.com/TimaxLacs/ai-lector</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              A bot that reworks audio lectures into the required format. I
+              built a local Telegram Bot API server with cmake to get around
+              the file size limit.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>cmake</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="ai python bots pet">
+          <div class="entry-head">
+            <h3>anti-cpam-ai</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxHack/anti-cpam-ai"
+              >github.com/TimaxHack/anti-cpam-ai</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              An anti-spam bot: a model called through OpenRouter assigns each
+              message a spam score from 1 to 10.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>OpenRouter</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python frontend pet">
+          <div class="entry-head">
+            <h3>Orbiteer</h3>
+            <span class="entry-meta">2025</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxLacs/Orbiteer"
+              >github.com/TimaxLacs/Orbiteer</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              A risk analyser for space missions: collision probability
+              calculation, 3D visualisation of orbits with three.js, an API on
+              Sanic.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python · Sanic</li>
+            <li>three.js</li>
+          </ul>
+        </article>
+
+      </section>
+
+      <section id="early">
+        <h2 class="section-title">Early work</h2>
+
+        <article class="entry" data-tags="pet">
+          <div class="entry-head">
+            <h3>GEFFEST - manipulator glove</h3>
+            <span class="entry-meta">2021-2022</span>
+          </div>
+          <p class="entry-role">
+            <a class="print-url" href="https://github.com/TimaxHack/GEFFEST"
+              >github.com/TimaxHack/GEFFEST</a
+            >
+          </p>
+          <div class="entry-body">
+            <p>
+              A glove that reproduces hand movements on a manipulator. The
+              position of the fingers and the wrist is read from sensors and
+              computed with quaternions - this removes the breakdowns that
+              Euler angles cause when the wrist flips over. The glove and the
+              manipulator communicate over radio with a custom compact
+              protocol, so latency does not grow with the number of channels.
+            </p>
+            <p>
+              On the manipulator side, servo movement is smoothed, otherwise
+              hand tremor turns into jerks in the mechanics. I soldered the
+              circuit and the prototype boards myself. Separately, I wrote an
+              Android voice control application in Java with Vosk - recognition
+              works without an internet connection.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>C++ · Arduino</li>
+            <li>Java · Android</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="python pet bots">
+          <div class="entry-head">
+            <h3>Early bots and computer vision</h3>
+            <span class="entry-meta">2021</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              <a class="print-url" href="https://github.com/TimaxLacs/Holy-Buble"
+                >Library bot</a
+              >
+              - a map of libraries holding a given book, a team project. A Lake
+              Onega freezing bot - determining the freezing level from street
+              camera frames with computer vision.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Python</li>
+            <li>Computer vision</li>
+          </ul>
+        </article>
+
+        <article class="entry" data-tags="pet">
+          <div class="entry-head">
+            <h3>Ventures that did not take off</h3>
+            <span class="entry-meta">2023-2025</span>
+          </div>
+          <div class="entry-body">
+            <p>
+              <strong>ArtApollo</strong> - a studio where orders were drawn by
+              neural networks. I built a team of up to 30 people, took the
+              first paid orders and delivered a corporate order for 12 people.
+              The project is closed and the team has disbanded.
+            </p>
+            <p>
+              <strong>Cyber Vestis</strong> - a prototype of smart clothing
+              with climate control: software for a touch display, body
+              temperature telemetry. We reached a working prototype but not
+              investment.
+            </p>
+          </div>
+          <ul class="tags">
+            <li>Team management</li>
+            <li>Pitching</li>
+          </ul>
+        </article>
+      </section>
+
+      <section id="education">
+        <h2 class="section-title">Education</h2>
+        <article class="entry" data-tags="">
+          <div class="entry-head">
+            <h3>Secondary school, 11 years (Russian general education)</h3>
+          </div>
+          <div class="entry-body">
+            <p>
+              No degree in the field. I have been programming since 2021 and
+              running commercial projects since 2024; everything listed above
+              was built in practice and is available in public repositories.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-foot">
+        <p>
+          <a class="print-url" href="https://timaxlacs.github.io">timaxlacs.github.io</a>
+          <a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a>
+          <a href="tel:+79816919436">+7 981 691-94-36</a>
+        </p>
+        <p class="no-print">
+          A page without frameworks or a build step; the PDF is printed from
+          this same document.
+        </p>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -9,14 +9,19 @@
       content="Резюме Тимура Шакирова: LLM-шлюз в продакшене, e-commerce платформа, гео-модуль, ИИ-конвейеры. Python, TypeScript, React, Docker."
     />
     <meta name="color-scheme" content="light dark" />
+    <link rel="alternate" hreflang="en" href="index.en.html" />
+    <link rel="alternate" hreflang="ru" href="index.html" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="wrap">
       <header class="masthead">
         <h1>Шакиров Тимур Эдуардович</h1>
+        <p class="tagline">
+          Fullstack-разработчик. Языковые модели в продуктовых системах.
+        </p>
         <ul class="contacts">
-          <li>20 лет · Санкт-Петербург · удалённо</li>
+          <li>Санкт-Петербург · удалённо, европейская компания</li>
           <li><a href="tel:+79816919436">+7 981 691-94-36</a></li>
           <li><a href="mailto:edtimyr@gmail.com">edtimyr@gmail.com</a></li>
         </ul>
@@ -28,8 +33,10 @@
           <a href="https://www.npmjs.com/~timax">npmjs.com/~timax</a>
         </p>
         <p class="note-accounts">
-          Работа распределена между тремя аккаунтами: основной объём кода в
-          <code>deep-assistant</code> написан под <code>TimaxHack</code>.
+          Основной аккаунт - <code>TimaxLacs</code>. Часть продакшн-кода написана
+          под <code>TimaxHack</code>: под ним лежит большинство коммитов в
+          LLM-шлюзе <code>deep-assistant</code>. По одному аккаунту видна треть
+          работы, поэтому указаны все.
         </p>
 
         <div class="actions no-print">
@@ -38,8 +45,27 @@
           </button>
           <a class="btn" href="resume.pdf" download>Готовый файл PDF</a>
           <a class="btn" href="short.html">Короткая версия, 2 страницы</a>
+          <a class="btn" href="index.en.html" hreflang="en">English</a>
         </div>
       </header>
+
+      <section id="summary">
+        <h2 class="section-title">Кратко</h2>
+        <div class="lede">
+          <p>
+            Инженер, который встраивает языковые модели в работающие продукты.
+            Спроектировал и написал первую версию LLM-шлюза, ставшего
+            инфраструктурой коммерческого агрегатора нейросетей: маршрутизация
+            между поставщиками, фолбэк, биллинг по токенам. Последний год по
+            контракту веду e-commerce платформу: витрина, каталог, мультиязычные
+            карточки, очереди генерации, развёртывание.
+          </p>
+          <p>
+            PHP и 1С-Битрикс в продакшене не писал. В существующий магазин
+            захожу с ИИ-обвязкой и без имитации стажа.
+          </p>
+        </div>
+      </section>
 
       <section id="skills">
         <h2 class="section-title">Навыки</h2>
@@ -51,28 +77,31 @@
           <div class="skill-row">
             <dt>Фронтенд</dt>
             <dd>
-              React, Next.js, Vite, Tailwind, Capacitor (сборки под iOS и
-              Android)
+              React, Vite, Tailwind, Capacitor (сборки под iOS и Android)
             </dd>
           </div>
           <div class="skill-row">
             <dt>Бэкенд</dt>
             <dd>
               Node.js, Express, FastAPI, GraphQL (Hasura), REST, PostgreSQL /
-              PostGIS, Redis, MongoDB, SQLite, MinIO
+              PostGIS, Redis, SQLite, MinIO
             </dd>
           </div>
           <div class="skill-row">
             <dt>ИИ</dt>
             <dd>
-              маршрутизация между провайдерами и фолбэк, биллинг токенов, RAG и
+              маршрутизация между поставщиками и фолбэк, биллинг токенов, RAG и
               MCP, очереди генерации текста и изображений, reasoning-конвейеры,
-              распознавание и синтез речи, LangChain
+              распознавание и синтез речи
             </dd>
           </div>
           <div class="skill-row">
             <dt>Прод</dt>
             <dd>Docker, nginx, systemd, Linux, Git, CI, настройка DNS и почты</dd>
+          </div>
+          <div class="skill-row">
+            <dt>Не было в проде</dt>
+            <dd>PHP и 1С-Битрикс. Готов заходить в существующий магазин.</dd>
           </div>
         </dl>
       </section>
@@ -275,12 +304,11 @@
                 серверный роут и CLI-скрипт, прогоняющий каталог пачкой.
               </li>
               <li>
-                <strong>Гео-модуль, 11 700 строк:</strong> единый интерфейс
-                поверх Яндекса, Google и 2ГИС на адаптерах, смена провайдера -
-                один параметр. Геометрия зон на 1 700 строк: буферы вдоль
-                маршрута через кривые Безье, объединение полигонов с отверстиями,
-                хранение в PostGIS. Геокодинг на сервере, чтобы ключи API не
-                попадали в браузер.
+                <strong>Гео-модуль:</strong> единый интерфейс поверх Яндекса,
+                Google и 2ГИС на адаптерах, смена поставщика - один параметр.
+                Геометрия зон: буферы вдоль маршрута через кривые Безье,
+                объединение полигонов с отверстиями, хранение в PostGIS.
+                Геокодинг на сервере, чтобы ключи API не попадали в браузер.
               </li>
               <li>
                 <strong>Конвейер наполнения каталога:</strong> источники за общим
@@ -316,7 +344,10 @@
             <h3>ManyAir - платформа международных денежных переводов</h3>
             <span class="entry-meta">август 2025 - май 2026</span>
           </div>
-          <p class="entry-role">Проект заказчика: фронтенд и смежный бэкенд</p>
+          <p class="entry-role">
+            Проект заказчика: фронтенд и смежный бэкенд · с декабря 2025 шёл
+            параллельно с e-commerce платформой
+          </p>
 
           <div class="entry-body">
             <p>
@@ -407,10 +438,16 @@
                   наценку.
                 </li>
                 <li>
-                  <strong>Переводы между счетами без СУБД:</strong> эксклюзивные
-                  блокировки с распознаванием зависших, запись через временный
-                  файл с обратной вычиткой, восстановление незавершённых
+                  <strong>Идемпотентные переводы между счетами:</strong>
+                  эксклюзивные блокировки с распознаванием зависших, атомарная
+                  запись с обратной вычиткой, восстановление незавершённых
                   операций при старте.
+                </li>
+                <li>
+                  <strong>Скорость вывода новых моделей:</strong> o1-preview и
+                  o1-mini подключены 27 сентября 2024, deepseek-reasoner -
+                  30 января 2025, каждый раз вместе с тарификацией и цепочками
+                  фолбэка.
                 </li>
               </ul>
               <p>Веду репозиторий, принимаю изменения второго разработчика.</p>
@@ -479,11 +516,11 @@
           data-tags="ecommerce frontend react ts devops commercial ai"
         >
           <div class="entry-head">
-            <h3>Matreshka - AI/e-commerce платформа</h3>
+            <h3>Matreshka - публичный сайт AI/e-commerce платформы</h3>
             <span class="entry-meta">2026</span>
           </div>
           <p class="entry-role">
-            Проект заказчика: фронтенд и запуск публичного сайта ·
+            Проект заказчика: фронтенд и запуск сайта ·
             <a class="print-url" href="https://matreshka.club">matreshka.club</a>
           </p>
 
@@ -657,7 +694,20 @@
                 рассуждений: предсказание намерения, пошаговое решение,
                 состязательная критика собственного ответа, доработка, синтез.
                 Вариант на LangChain с Tree of Thoughts и самосогласованностью.
-                Апрель 2025, до того как такой режим стал типовой функцией.
+                Апрель 2025; поведение воспроизводится оркестрацией промптов, а
+                не вызовом reasoning-модели.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/lightrag-mcp"
+                    >lightrag-mcp</a
+                  ></strong
+                >
+                - MCP-сервер к развёрнутому self-hosted LightRAG: граф и векторы,
+                режимы поиска, реранкинг, ответы со ссылками на источники.
+                Конфигурация валидируется через zod, тесты на встроенном
+                <code>node --test</code>. Подключён к рабочему редактору как
+                постоянная память по проектам.
               </li>
               <li>
                 <strong
@@ -1008,6 +1058,22 @@
             <li>Управление командой</li>
             <li>Питчинг</li>
           </ul>
+        </article>
+      </section>
+
+      <section id="education">
+        <h2 class="section-title">Образование</h2>
+        <article class="entry" data-tags="">
+          <div class="entry-head">
+            <h3>Среднее общее образование, 11 классов</h3>
+          </div>
+          <div class="entry-body">
+            <p>
+              Профильного диплома нет. Программирую с 2021 года, коммерческие
+              проекты веду с 2024-го; всё перечисленное выше сделано на практике
+              и лежит в открытых репозиториях.
+            </p>
+          </div>
         </article>
       </section>
 
