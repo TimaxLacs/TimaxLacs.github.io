@@ -61,10 +61,7 @@
             queues, deployment.
           </p>
           <p>
-            I have not written PHP or 1C-Bitrix in production. I am looking
-            for work where models speed up a shop - product descriptions and
-            translations, product matching, customer support, marketplace
-            feeds.
+            I have not written PHP or 1C-Bitrix in production.
           </p>
           <p>
             Education: 11 years of Russian general school, no degree in the
@@ -306,7 +303,7 @@
       </section>
 
       <section id="ai-cases">
-        <h2 class="section-title">AI cases · 2025-2026</h2>
+        <h2 class="section-title">AI cases · 2021-2026</h2>
         <article class="entry">
           <div class="entry-body">
             <ul>
@@ -315,8 +312,7 @@
                 model writes the draft, a second one reviews it in a separate
                 call, remarks go back for revision for up to three rounds, then
                 the text is published; state is kept in SQLite to survive a
-                process crash. The same scheme applies to product descriptions in
-                several languages: generation is separated from review, and a
+                process crash. Generation is separated from review, and a
                 failure does not lose data -
                 <a href="https://github.com/TimaxLacs/ai-post-generator"
                   >ai-post-generator</a
@@ -334,17 +330,37 @@
                 >.
               </li>
               <li>
-                <strong>My own tooling for working with models.</strong> Deployed
-                a self-hosted LightRAG instance and wrote an MCP server for it:
-                search modes, reranking, answers with references
+                <strong>My own tooling for working with models.</strong>
+                Self-hosted LightRAG and an MCP server for it: search modes,
+                reranking, answers with references
                 (<a href="https://github.com/TimaxLacs/lightrag-mcp"
                   >lightrag-mcp</a
-                >). Plus 1,900 lines of agent workflow specifications: a safe
-                code change pipeline of five agents, project bootstrap, a
-                research process
+                >). 1,900 lines of agent workflow specifications: a safe code
+                change pipeline of five agents, project bootstrap, a research
+                process
                 (<a href="https://github.com/TimaxLacs/cursor-agent-workflows"
                   >cursor-agent-workflows</a
                 >). I use both daily.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/ai-lector">ai-lector</a></strong
+                >, 2025 - a bot that rewrites audio lectures into the required
+                format. I built a local Telegram Bot API server with cmake to
+                bypass the file size limit.
+              </li>
+              <li>
+                <strong
+                  ><a href="https://github.com/TimaxLacs/vk-tg-parser"
+                    >vk-tg-parser</a
+                  ></strong
+                >, 2026 - a pip package: a single parser for Telegram via MTProto
+                and VK via API, with a shared data model and real-time
+                monitoring.
+              </li>
+              <li>
+                <strong>Computer vision</strong>, 2021 - a bot for Lake Onega ice
+                cover: freeze level from street-camera frames.
               </li>
             </ul>
           </div>
