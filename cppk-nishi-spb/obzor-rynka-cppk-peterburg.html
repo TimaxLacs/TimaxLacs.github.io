@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>ЦППК Санкт-Петербург · рынок 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,500;600;700&display=optional" rel="stylesheet" />
+<style>
+:root {
+  --ink: #2c2a26;
+  --muted: #6b6964;
+  --paper: #f4f1ea;
+  --paper2: #ebe6dc;
+  --card: #fffcf7;
+  --mark: #c9b48a;
+  --mark-deep: #8a7349;
+  --rust: #c4896a;
+  --good: #5c7f72;
+  --bad: #b87a7a;
+  --steel: #6b6964;
+  --line: rgba(44,42,38,.08);
+  --shadow: 0 10px 28px rgba(44,42,38,.06);
+  --radius: 16px;
+  --max: 1120px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: Nunito, ui-sans-serif, system-ui, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.55;
+  font-weight: 500;
+}
+a { color: inherit; }
+.wrap { width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
+h1,h2,h3 {
+  font-family: "Source Serif 4", ui-serif, Georgia, serif;
+  margin: 0;
+  line-height: 1.22;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+h1 { font-size: clamp(28px, 4.4vw, 42px); }
+h2 { font-size: clamp(22px, 2.6vw, 30px); margin-bottom: 18px; }
+h3 { font-size: 16px; }
+p { margin: 0; }
+.top {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(244,241,234,.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.top .wrap { display: flex; justify-content: space-between; align-items: center; min-height: 56px; gap: 12px; }
+.brand { color: var(--ink); font-size: 14px; font-weight: 700; }
+.brand b { color: var(--good); font-weight: 700; }
+nav { display: flex; gap: 16px; flex-wrap: wrap; }
+nav a { color: var(--muted); text-decoration: none; font-size: 13px; font-weight: 600; }
+nav a:hover { color: var(--ink); }
+.hero { background: var(--paper); color: var(--ink); padding: 40px 0 48px; }
+.kicker { color: var(--mark-deep); letter-spacing: .08em; text-transform: uppercase; font-weight: 700; font-size: 11px; }
+.lead { color: var(--muted); font-size: 17px; margin-top: 12px; max-width: 760px; line-height: 1.55; }
+.prose { font-size: 15.5px; margin: 0 0 16px; max-width: 72ch; }
+.card .prose { max-width: none; margin-bottom: 10px; }
+.card ul { margin: 8px 0 0; padding-left: 18px; font-size: 14.5px; }
+.card li { margin-bottom: 6px; }
+.how-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sec { padding: 52px 0; scroll-margin-top: 64px; }
+.alt { background: var(--paper2); }
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.stat {
+  background: var(--card);
+  color: var(--ink);
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+.stat b {
+  font-family: "Source Serif 4", ui-serif, Georgia, serif;
+  font-size: 22px;
+  color: var(--good);
+  display: block;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.stat span { font-size: 13px; color: var(--muted); font-weight: 500; }
+.tag { font-size: 10px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; padding: 4px 8px; display: inline-block; border-radius: 999px; }
+.go { background: #efe6d2; color: var(--mark-deep); }
+.ok { background: #dce8e3; color: #3f5e54; }
+.warn { background: #f3e4d8; color: #8a5a40; }
+.no { background: #f0dcdc; color: #8a4e4e; }
+.tiny { font-size: 13px; color: var(--muted); }
+.call {
+  background: #e7eeea;
+  color: var(--ink);
+  padding: 16px 18px;
+  border-radius: var(--radius);
+}
+.call b { color: var(--good); }
+.alert { background: #f5e8e6; border-left: 4px solid var(--bad); padding: 14px 16px; font-size: 14px; border-radius: 0 var(--radius) var(--radius) 0; }
+.okbox { background: #e4eee8; border-left: 4px solid var(--good); padding: 14px 16px; font-size: 14px; border-radius: 0 var(--radius) var(--radius) 0; }
+.formula span, .nest small { display: block; }
+.formula .box, .skip div { overflow: hidden; }
+.diagram-box { position: relative; width: 100%; overflow: hidden; border-radius: var(--radius); box-shadow: var(--shadow); }
+.diagram-box svg { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+.ratio-pay { aspect-ratio: 520 / 240; }
+.ratio-map { aspect-ratio: 1100 / 420; }
+.ratio-tree { aspect-ratio: 1100 / 280; }
+.formula { display: grid; grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr; gap: 10px; align-items: stretch; margin-top: 28px; }
+.formula .box { padding: 16px; min-height: 96px; border-radius: var(--radius); }
+.formula .plus, .formula .eq {
+  font-family: "Source Serif 4", ui-serif, Georgia, serif;
+  font-size: 26px; color: var(--mark-deep);
+  display: flex; align-items: center;
+}
+.formula .a { background: #efe6d2; color: var(--ink); }
+.formula .c, .formula .d { background: #dce8e3; color: #2f4a42; }
+.formula .out { background: var(--card); color: var(--ink); box-shadow: var(--shadow); }
+.formula b { font-family: "Source Serif 4", ui-serif, Georgia, serif; display: block; font-size: 20px; font-weight: 600; }
+.formula span { font-size: 13px; margin-top: 4px; }
+.skip { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 14px; }
+.skip div {
+  border: 1px dashed #c9c2b4;
+  color: var(--muted);
+  padding: 12px 14px;
+  font-size: 13px;
+  border-radius: 12px;
+  background: rgba(255,252,247,.5);
+}
+.skip strong { color: var(--bad); font-weight: 700; display: block; }
+.nest-tam { background: #dce8e3; color: var(--ink); padding: 16px 16px 20px; border-radius: var(--radius); }
+.nest-sam { background: #c5d6ce; color: var(--ink); margin: 12px 8px 0; padding: 16px 16px 20px; border-radius: 14px; }
+.nest-som { background: #efe6d2; color: var(--ink); margin: 12px 8px 0; padding: 16px; border-radius: 12px; }
+.nest b { font-family: "Source Serif 4", ui-serif, Georgia, serif; font-size: 22px; display: block; font-weight: 600; }
+.nest small { font-size: 13px; opacity: .88; }
+.prio { display: grid; grid-template-columns: 36px 1fr; gap: 10px; align-items: center; margin-bottom: 10px; }
+.prio b { font-family: "Source Serif 4", ui-serif, Georgia, serif; font-weight: 600; color: var(--muted); }
+.prio .track { height: 34px; background: #efebe3; border-radius: 999px; overflow: hidden; }
+.prio .fill { height: 100%; background: #d4c4a0; display: flex; align-items: center; padding-left: 14px; font-size: 13px; font-weight: 700; border-radius: 999px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 13px; margin-bottom: 12px; color: var(--muted); }
+.legend i { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.who-row {
+  display: grid; grid-template-columns: 90px 1.1fr 1fr 1fr; gap: 10px; align-items: center;
+  padding: 12px 16px; background: var(--card); border: 1px solid var(--line);
+  font-size: 14px; border-radius: 12px;
+}
+.who-row + .who-row { margin-top: 8px; }
+.who-row .n { font-weight: 700; font-size: 14px; }
+.flow { display: flex; gap: 0; flex-wrap: wrap; }
+.flow .step {
+  background: var(--card); border: 1px solid var(--line); padding: 14px; flex: 1; min-width: 110px; border-radius: 12px;
+}
+.flow .step b { display: block; font-size: 13px; margin-bottom: 4px; font-weight: 700; }
+.flow .arr { width: 22px; display: flex; align-items: center; justify-content: center; color: var(--rust); font-weight: 600; }
+.heat-wrap { overflow-x: auto; }
+.heat { display: grid; grid-template-columns: 140px repeat(6, 1fr); gap: 4px; font-size: 12px; font-weight: 700; min-width: 720px; }
+.heat div { padding: 10px 6px; text-align: center; background: var(--card); border-radius: 8px; }
+.heat .h { text-align: left; background: transparent; font-weight: 600; color: var(--muted); }
+.c5 { background: #5c7f72; color: #fff; }
+.c4 { background: #8aa89c; color: #fff; }
+.c3 { background: #d4c4a0; color: #3d382e; }
+.c2 { background: #ece6d8; color: var(--ink); }
+.c1 { background: #f3f0ea; color: var(--muted); }
+.price { display: grid; gap: 10px; }
+.price .row { display: grid; grid-template-columns: 90px 1fr; gap: 8px; align-items: center; font-size: 13px; font-weight: 700; }
+.price i { display: block; height: 28px; line-height: 28px; padding-left: 10px; font-size: 12px; color: #2c2a26; border-radius: 999px; }
+.quote {
+  background: #f3eee4; padding: 16px 18px; min-height: 100%; border-radius: var(--radius);
+}
+.quote b { display: block; margin-bottom: 6px; font-size: 14px; font-weight: 700; color: var(--mark-deep); }
+.quote p { font-size: 16px; font-weight: 600; line-height: 1.4; font-family: "Source Serif 4", ui-serif, Georgia, serif; }
+.quote span { display: block; margin-top: 10px; font-size: 12px; font-weight: 600; color: #6b5a48; }
+.lights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.lights .cell { padding: 16px; min-height: 92px; border-radius: var(--radius); }
+.lights .cell b { display: block; font-size: 16px; font-weight: 700; margin-bottom: 4px; }
+.lights .g { background: #dce8e3; }
+.lights .y { background: #f3ecd8; }
+.lights .r { background: #f0dcdc; }
+.scen { border-top: 5px solid #ccc; border-radius: var(--radius); }
+.scen.yes { border-top-color: var(--good); }
+.scen.maybe { border-top-color: var(--mark); }
+.scen.nope { border-top-color: var(--bad); }
+.rail { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.rail .ph { padding: 18px; background: var(--card); border: 1px solid var(--line); position: relative; border-radius: var(--radius); box-shadow: var(--shadow); }
+.rail .ph:not(:last-child)::after { content: ""; position: absolute; right: -8px; top: 26px; width: 12px; height: 12px; background: var(--mark); transform: rotate(45deg); z-index: 1; border-radius: 2px; }
+.rail .ph b { display: block; margin-bottom: 10px; font-family: "Source Serif 4", ui-serif, Georgia, serif; font-weight: 600; }
+.rail ul { margin: 0; padding-left: 16px; font-size: 13px; }
+.chip { display: inline-block; background: #efebe3; font-size: 12px; font-weight: 600; padding: 5px 10px; margin: 3px 3px 0 0; border-radius: 999px; }
+footer { background: #e7eeea; color: var(--muted); padding: 32px 0 44px; font-size: 13px; }
+@media (max-width: 900px) {
+  .formula, .g2, .g3, .g4, .skip, .lights, .rail, .how-grid { grid-template-columns: 1fr; }
+  .formula .plus, .formula .eq { display: none; }
+  .who-row { grid-template-columns: 80px 1fr; }
+  .who-row > :nth-child(3), .who-row > :nth-child(4) { grid-column: 2; }
+  nav { display: none; }
+  .rail .ph:not(:last-child)::after { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="top">
+  <div class="wrap">
+    <div class="brand">ЦППК <b>СПБ</b> · рынок 2026</div>
+    <nav>
+      <a href="#money">Деньги</a>
+      <a href="#geo">Карта</a>
+      <a href="#who">Кто</a>
+      <a href="#ch">Как завлечь</a>
+      <a href="#vs">Конкуренты</a>
+      <a href="#plan">План</a>
+    </nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">ФГАОУ ДПО «Межрегиональный ЦППК» им. В.К. Артюха · штаб</div>
+    <h1 style="margin-top:10px;">Куда вкладывать продвижение</h1>
+    <p class="lead">Это не коммерческая автошкола вроде «Догмы» и не пригородные электрички АО «ЦППК». Вы — государственный учебный центр Росавтодора: самоходная техника, ДОПОГ (права на перевозку опасных грузов), охрана труда и безопасность дорожного движения для дорожных организаций. Штаб сети из девяти филиалов, а не одна площадка.</p>
+    <div class="formula">
+      <div class="box a"><b>A</b><span>чтобы вас находили: карты, отзывы, ответ за 15 минут</span></div>
+      <div class="plus">+</div>
+      <div class="box c"><b>C</b><span>погрузчик и самоходка как путь к работе на складе и на дорогах</span></div>
+      <div class="plus">+</div>
+      <div class="box d"><b>D</b><span>договоры с юрлицами, ФКУ и ГБУ, не только розница</span></div>
+      <div class="eq">=</div>
+      <div class="box out"><b>40–90 млн</b><span>реалистичный оборот штаба за год без крупных госконтрактов</span></div>
+    </div>
+    <div class="skip">
+      <div><strong>Категорию B не копировать у сетей</strong> У «Догмы», «4 Колёс» и «Фары» суббота, несколько адресов и живые отзывы. У вас площадка закрыта в выходные, на Zoon 3,3 из 5. В рекламе B вы проиграете не цене — сервису.</div>
+      <div><strong>Не начинать с приложения и «истории центра»</strong> WhatsApp на сайте уже есть. Для госорганов нужен MAX, почта и менеджер. Ролик про 1918 год не закрывает заявку: человек ищет ближайшую группу и экзамен в городе.</div>
+    </div>
+  </div>
+</header>
+
+<section class="sec" id="money">
+  <div class="wrap">
+    <h2>Деньги рынка</h2>
+    <p class="prose">Три круга — фильтр, куда не стоит лить бюджет. Внешний круг — все, кто в городе учится на права. Средний — то, что вы реально умеете лучше автошкол. Внутренний — сколько может взять одна площадка на Болотной и Полюстровском при нормальной загрузке групп.</p>
+    <div class="g2">
+      <div class="nest">
+        <div class="nest-tam"><b>3,5–6 млрд ₽</b><small>весь рынок обучения водителей в СПб и Ленобласти. Большая часть — категория B, легковые. Этот кусок вам почти не принадлежит: 84 школы в каталоге, суббота, рассрочка.</small>
+          <div class="nest-sam"><b>400–800 млн</b><small>самоходка, ДОПОГ, охрана труда, категории C/CE/D. Сюда и стоит звать людей: экзамен у вас, документы ФГАОУ, дорожный рынок рядом.</small>
+            <div class="nest-som"><b>40–90 млн</b><small>сколько штаб может взять за год. Если продавать себя как «просто автошколу», потолок ближе к 25 млн: упираетесь в отзывы и выходные.</small></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="diagram-box ratio-pay"><svg class="diagram" viewBox="0 0 520 240" width="520" height="240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Окупаемость">
+          <text x="0" y="16" fill="#8a918c" font-size="12" font-family="system-ui,sans-serif">Курс → зарплата, СПб</text>
+          <rect x="0" y="32" width="70" height="52" fill="#5c6b66" rx="12" ry="12"/><text x="10" y="64" fill="#d4c4a0" font-size="16" font-family="system-ui,sans-serif">11 тыс.</text>
+          <polygon points="78,58 98,48 98,68" fill="#c4896a"/>
+          <rect x="106" y="32" width="414" height="52" fill="#5c7f72" rx="12" ry="12"/><text x="122" y="64" fill="#fff" font-size="16" font-family="system-ui,sans-serif">погрузчик · смена 90–120 тыс.</text>
+          <rect x="0" y="100" width="120" height="52" fill="#5c6b66" rx="12" ry="12"/><text x="10" y="132" fill="#d4c4a0" font-size="16" font-family="system-ui,sans-serif">5 тыс.</text>
+          <polygon points="128,126 148,116 148,136" fill="#c4896a"/>
+          <rect x="156" y="100" width="364" height="52" fill="#c4896a" rx="12" ry="12"/><text x="172" y="132" fill="#fff" font-size="16" font-family="system-ui,sans-serif">ДОПОГ · фирме дешевле курса</text>
+          <rect x="0" y="168" width="210" height="52" fill="#8a918c" rx="12" ry="12"/><text x="12" y="200" fill="#fff" font-size="15" font-family="system-ui,sans-serif">кат. B · 45 тыс. · дешевле сетей</text>
+        </svg></div>
+      </div>
+    </div>
+    <div class="g4" style="margin-top:12px">
+      <div class="stat"><b>128,8 млрд</b><span>дорожный фонд СПб на 2026 год — рядом с вами заказчики, не только розница</span></div>
+      <div class="stat"><b>2,1 тыс.</b><span>вакансии водителей в июне на hh.ru: люди ищут права, потому что уже есть работа</span></div>
+      <div class="stat"><b>140 тыс.</b><span>на Авито предлагают дальнобою; погрузчик на смене 90–120 тыс.</span></div>
+      <div class="stat"><b>84 / 596</b><span>автошколы и адреса в каталоге. В категории B вас не видно как «ещё одну школу»</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec alt" id="push">
+  <div class="wrap">
+    <h2>Что показывать в рекламе</h2>
+    <p class="prose">Бюджет имеет смысл только на то, где вы отличаетесь от автошколы: экзамен на своей площадке в городе, короткие группы ДОПОГ, договор с юрлицом. Категория B приносит кассу, но не тянет бренд — отзывы про инструктора, ЗИЛ и доплату за экзамен это уже доказали.</p>
+    <div class="card">
+      <div class="prio"><b>1</b><div class="track"><div class="fill" style="width:95%">Самоходка · экзамен на Полюстровском, 41 к.2</div></div></div>
+      <div class="prio"><b>2</b><div class="track"><div class="fill" style="width:85%">ДОПОГ · ближайшая группа и счёт за сутки</div></div></div>
+      <div class="prio"><b>3</b><div class="track"><div class="fill" style="width:78%">Юрлица и ФКУ Росавтодора · письмо, не баннер</div></div></div>
+      <div class="prio"><b>4</b><div class="track"><div class="fill" style="width:50%;background:#efe1a4">C / CE / D · если есть места в группе</div></div></div>
+      <div class="prio"><b>5</b><div class="track"><div class="fill" style="width:28%;background:#eeeae2">Категория B · Директ не включать, пока закрыты выходные</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="geo">
+  <div class="wrap">
+    <h2>Где вы и кто рядом</h2>
+    <div class="legend">
+      <span><i style="background:var(--mark)"></i>вы</span>
+      <span><i style="background:var(--rust)"></i>автошколы категории B</span>
+      <span><i style="background:#7a9bb0"></i>техника и госорганы</span>
+      <span><i style="background:#5a6570"></i>филиалы сети</span>
+    </div>
+    <div class="diagram-box ratio-map"><svg class="diagram" viewBox="0 0 1100 420" width="1100" height="420" preserveAspectRatio="xMidYMid meet" role="img" style="background:#eef2ef" aria-label="Схема локаций">
+      <text x="24" y="28" fill="#d4c4a0" font-size="12" font-family="system-ui,sans-serif">Схема, не масштаб · север СПб</text>
+      <circle cx="420" cy="220" r="130" fill="none" stroke="#8a9490" stroke-dasharray="5 7"/>
+      <text x="355" y="98" fill="#8a918c" font-size="11" font-family="system-ui,sans-serif">Выборгский / Калининский</text>
+      <line x1="520" y1="200" x2="780" y2="120" stroke="#7a9bb0" stroke-width="1.25" stroke-linecap="round"/>
+      <rect x="320" y="168" width="220" height="90" fill="#d4c4a0" rx="12" ry="12"/>
+      <text x="334" y="198" fill="#5a625e" font-size="16" font-family="system-ui,sans-serif">ЦППК · штаб</text>
+      <text x="334" y="220" fill="#5a625e" font-size="12" font-family="system-ui,sans-serif">Болотная, 1 · 1 этаж</text>
+      <text x="334" y="240" fill="#5a625e" font-size="12" font-family="system-ui,sans-serif">297-57-36 · 928-14-78</text>
+      <rect x="780" y="70" width="280" height="90" fill="#6d8494" rx="12" ry="12"/>
+      <circle cx="780" cy="115" r="7" fill="#7a9bb0"/>
+      <text x="800" y="100" fill="#fff" font-size="15" font-family="system-ui,sans-serif">Автодром в городе</text>
+      <text x="800" y="122" fill="#e8f0f4" font-size="12" font-family="system-ui,sans-serif">Полюстровский, 41 к.2</text>
+      <text x="800" y="142" fill="#d4c4a0" font-size="11" font-family="system-ui,sans-serif">2ГИС 2,8 · Zoon 2,9 — слабые отзывы</text>
+      <rect x="40" y="168" width="240" height="84" fill="#c4896a" rx="12" ry="12"/>
+      <text x="54" y="198" fill="#fff" font-size="15" font-family="system-ui,sans-serif">Догма · Фара · 4 Колеса</text>
+      <text x="54" y="220" fill="#fff" font-size="12" font-family="system-ui,sans-serif">кат. B 60–70 тыс.</text>
+      <text x="54" y="238" fill="#fff" font-size="12" font-family="system-ui,sans-serif">суббота, сеть филиалов</text>
+      <rect x="320" y="270" width="220" height="52" fill="#c4896a" rx="12" ry="12"/>
+      <text x="334" y="292" fill="#fff" font-size="13" font-family="system-ui,sans-serif">Ритм · НЦПО · дешёвые курсы</text>
+      <text x="334" y="310" fill="#fff" font-size="11" font-family="system-ui,sans-serif">погрузчик от 8–10 тыс.</text>
+      <rect x="24" y="348" width="250" height="48" fill="#6d8494" rx="12" ry="12"/>
+      <text x="38" y="368" fill="#e8f0f4" font-size="12" font-family="system-ui,sans-serif">Гостехнадзор</text>
+      <text x="38" y="386" fill="#7a8a94" font-size="11" font-family="system-ui,sans-serif">Куйбышева, 34</text>
+      <rect x="300" y="348" width="250" height="48" fill="#6d8494" rx="12" ry="12"/>
+      <text x="314" y="368" fill="#e8f0f4" font-size="12" font-family="system-ui,sans-serif">КАД · А-120 · склады</text>
+      <text x="314" y="386" fill="#7a8a94" font-size="11" font-family="system-ui,sans-serif">КАД-2 в 2026 ещё проект</text>
+      <rect x="820" y="280" width="240" height="52" fill="#8a9490" rx="12" ry="12"/>
+      <text x="834" y="302" fill="#5c5a56" font-size="13" font-family="system-ui,sans-serif">Екб · Калининград</text>
+      <text x="834" y="320" fill="#7a7874" font-size="11" font-family="system-ui,sans-serif">ещё ~7 точек в регионах</text>
+      <rect x="820" y="348" width="240" height="48" fill="#8a9490" rx="12" ry="12"/>
+      <text x="834" y="368" fill="#5c5a56" font-size="12" font-family="system-ui,sans-serif">9 офисов · 8 регионов</text>
+      <text x="834" y="386" fill="#7a7874" font-size="11" font-family="system-ui,sans-serif">шаблоны для всех филиалов</text>
+    </svg></div>
+    <div class="okbox" style="margin-top:12px"><b>Автодром в городе — и его почти не видно на картах.</b> Офис на Болотной в 2ГИС 4,7 из 5, площадка на Полюстровском 2,8. В отзывах путают адрес («Полюстрова 14»). Пока нет фото маршрута, режима и фразы «экзамен здесь», объявление «права за месяц» ведёт человека в чужой автодром.</div>
+  </div>
+</section>
+
+<section class="sec alt" id="who">
+  <div class="wrap">
+    <h2>Кто покупает и когда он ищет</h2>
+    <p class="prose">Они открывают поиск в разное время и с разным дедлайном. Если отвечать только с 9 до 18 в будни, вы пропускаете того, кто после вакансии гуглит погрузчик в 23:00.</p>
+    <div class="card" style="margin-bottom:10px">
+      <span class="tag ok">главный спрос</span>
+      <h3 style="margin:8px 0 6px">Илья, 25–40 — права на погрузчик, чтобы выйти на смену</h3>
+      <p class="prose">Увидел вакансию на hh.ru или Авито: «нужен УТМ» (удостоверение тракториста-машиниста). Склад на Парнасе, КАД, дорожный подряд. Курс 11 тыс. для него — не покупка «для себя», а вход на зарплату 90–120 тыс. за смену.</p>
+      <p class="tiny">Где: hh.ru, Авито рядом с вакансией, Telegram «Работа в САНКТ-ПЕТЕРБУРГЕ» (~158 тыс.). Когда: вечер и ночь, решение за 1–2 дня. Условие: ответ за 15 минут, фото площадки, ближайшая дата группы.</p>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <span class="tag ok">повторные циклы</span>
+      <h3 style="margin:8px 0 6px">Сергей, 30–50 — ДОПОГ сгорает, платит фирма</h3>
+      <p class="prose">ДОПОГ — допуск к перевозке опасных грузов, его нужно обновлять. Диспетчер или механик сказал «права кончились, колонка стоит». Ищет не «лучший бренд», а группу на этой неделе и счёт сегодня.</p>
+      <p class="tiny">Где: Яндекс («ДОПОГ СПб срочно»), карта организации, звонок. Когда: рабочие часы, часто до обеда. Условие: живой календарь групп, счёт за 24 часа, экзамен в городе.</p>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <span class="tag warn">закупки юрлиц</span>
+      <h3 style="margin:8px 0 6px">Наталья HR и Павел из автоколонны</h3>
+      <p class="prose">Ей нужно закрыть предписание: три коммерческих предложения за неделю, реестр, ФГАОУ, закрывающие документы. Ему — пачка ДОПОГ плюс БДД (безопасность дорожного движения) на год, не разовая розница.</p>
+      <p class="tiny">Где: почта, MAX, страница «для организаций», не Reels. Когда: будни 9–17. Условие: менеджер, шаблон КП, договор, не «напишите в WhatsApp».</p>
+    </div>
+    <div class="card" style="margin-bottom:10px">
+      <span class="tag ok">долгий цикл</span>
+      <h3 style="margin:8px 0 6px">Ольга из ФКУ / ГБУ дорог</h3>
+      <p class="prose">Ей не баннер. Нужен центр Росавтодора, практика, семинар, годовой договор. Цикл — недели и месяцы, канал — письмо на официальный адрес, не Директ.</p>
+      <p class="tiny">Где: почта, очный семинар, рекомендации коллег. Когда: плановый год, не «сегодня до 18». Условие: лицо штаба, программа, не PDF с чужого сайта.</p>
+    </div>
+    <div class="card">
+      <span class="tag go">касса, не герой рекламы</span>
+      <h3 style="margin:8px 0 6px">Артём, 19–24 — категория B</h3>
+      <p class="prose">Цена у вас уже ниже «Догмы» (45 тыс. против ~60). Он сравнивает субботу, рассрочку и отзывы. Пока площадка закрыта в выходные, платная реклама B покупает чужие жалобы на Zoon.</p>
+      <p class="tiny">Где: VK, карты, сарафан. Когда: вечер после учёбы/смены. Условие: не масштабировать Директ, пока нет субботы и ответа по вечерам.</p>
+    </div>
+    <h3 style="margin:22px 0 10px">Как Илья доходит до заявки</h3>
+    <div class="flow">
+      <div class="step"><b>1. Вакансия</b>hh.ru: нужен УТМ, Парнас / КАД</div><div class="arr">→</div>
+      <div class="step"><b>2. Вечером</b>поиск «погрузчик СПб права»</div><div class="arr">→</div>
+      <div class="step"><b>3. 2–3 звонка</b>кто ответит за 15 минут</div><div class="arr">→</div>
+      <div class="step"><b>4. Проверка</b>фото Полюстровского и дата группы</div><div class="arr">→</div>
+      <div class="step"><b>5. Смена</b>90–120 тыс.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="ch">
+  <div class="wrap">
+    <h2>Как завлечь: каналы, время, места, условия</h2>
+    <p class="prose">Продвижение здесь — не «охват». Человек уже знает, что ему нужны права. Задача — оказаться в том окне, где он сравнивает 2–3 варианта, и не потерять его на звонке. В Петербурге базовый вход — Яндекс (поиск и карты). 2ГИС — второй контур. Цифры «78/22» из блогов про доли карт — не Mediascope, на них бюджет не ставить.</p>
+
+    <h3 style="margin:8px 0 12px">Где его ловить</h3>
+    <div class="how-grid">
+      <div class="card">
+        <h3>Яндекс: поиск и карты</h3>
+        <p class="prose">Главное место, куда вбивают «погрузчик СПб», «ДОПОГ срочно», «автодром Полюстровский». Карточки организации в Яндекс.Картах на момент среза не найдено. Без неё Директ ведёт на сайт, а человек всё равно сверяет карту — и уходит.</p>
+        <ul>
+          <li>Сначала карточка офиса (Болотная, 1) и площадки (Полюстровский, 41 к.2)</li>
+          <li>Фото маршрута, режим, «экзамен здесь»</li>
+          <li>Рекламу в Директе включать после карточки, не до</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>2ГИС и Zoon</h3>
+        <p class="prose">Офис 4,7 / 22 оценки — нормально. Автодром 2,8 / 10 и Zoon площадки 2,9 — человек, который едет сдавать, видит это первым. Zoon офиса 3,3 / 83 оценки тянет вниз всю выдачу по категории B.</p>
+        <ul>
+          <li>Ответы на отзывы, фото площадки, точный адрес</li>
+          <li>Не спорить в комментариях про ЗИЛ — чинить процесс и писать факт</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>hh.ru, Авито, Telegram про работу</h3>
+        <p class="prose">Илья не ищет «автошколу». Он ищет работу, потом права. Имеет смысл стоять рядом с вакансией: «нужен УТМ — права за месяц, экзамен в городе, группа тогда-то».</p>
+        <ul>
+          <li>Авито: объявление у вакансий погрузчика / склада, не общая «автошкола»</li>
+          <li>Telegram «Работа в САНКТ-ПЕТЕРБУРГЕ» (~158 тыс.) — текст с датой группы, не баннер</li>
+          <li>Время: вечер, когда вакансии листают с телефона</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>VK, MAX, почта — не одно и то же</h3>
+        <p class="prose">VK cppkspb уже есть: это входящие сообщения, не витрина лайков. t.me/cppkspb создан 27.08.2026, один подписчик, со сайта ссылки нет. max.ru/cppkspb — 404. WhatsApp на сайте есть; для ФКУ и ГБУ это слабый канал.</p>
+        <ul>
+          <li>VK: кнопка «написать», ответ &lt; 15 мин в 20:00–23:00 хотя бы дежурным</li>
+          <li>MAX — для юрлиц и госорганов, не вместо сайта</li>
+          <li>Почта mail@ / edu@ — шаблон КП, не «перезвоним»</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="tiny" style="margin:20px 0 8px">Ниже — где какой продукт искать. 5 = быть обязательно, 1 = не делать. «Самоходка» — погрузчик, экскаватор, трактор. HR — закупки юрлиц. «Автопарк» — колонны. «Дорожники» — ФКУ / ГБУ.</p>
+    <div class="heat-wrap">
+      <div class="heat">
+        <div class="h"></div><div>B</div><div>Самоходка</div><div>ДОПОГ</div><div>HR</div><div>Автопарк</div><div>Дорожники</div>
+        <div class="h">Яндекс + карты</div><div class="c5">5</div><div class="c5">5</div><div class="c5">5</div><div class="c5">5</div><div class="c4">4</div><div class="c4">4</div>
+        <div class="h">2ГИС</div><div class="c3">3</div><div class="c3">3</div><div class="c3">3</div><div class="c2">2</div><div class="c2">2</div><div class="c2">2</div>
+        <div class="h">VK сообщения</div><div class="c5">5</div><div class="c4">4</div><div class="c3">3</div><div class="c2">2</div><div class="c2">2</div><div class="c2">2</div>
+        <div class="h">Telegram</div><div class="c3">3</div><div class="c5">5</div><div class="c5">5</div><div class="c3">3</div><div class="c4">4</div><div class="c3">3</div>
+        <div class="h">MAX</div><div class="c2">2</div><div class="c2">2</div><div class="c2">2</div><div class="c4">4</div><div class="c4">4</div><div class="c5">5</div>
+        <div class="h">Авито / HH</div><div class="c2">2</div><div class="c5">5</div><div class="c3">3</div><div class="c4">4</div><div class="c3">3</div><div class="c3">3</div>
+        <div class="h">Сайт / поиск</div><div class="c4">4</div><div class="c5">5</div><div class="c5">5</div><div class="c5">5</div><div class="c5">5</div><div class="c5">5</div>
+        <div class="h">Приложение</div><div class="c1">1</div><div class="c1">1</div><div class="c1">1</div><div class="c1">1</div><div class="c1">1</div><div class="c1">1</div>
+      </div>
+    </div>
+
+    <h3 style="margin:24px 0 12px">Когда отвечать — иначе реклама пустая</h3>
+    <div class="g3">
+      <div class="card">
+        <h3>Будни 9–17</h3>
+        <p class="prose">HR, колонна, ФКУ. Почта и MAX. Счёт, договор, «когда ближайшая группа». Сейчас приёмная 297-57-36, учёба 911 928-14-78 и 812 297-57-82. На части страниц телефона нет девятки: 812-928-14-78 — это ошибка, человек не дозвониться.</p>
+      </div>
+      <div class="card">
+        <h3>Вечер 20–23 и выходные</h3>
+        <p class="prose">Илья после вакансии. Сейчас сб/вс закрыто, сайт обещает будни. Хотя бы дежурный в VK/MAX вечером. Иначе заявка уходит в «Ритм» или «НЦПО», у которых курс дешевле и они отвечают.</p>
+      </div>
+      <div class="card">
+        <h3>До включения Директа</h3>
+        <p class="prose">Чужая цена заявки по автошколам Москва+СПб — 720–1 350 ₽. Считать не заявку, а договор. Если из заявок в договор меньше половины, пилот останавливать. Категорию B в Директ не ставить, пока нет субботы и карточки Яндекса.</p>
+      </div>
+    </div>
+    <div class="call" style="margin-top:14px"><b>Условия, без которых не заводить рекламу:</b> карточка Яндекса; ответ в мессенджере быстрее 15 минут в часы, когда ищут; фото автодрома и ближайшая дата группы на сайте; ссылка на t.me/cppkspb; MAX для юрлиц, не WhatsApp как главный канал госорганов.</div>
+  </div>
+</section>
+
+<section class="sec alt" id="vs">
+  <div class="wrap">
+    <h2>Кто забрал спрос</h2>
+    <div class="diagram-box ratio-map"><svg class="diagram" viewBox="0 0 1100 420" width="1100" height="420" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Позиционирование">
+      <rect x="0" y="0" width="550" height="210" fill="#e4eee8"/>
+      <rect x="550" y="0" width="550" height="210" fill="#f3ecd8"/>
+      <rect x="0" y="210" width="550" height="210" fill="#eeeae2"/>
+      <rect x="550" y="210" width="550" height="210" fill="#f5e8e6"/>
+      <line x1="550" y1="16" x2="550" y2="404" stroke="#8a918c" stroke-width="1.25"/>
+      <line x1="16" y1="210" x2="1084" y2="210" stroke="#8a918c" stroke-width="1.25"/>
+      <text x="24" y="28" font-size="11" fill="#5c7f72" font-family="system-ui,sans-serif">дешевле · гос / официально</text>
+      <text x="820" y="28" font-size="11" fill="#8a6a58" font-family="system-ui,sans-serif">дороже · гос / официально</text>
+      <text x="24" y="400" font-size="11" fill="#8a918c" font-family="system-ui,sans-serif">дешевле · рынок</text>
+      <text x="780" y="400" font-size="11" fill="#b87a7a" font-family="system-ui,sans-serif">дороже · рынок кат. B</text>
+      <rect x="70" y="70" width="110" height="36" fill="#fff" stroke="#8a918c" rx="12" ry="12"/><text x="86" y="93" font-size="13" font-family="system-ui,sans-serif">НИИОТ</text>
+      <rect x="780" y="48" width="150" height="36" fill="#fff" stroke="#8a918c" rx="12" ry="12"/><text x="796" y="71" font-size="13" font-family="system-ui,sans-serif">РОСДОРНИИ</text>
+      <rect x="860" y="100" width="200" height="44" fill="#d4c4a0" rx="12" ry="12"/><text x="876" y="128" font-size="14" font-family="system-ui,sans-serif">цель: центр Росавтодора</text>
+      <rect x="80" y="300" width="180" height="36" fill="#fff" stroke="#8a918c" rx="12" ry="12"/><text x="92" y="323" font-size="13" font-family="system-ui,sans-serif">Ритм / НЦПО 8–10</text>
+      <rect x="430" y="250" width="140" height="36" fill="#fff" stroke="#8a918c" rx="12" ry="12"/><text x="444" y="273" font-size="13" font-family="system-ui,sans-serif">дешёвые курсы</text>
+      <rect x="700" y="270" width="220" height="36" fill="#fff" stroke="#8a918c" rx="12" ry="12"/><text x="714" y="293" font-size="13" font-family="system-ui,sans-serif">Догма · Фара · 4 Колеса</text>
+      <rect x="400" y="330" width="280" height="44" fill="#5a625e" rx="12" ry="12"/><text x="416" y="358" fill="#d4c4a0" font-size="14" font-family="system-ui,sans-serif">ЦППК сейчас · рейтинг 3,3</text>
+    </svg></div>
+    <p class="prose" style="margin:12px 0">По документу и экзамену вы ближе к верхнему левому квадрату: госцентр, цена ниже сетей. По ощущению клиента в поиске — внизу справа: Zoon 3,3 на 83 оценки. Жалобы про категорию B: инструктор, старый ЗИЛ, доплата за экзамен. Пока это не закрыто, «мы центр с 1918» в рекламе не помогает.</p>
+    <div class="g2">
+      <div class="card">
+        <h3 style="margin-bottom:10px">Кат. B, ₽</h3>
+        <div class="price">
+          <div class="row"><span>ЦППК</span><i style="width:64%;background:var(--mark)">45 000 · с сайта «от 32 000»</i></div>
+          <div class="row"><span>среднее</span><i style="width:76%;background:#eeeae2">~54 000 по каталогу</i></div>
+          <div class="row"><span>Догма</span><i style="width:86%;background:#c4896a;color:#fff">59 900 · рассрочка 5 000</i></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-bottom:10px">Погрузчик, ₽</h3>
+        <div class="price">
+          <div class="row"><span>Ритм</span><i style="width:52%;background:#eeeae2">от 8 000</i></div>
+          <div class="row"><span>НЦПО</span><i style="width:64%;background:#c4896a;color:#fff">от 10 000</i></div>
+          <div class="row"><span>ЦППК</span><i style="width:72%;background:var(--mark)">от 11 000 · экзамен у нас</i></div>
+        </div>
+      </div>
+    </div>
+    <div class="g2" style="margin-top:10px">
+      <div class="alert"><b>Имя занято в поиске.</b> Электричка АО ЦППК · @central_ppk в MAX · коммерческий cpkrus.ru. В выдаче вы вторые.</div>
+      <div class="okbox"><b>С 31.08.2026 первая помощь и СИЗ — только очно.</b> Дешёвые заочные курсы теряют легальность. Имеет смысл пакет «охрана труда + первая помощь» для юрлиц, не скидка ради скидки.</div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="self">
+  <div class="wrap">
+    <h2>Сейчас у штаба</h2>
+    <div class="lights">
+      <div class="cell y"><b>Сайт</b><span class="tiny">герой B · новости с 07.04 · /reviews 404, живое /otzyvy/</span></div>
+      <div class="cell y"><b>VK cppkspb</b><span class="tiny">есть. Цифр подписчиков нет — антибот</span></div>
+      <div class="cell y"><b>TG t.me/cppkspb</b><span class="tiny">1 подписчик, создан 27.08. С сайта нет ссылки</span></div>
+      <div class="cell r"><b>Яндекс Карты</b><span class="tiny">карточки организации не найдено</span></div>
+      <div class="cell g"><b>2ГИС офис 4,7</b><span class="tiny">22 оценки · 19 отзывов</span></div>
+      <div class="cell r"><b>2ГИС автодром 2,8</b><span class="tiny">10 оценок · Zoon площадка 2,9</span></div>
+      <div class="cell r"><b>Zoon офис 3,3</b><span class="tiny">83 оценки, в основном категория B</span></div>
+      <div class="cell r"><b>MAX</b><span class="tiny">max.ru/cppkspb — 404. WhatsApp с сайта есть</span></div>
+      <div class="cell y"><b>9 филиалов ЕГРЮЛ</b><span class="tiny">КГД — представительство. Сб/вс закрыто</span></div>
+    </div>
+    <div class="call" style="margin-top:12px"><b>В Петербурге нет карточки Яндекса — при том, что Яндекс здесь основной поиск на картах, это первое, что чинить.</b> Дальше — отзывы автодрома 2,8 и Zoon. Реклама категории B при этом докупает чужие жалобы.</div>
+  </div>
+</section>
+
+<section class="sec alt" id="hit">
+  <div class="wrap">
+    <h2>Что говорить и куда вести</h2>
+    <p class="prose">Не слоган «на все случаи». Одна фраза — под тот канал, где человек сейчас сидит, и сразу дата группы или кнопка написать.</p>
+    <div class="g3">
+      <div class="quote"><b>Илья, вечер, hh / Авито / TG</b><p>Права на погрузчик за месяц. Экзамен на Полюстровском. Рядом вакансии от 90 тыс.</p><span>Куда вести: VK или MAX, не «оставьте номер с 9 до 18»</span></div>
+      <div class="quote"><b>Сергей, Яндекс, рабочий день</b><p>Ближайшая группа ДОПОГ — такие-то даты. Экзамен здесь, счёт сегодня.</p><span>Куда вести: календарь групп на сайте</span></div>
+      <div class="quote"><b>Наталья HR</b><p>ФГАОУ, реестр, менеджер, закрывающие документы. КП за сутки.</p><span>Куда вести: почта и страница для юрлиц</span></div>
+      <div class="quote"><b>Ольга, ФКУ / ГБУ</b><p>Центр Росавтодора, практика на площадке, не дистанционный PDF.</p><span>Куда вести: письмо, семинар, годовой договор</span></div>
+      <div class="quote"><b>Павел, колонна</b><p>Пачка ДОПОГ и БДД по календарю, один договор на год.</p><span>Куда вести: MAX и страница юрлицам</span></div>
+      <div class="quote" style="background:#eeeae2"><b>Артём, категория B</b><p>Цена уже ниже сетей. Без субботы платную рекламу не включать — он всё равно уйдёт туда, где катаются в выходной.</p><span>VK по запросу, не Директ</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="plan">
+  <div class="wrap">
+    <h2>Шесть развилок</h2>
+    <div class="diagram-box ratio-tree"><svg class="diagram" viewBox="0 0 1100 280" width="1100" height="280" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Дерево решений">
+      <rect x="400" y="8" width="300" height="48" fill="#5a625e" rx="12" ry="12"/><text x="448" y="38" fill="#d4c4a0" font-size="16" font-family="system-ui,sans-serif">штаб Санкт-Петербург</text>
+      <line x1="550" y1="56" x2="550" y2="84" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="140" y1="84" x2="960" y2="84" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="140" y1="84" x2="140" y2="108" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="550" y1="84" x2="550" y2="108" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="960" y1="84" x2="960" y2="108" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <rect x="40" y="108" width="200" height="56" fill="#5c7f72" rx="12" ry="12"/><text x="62" y="132" fill="#fff" font-size="15" font-family="system-ui,sans-serif">A карты и ответы</text><text x="62" y="150" fill="#dce8e3" font-size="11" font-family="system-ui,sans-serif">Яндекс + автодром 2,8</text>
+      <rect x="450" y="108" width="200" height="56" fill="#5c7f72" rx="12" ry="12"/><text x="478" y="132" fill="#fff" font-size="15" font-family="system-ui,sans-serif">C техника → работа</text><text x="478" y="150" fill="#dce8e3" font-size="11" font-family="system-ui,sans-serif">склад / КАД / дороги</text>
+      <rect x="860" y="108" width="200" height="56" fill="#5c7f72" rx="12" ry="12"/><text x="888" y="132" fill="#fff" font-size="15" font-family="system-ui,sans-serif">D юрлица</text><text x="888" y="150" fill="#dce8e3" font-size="11" font-family="system-ui,sans-serif">ФКУ + договоры</text>
+      <line x1="140" y1="164" x2="140" y2="188" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="140" y1="188" x2="960" y2="188" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="550" y1="188" x2="550" y2="208" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <line x1="960" y1="188" x2="960" y2="208" stroke="#8a918c" stroke-width="1.25" stroke-linecap="round"/>
+      <rect x="450" y="208" width="200" height="56" fill="#d4c4a0" rx="12" ry="12"/><text x="478" y="232" fill="#5a625e" font-size="15" font-family="system-ui,sans-serif">E шаблоны филиалам</text><text x="478" y="250" fill="#6b5a48" font-size="11" font-family="system-ui,sans-serif">Екб, Калининград, ещё 7</text>
+      <rect x="860" y="208" width="200" height="56" fill="#d4c4a0" rx="12" ry="12"/><text x="888" y="232" fill="#5a625e" font-size="15" font-family="system-ui,sans-serif">F репутация</text><text x="888" y="250" fill="#6b5a48" font-size="11" font-family="system-ui,sans-serif">семинары, не ролики</text>
+      <rect x="40" y="208" width="200" height="56" fill="#b87a7a" rx="12" ry="12"/><text x="62" y="232" fill="#fff" font-size="15" font-family="system-ui,sans-serif">B категория B как все</text><text x="62" y="250" fill="#f0dcdc" font-size="11" font-family="system-ui,sans-serif">84 школы, суббота у них</text>
+    </svg></div>
+    <div class="call" style="margin-top:12px"><b>Порядок:</b> сначала карты и ответы (A), параллельно звать людей на технику и ДОПОГ (C) и собирать договоры юрлиц (D). Шаблоны для филиалов — когда штаб сам отвечает с вечера. Категорию B не разгонять платным трафиком, пока закрыты выходные. Закупки рекламы — 223-ФЗ. Бот из репозитория — в VK и на сайт, чтобы ночные заявки не висели до утра.</div>
+  </div>
+</section>
+
+<section class="sec alt">
+  <div class="wrap">
+    <h2>90 дней</h2>
+    <div class="rail">
+      <div class="ph">
+        <b>Нед. 1–3 · чтобы вас находили</b>
+        <span class="chip">карточка Яндекса: офис и автодром</span>
+        <span class="chip">ссылка t.me/cppkspb с сайта</span>
+        <span class="chip">MAX для юрлиц</span>
+        <span class="chip">фото и маршрут Полюстровского</span>
+        <span class="chip">починить телефон без девятки</span>
+        <span class="chip">дежурный в VK вечером</span>
+      </div>
+      <div class="ph">
+        <b>Нед. 4–8 · что видит человек</b>
+        <span class="chip">главный экран сайта: самоходка, не B</span>
+        <span class="chip">календарь ближайших групп</span>
+        <span class="chip">страница для юрлиц</span>
+        <span class="chip">бот на сайт и в VK</span>
+        <span class="chip">те же тексты отдать Екб и Калининграду</span>
+      </div>
+      <div class="ph">
+        <b>Нед. 6–12 · платная проверка</b>
+        <span class="chip">Директ: погрузчик и ДОПОГ, не B</span>
+        <span class="chip">VK — кнопка написать, не подписка</span>
+        <span class="chip">Авито рядом с вакансиями УТМ</span>
+        <span class="chip">20 писем в ФКУ / ГБУ</span>
+        <span class="chip">стоп, если из заявок в договор меньше половины</span>
+      </div>
+    </div>
+    <div class="g3" style="margin-top:12px">
+      <div class="stat"><b>&lt;15 мин</b><span>ответ в VK и MAX в часы, когда ищут, не только с 9 до 18</span></div>
+      <div class="stat"><b>карточка Яндекса</b><span>ещё нет. Без неё Директ в Петербурге ведёт в пустоту</span></div>
+      <div class="stat"><b>&lt; 1 500 ₽</b><span>цена заявки на пилоте погрузчик / ДОПОГ; считать договоры, не клики</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="kicker">Срез открытых данных · 27.08.2026 · ИНН 7802030919</div>
+    <p style="color:var(--ink);font-family:'Source Serif 4',ui-serif,Georgia,serif;font-size:22px;margin:8px 0;font-weight:600">ЦППК Санкт-Петербург</p>
+    <p>Порядок величины. Сверить: загрузка групп, парк Полюстровского, бюджет, 223-ФЗ, филиалы. cppkspb.ru · vk.com/cppkspb · 2ГИС · Zoon · Догма · закон СПб 659-124 · hh.ru · Avito · TrafDealer · TGStat</p>
+  </div>
+</footer>
+</body>
+</html>
