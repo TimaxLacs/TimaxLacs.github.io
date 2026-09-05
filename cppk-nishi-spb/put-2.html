@@ -42,6 +42,7 @@
     </div>
     <div class="toc-path">
       <a href="#pos">позиция</a>
+      <a href="#b">категория B</a>
       <a href="#econ">смета</a>
       <a href="#funnel">воронка</a>
       <a href="#people">часы</a>
@@ -73,7 +74,31 @@
         <li>Чек 5 000 ₽. При CPL 1 500 и закрытии 50% договор стоит 3 000 ₽ рекламы — 60% чека. Директ на розницу ДОПОГ в max только если закрытие ≥60% или средний чек растёт пакетом (цистерны + класс + самоходка).</li>
         <li>Ёмкость: каталог «каждые 2 недели». Модель 6 групп / 90 дней × 8 мест = 48. Факт набора неизвестен.</li>
         <li>Юрвывод «можно ли везти без свидетельства» — не наш продукт.</li>
+        <li>Зарплаты штаба не учитываем. Часы — загрузка, не ФОТ.</li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="b">
+  <div class="wrap">
+    <div class="b-keep">
+      <h2>Категория B в этом пути</h2>
+      <p class="how" style="border-color:#9bb0bf;max-width:none"><b>Зачем этот блок</b>ДОПОГ часто берут те, у кого B уже есть. Кассу B не выключать: календарь ДОПОГ не заменяет страницу B и кнопку в боте.</p>
+      <div class="grid">
+        <div class="cell">
+          <em>Как B кормит ДОПОГ</em>
+          <p>Тот же человек, та же фирма: HR купил B сотрудникам — вторым счётом закрывает ДОПОГ. В конце группы B — одно сообщение с двумя живыми датами ДОПОГ.</p>
+        </div>
+        <div class="cell">
+          <em>Как ДОПОГ кормит B</em>
+          <p>Счёт за сутки и MAX — общие. Если колонна спрашивает права сотрудникам, B остаётся строкой в КП, не героем письма.</p>
+        </div>
+        <div class="cell">
+          <em>Что не делать</em>
+          <p>Не вести Директ ДОПОГ на главную с B. Не ставить цену B на страницу consdopog. Не убирать B из бота «чтобы не путать».</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -81,9 +106,11 @@
 <section class="sec alt" id="econ">
   <div class="wrap">
     <h2>Смета</h2>
+    <div class="how"><b>Как читать два квадрата</b>Большая цифра — внешние платежи за 90 дней, не зарплаты. Слева — только календарь и счета. Справа — реклама «срочно», и только если из 10 заявок 6+ договоров или человек берёт пакет (ДОПОГ + спецблок + погрузчик).</div>
     <div class="scen">
       <div class="box min">
         <h3>Min · календарь</h3>
+        <p class="hint">Почти без оплаты площадкам.</p>
         <div class="sum">0–8 тыс. ₽</div>
         <dl>
           <dt>Страница дат</dt><dd>0 ₽</dd>
@@ -98,6 +125,7 @@
       </div>
       <div class="box max">
         <h3>Max · Директ «срочно»</h3>
+        <p class="hint">Включать, только если сходится юнит или растёт чек пакетом.</p>
         <div class="sum">30–120 тыс. ₽</div>
         <dl>
           <dt>Директ 6 нед.</dt><dd>30–90 тыс.</dd>
@@ -120,31 +148,33 @@
 <section class="sec" id="funnel">
   <div class="wrap">
     <h2>Воронка</h2>
+    <div class="how"><b>Как читать ступеньки</b>Сверху — кто открыл календарь. Внизу — договоры. Чек 5 000 ₽ узкий: если реклама съедает больше 40% чека — стоп.</div>
     <div class="g2">
       <div>
-        <h3>Min</h3>
+        <h3>Min · без рекламы</h3>
         <div class="funnel">
-          <div class="fn"><div><b>Заходы на страницу дат</b><i style="width:100%"></i></div><span>модель 200–500</span></div>
-          <div class="fn"><div><b>Заявки</b><i style="width:30%"></i></div><span>10–24</span></div>
-          <div class="fn"><div><b>Договоры</b><i style="width:15%"></i></div><span>5–12</span></div>
+          <div class="fn"><div class="n">1</div><div><b>Открыли страницу дат</b><i style="width:100%"></i></div><span>200–500 чел.</span></div>
+          <div class="fn"><div class="n">2</div><div><b>Оставили заявку</b><i style="width:30%"></i></div><span>10–24</span></div>
+          <div class="fn"><div class="n">3</div><div><b>Подписали договор</b><i style="width:15%"></i></div><span>5–12</span></div>
         </div>
       </div>
       <div>
-        <h3>Max, если сходится юнит</h3>
+        <h3>Max · только если сходится</h3>
         <div class="funnel">
-          <div class="fn"><div><b>Показы «ДОПОГ СПб срочно»</b><i style="width:100%"></i></div><span>модель 6–15 тыс.</span></div>
-          <div class="fn"><div><b>Клики на календарь</b><i style="width:35%"></i></div><span>250–700</span></div>
-          <div class="fn"><div><b>Заявки</b><i style="width:16%"></i></div><span>25–80</span></div>
-          <div class="fn"><div><b>Договоры</b><i style="width:10%"></i></div><span>12–40</span></div>
+          <div class="fn"><div class="n">1</div><div><b>Увидели «ДОПОГ СПб срочно»</b><i style="width:100%"></i></div><span>6–15 тыс.</span></div>
+          <div class="fn"><div class="n">2</div><div><b>Зашли на календарь</b><i style="width:35%"></i></div><span>250–700</span></div>
+          <div class="fn"><div class="n">3</div><div><b>Оставили заявку</b><i style="width:16%"></i></div><span>25–80</span></div>
+          <div class="fn"><div class="n">4</div><div><b>Договор</b><i style="width:10%"></i></div><span>12–40</span></div>
         </div>
       </div>
     </div>
-    <div class="bars" style="margin-top:16px">
-      <div class="barline"><span>CPL 1 500 × 50% / чек 5 000</span><div class="t"><em style="width:90%;background:#c4896a"></em></div><span class="n">60%</span></div>
-      <div class="barline"><span>CPL 800 × 60% / чек 5 000</span><div class="t"><em style="width:40%"></em></div><span class="n">27%</span></div>
-      <div class="barline"><span>Пакет 5+3+11 тыс. самоходка</span><div class="t"><em style="width:18%;background:#5c7f72"></em></div><span class="n">низкая доля</span></div>
+    <div class="how" style="margin-top:16px"><b>Как читать полоски</b>Цифра справа — какая доля чека уходит в рекламу. Рыжая длинная полоска = стоп. Зелёная короткая = пакет с погрузчиком, реклама почти не съедает чек.</div>
+    <div class="bars">
+      <div class="barline"><span>Заявка 1 500 ₽, из 10 заявок 5 договоров / курс 5 000</span><div class="t"><em style="width:90%;background:#c4896a"></em></div><span class="n">60% чека</span></div>
+      <div class="barline"><span>Заявка 800 ₽, из 10 заявок 6 договоров / курс 5 000</span><div class="t"><em style="width:40%"></em></div><span class="n">27% чека</span></div>
+      <div class="barline"><span>Пакет 5 + 3 + 11 тыс. (ДОПОГ + блок + погрузчик)</span><div class="t"><em style="width:18%;background:#5c7f72"></em></div><span class="n">низкая доля</span></div>
     </div>
-    <p class="tiny" style="margin-top:8px">Первая строка — стоп для розничного Директа. Третья — зачем стыковать с путём 1.</p>
+    <p class="tiny" style="margin-top:8px">Первая строка — стоп для розничной рекламы. Третья — зачем стыковать с путём 1 и не забывать B как вторую строку счёта.</p>
   </div>
 </section>
 
@@ -162,8 +192,14 @@
 <section class="sec" id="time">
   <div class="wrap">
     <h2>Сроки</h2>
+    <div class="how"><b>Как читать полоски</b>Слева направо — недели 1–12. Зелёное — сначала. Песочное — календарь. Рыжее — реклама, только если две даты живые и счёт за сутки уже работает.</div>
+    <div class="legend-row">
+      <span><i style="background:#5c7f72"></i>сначала</span>
+      <span><i style="background:#d4c4a0"></i>календарь</span>
+      <span><i style="background:#c4896a"></i>реклама после</span>
+    </div>
     <div class="gantt">
-      <div class="axis"><span></span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
+      <div class="axis"><span>неделя →</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span>12</span></div>
       <div class="grow"><span>Две даты на странице</span><div class="lane"><i style="left:0;width:16%"></i></div></div>
       <div class="grow"><span>TG/VK календарь</span><div class="lane"><i class="late" style="left:8%;width:84%"></i></div></div>
       <div class="grow"><span>Счёт за 24 ч как процесс</span><div class="lane"><i class="late" style="left:0;width:33%"></i></div></div>
@@ -174,88 +210,308 @@
 
 <section class="sec alt" id="ch">
   <div class="wrap">
-    <h2>Примеры в оболочке платформ</h2>
-    <div class="plat-grid">
-      <div>
-        <div class="site-mock">
-          <div class="site-nav"><span>cppkspb.ru</span><span>ДОПОГ</span></div>
-          <div class="site-hero">
-            <div class="k">Очно · 5 000 ₽ · экзамен здесь</div>
-            <h4>16–19 сентября. Следующая — 30.09–03.10</h4>
-            <p>Счёт юрлицу за 24 часа. Не «каждые 2 недели» без дат.</p>
-            <span class="site-cta">Записаться · мест 6</span>
+    <h2>Примеры: как это выглядит у человека</h2>
+    <div class="how"><b>Как читать</b>Каждый канал отдельно. Внутри — типы, у типа несколько примеров. Макет как у платформы. Даты — образец. На страницу ДОПОГ цену B не ставить; в боте кнопка B остаётся.</div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark site">сайт</div>
+        <div>
+          <h3>Сайт · страница дат</h3>
+          <p>Сюда ведут Директ и письма. Не на главную с героем B. Страница уже есть как consdopog — нужны две живые даты.</p>
+        </div>
+      </div>
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: календарь</b><span>две даты, не «каждые 2 недели»</span></header>
+        <div class="ex-grid">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · как должно</div>
+            <div class="site-mock">
+              <div class="site-nav"><span>cppkspb.ru</span><span>ДОПОГ · Самоходка · B</span></div>
+              <div class="site-hero">
+                <div class="k">Очно · 5 000 ₽ · экзамен здесь</div>
+                <h4>16–19 сентября. Следующая — 30.09–03.10</h4>
+                <p>Счёт юрлицу за 24 часа. Мест 6.</p>
+                <span class="site-cta">Записаться</span>
+              </div>
+              <div class="site-foot">Категория B — отдельная страница, 45 000 ₽. Не в этом герое.</div>
+            </div>
+            <p class="ex-note">B в меню, не в заголовке.</p>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · спецблок</div>
+            <div class="site-mock">
+              <div class="site-nav"><span>cppkspb.ru</span><span>ДОПОГ</span></div>
+              <div class="site-hero">
+                <div class="k">К той же группе</div>
+                <h4>Цистерны, классы 1 и 7 — +3 000 ₽ каждый</h4>
+                <p>Те же 16–19 сентября. Не отдельный «курс в России».</p>
+                <span class="site-cta">Добавить к счёту</span>
+              </div>
+            </div>
+            <p class="ex-note">Пакет поднимает чек. Юрвывод по грузу не писать.</p>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 3 · так не делать</div>
+            <div class="site-mock">
+              <div class="site-nav"><span>cppkspb.ru</span><span>ДОПОГ</span></div>
+              <div class="site-hero">
+                <div class="k">Так не делать</div>
+                <h4>Обучение ДОПОГ в России</h4>
+                <p>Группы каждые 2 недели. Оставьте заявку.</p>
+                <span class="site-cta">Оставить заявку</span>
+              </div>
+            </div>
+            <p class="ex-note">Равно южному «Перспектива» без даты.</p>
           </div>
         </div>
-        <p class="plat-note">Посадка Директа и писем — сюда, не на главную с B. Страница уже есть как consdopog.</p>
-      </div>
-      <div>
-        <div class="yd">
-          <div class="ad">Реклама</div>
-          <a href="#">ДОПОГ в СПб — группа 16 сентября</a>
-          <div class="url">cppkspb.ru · страница ДОПОГ</div>
-          <p>Очно, 4 дня, экзамен на Полюстровском. Счёт за сутки.</p>
+      </article>
+    </div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark yd">Директ</div>
+        <div>
+          <h3>Яндекс Директ</h3>
+          <p>Только срочный запрос и только если из 10 заявок 6+ договоров или пакет. Не обещать, «можно ли везти без свидетельства».</p>
         </div>
-        <p class="plat-note">Тип: срочный запрос. Не обещать юрвывод по грузу.</p>
       </div>
-      <div>
-        <div class="tg-app">
-          <div class="tg-top"><div class="ava">Ц</div><div><b>ЦППК СПб</b><span>календарь</span></div></div>
-          <div class="tg-thread">
-            <div class="tg-msg">
-              <p>Группа ДОПОГ 16.09–19.09
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: объявление «срочно»</b><span>посадка — календарь, не главная</span></header>
+        <div class="ex-grid">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · дата</div>
+            <div class="yd">
+              <div class="ad">Реклама</div>
+              <a href="#">ДОПОГ в СПб — группа 16 сентября</a>
+              <div class="url">cppkspb.ru · страница ДОПОГ</div>
+              <p>Очно, 4 дня, экзамен на Полюстровском. Счёт за сутки.</p>
+            </div>
+            <p class="ex-note">Заголовок = дата.</p>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · север города</div>
+            <div class="yd">
+              <div class="ad">Реклама</div>
+              <a href="#">ДОПОГ очно — экзамен здесь, не юг и не ВО</a>
+              <div class="url">cppkspb.ru · страница ДОПОГ</div>
+              <p>16–19.09 и 30.09–03.10. Болотная ближе Парнаса, чем юг.</p>
+            </div>
+            <p class="ex-note">Не гонка с ВО по 3 500.</p>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 3 · не запускать</div>
+            <div class="yd">
+              <div class="ad">Реклама · стоп</div>
+              <a href="#">Автошкола + ДОПОГ от 32 000</a>
+              <div class="url">cppkspb.ru</div>
+              <p>Смешивает B и ДОПОГ. Так не вести.</p>
+            </div>
+            <p class="ex-note">B в Директ не ставить.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark tg">TG</div>
+        <div>
+          <h3>Telegram</h3>
+          <p>Главный формат канала: календарь. Один шаблон на все группы.</p>
+        </div>
+      </div>
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: доска дат</b><span>зеркало VK</span></header>
+        <div class="ex-grid">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · две даты</div>
+            <div class="tg-app">
+              <div class="tg-top"><span class="back">‹</span><div class="ava">Ц</div><div><b>ЦППК СПб</b><span>календарь</span></div></div>
+              <div class="tg-thread">
+                <div class="tg-msg">
+                  <p>Группа ДОПОГ 16.09–19.09
 Экзамен на Полюстровском
 Следующая — 30.09–03.10
 
 Мест 6. Счёт — в сообщениях.</p>
-              <div class="meta"><span>10:02</span><span>👁 9</span></div>
+                  <div class="meta"><span>10:02</span><span>👁 9</span></div>
+                </div>
+              </div>
             </div>
           </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · набрана</div>
+            <div class="tg-app">
+              <div class="tg-top"><span class="back">‹</span><div class="ava">Ц</div><div><b>ЦППК СПб</b><span>канал</span></div></div>
+              <div class="tg-thread">
+                <div class="tg-msg">
+                  <p>16–19.09 набрана.
+Открыта 30.09–03.10. Мест 6.</p>
+                  <div class="meta"><span>09:11</span><span>👁 8</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 3 · с B внизу</div>
+            <div class="tg-app">
+              <div class="tg-top"><span class="back">‹</span><div class="ava">Ц</div><div><b>ЦППК СПб</b><span>канал</span></div></div>
+              <div class="tg-thread">
+                <div class="tg-msg">
+                  <p>Даты
+ДОПОГ 16–19.09
+Погрузчик 16.09
+B — Болотная, 1, пн–пт, 45 000 ₽</p>
+                  <div class="meta"><span>09:00</span><span>👁 10</span></div>
+                </div>
+              </div>
+            </div>
+            <p class="ex-note">B одной строкой календаря.</p>
+          </div>
         </div>
-        <p class="plat-note">Главный формат канала. Один шаблон на все группы.</p>
+      </article>
+    </div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark vk">VK</div>
+        <div>
+          <h3>ВКонтакте</h3>
+          <p>Зеркало TG, 1/нед. если дата живая. Не «полезная статья про ДОПОГ».</p>
+        </div>
       </div>
-      <div>
-        <div class="vk-feed">
-          <article class="vk-post">
-            <div class="vk-hd"><div class="vk-ava">Ц</div><div><div class="vk-name">ЦППК СПб</div><div class="vk-time">сегодня в 10:05</div></div><span class="vk-more">···</span></div>
-            <p class="vk-text">ДОПОГ, очно, 4 дня.
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: живая дата</b><span>не юрконсультация</span></header>
+        <div class="ex-grid">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · набор</div>
+            <div class="vk-feed">
+              <div class="vk-app"><div class="vk-logo">VK</div><div class="vk-search">ЦППК СПб</div></div>
+              <article class="vk-post">
+                <div class="vk-hd"><div class="vk-ava">Ц</div><div><div class="vk-name">ЦППК СПб</div><div class="vk-time">сегодня в 10:05</div></div><span class="vk-more">···</span></div>
+                <p class="vk-text">ДОПОГ, очно, 4 дня.
 16–19 сентября, экзамен на нашей площадке.
 5 000 ₽. Счёт за сутки.
 
 Запись в сообщениях.</p>
-            <div class="vk-photo cal">календарь · две даты</div>
-            <div class="vk-bar"><button>Нравится 6</button><button>Коммент. 1</button><button>Поделиться</button><span class="views">98</span></div>
-          </article>
-        </div>
-        <p class="plat-note">Зеркало TG, 1/нед. если дата живая. Не «полезная статья про ДОПОГ».</p>
-      </div>
-      <div>
-        <div class="bot-app">
-          <div class="bot-top">@mcppk_bot</div>
-          <div class="bot-card">ДОПОГ: ближайшая группа 16–19 сентября, 5 000 ₽.
-Экзамен на Полюстровском.
-Юрвопрос по грузу — в Ространснадзор, не сюда.</div>
-          <div class="bot-keys"><span>Даты ДОПОГ</span><span>Цистерны / 1 / 7</span></div>
-        </div>
-        <p class="plat-note">Карточка «кому нужен» без квалификации перевозки.</p>
-      </div>
-      <div>
-        <div class="mail">
-          <div class="mail-head">Тема: ДОПОГ + БДД-20 на год · счёт за сутки</div>
-          <div class="mail-body">
-            <div class="org">ФГАОУ ДПО «МЦППК» им. В.К. Артюха</div>
-            Предлагаем закрыть колонне ближайшие две группы ДОПОГ и график БДД-20 одним договором. Экзамен на Полюстровском. КП выставим за 24 часа.
-            <div class="mail-sign">MAX / mail@ / edu@ — не WhatsApp</div>
+                <div class="vk-photo cal">календарь · две даты</div>
+                <div class="vk-react">❤ <b>6</b></div>
+                <div class="vk-bar"><button>Нравится</button><button>Коммент.</button><button>Поделиться</button><span class="views">👁 98</span></div>
+              </article>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · пакет складу</div>
+            <div class="vk-feed">
+              <div class="vk-app"><div class="vk-logo">VK</div><div class="vk-search">ЦППК СПб</div></div>
+              <article class="vk-post">
+                <div class="vk-hd"><div class="vk-ava">Ц</div><div><div class="vk-name">ЦППК СПб</div><div class="vk-time">18 сен в 11:00</div></div><span class="vk-more">···</span></div>
+                <p class="vk-text">Складу одним счётом: ДОПОГ 16.09 и погрузчик 16.09.
+
+Категория B сотрудникам — отдельно, Болотная, 1.
+ИНН — в сообщениях.</p>
+                <div class="vk-react">❤ <b>4</b></div>
+                <div class="vk-bar"><button>Нравится</button><button>Коммент.</button><button>Поделиться</button><span class="views">👁 72</span></div>
+              </article>
+            </div>
+            <p class="ex-note">B как строка счёта, не герой поста.</p>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 3 · набрана</div>
+            <div class="vk-feed">
+              <div class="vk-app"><div class="vk-logo">VK</div><div class="vk-search">ЦППК СПб</div></div>
+              <article class="vk-post">
+                <div class="vk-hd"><div class="vk-ava">Ц</div><div><div class="vk-name">ЦППК СПб</div><div class="vk-time">15 сен в 09:00</div></div><span class="vk-more">···</span></div>
+                <p class="vk-text">16–19 сентября набрана.
+Следующая ДОПОГ — 30.09–03.10.</p>
+                <div class="vk-bar"><button>Нравится</button><button>Коммент.</button><button>Поделиться</button><span class="views">👁 55</span></div>
+              </article>
+            </div>
           </div>
         </div>
-        <p class="plat-note">Это уже стык с путём 3. В розничный VK не ставить.</p>
-      </div>
+      </article>
     </div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark bot">бот</div>
+        <div>
+          <h3>Бот</h3>
+          <p>Карточка «кому нужен» без квалификации перевозки. Кнопка B на месте.</p>
+        </div>
+      </div>
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: карточка</b></header>
+        <div class="ex-grid two">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · даты</div>
+            <div class="bot-app">
+              <div class="bot-top">@mcppk_bot</div>
+              <div class="bot-card">ДОПОГ: ближайшая группа 16–19 сентября, 5 000 ₽.
+Экзамен на Полюстровском.
+Юрвопрос по грузу — в Ространснадзор, не сюда.</div>
+              <div class="bot-keys"><span>Даты ДОПОГ</span><span>Категория B</span><span>Самоходка</span></div>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · после B</div>
+            <div class="bot-app">
+              <div class="bot-top">@mcppk_bot</div>
+              <div class="bot-card">Если B уже есть — ближайший ДОПОГ 16–19.09.
+Если нужны права B — Болотная, 1, 45 000 ₽, пн–пт.</div>
+              <div class="bot-keys"><span>Записаться на ДОПОГ</span><span>Категория B</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="chan">
+      <div class="chan-head">
+        <div class="chan-mark mail">письмо</div>
+        <div>
+          <h3>Письмо колонне</h3>
+          <p>Стык с путём 3. В розничный VK не ставить.</p>
+        </div>
+      </div>
+      <article class="ex-pack">
+        <header class="ex-pack-h"><b>Тип: КП колонне</b></header>
+        <div class="ex-grid two">
+          <div class="ex">
+            <div class="ex-tag">Пример 1 · ДОПОГ + БДД</div>
+            <div class="mail">
+              <div class="mail-head">Тема: ДОПОГ + БДД-20 на год · счёт за сутки</div>
+              <div class="mail-body">
+                <div class="org">ФГАОУ ДПО «МЦППК» им. В.К. Артюха</div>
+                Предлагаем закрыть колонне ближайшие две группы ДОПОГ и график БДД-20 одним договором. Экзамен на Полюстровском. КП выставим за 24 часа.
+                <div class="mail-sign">MAX / mail@ / edu@ — не WhatsApp</div>
+              </div>
+            </div>
+          </div>
+          <div class="ex">
+            <div class="ex-tag">Пример 2 · строка B</div>
+            <div class="mail">
+              <div class="mail-head">Тема: пакет колонне · ДОПОГ и права сотрудникам</div>
+              <div class="mail-body">
+                <div class="org">ФГАОУ ДПО «МЦППК» им. В.К. Артюха</div>
+                В том же договоре можем закрыть категорию B сотрудникам: 45 000 ₽, теория на Болотной, 1, пн–пт. Это не герой письма — строка, если нужна.
+                <div class="mail-sign">MAX · mail@ · edu@</div>
+              </div>
+            </div>
+            <p class="ex-note">B не вычёркивать из КП, если HR спросил.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
     <div class="g2" style="margin-top:16px">
-      <div class="alert"><b>Не делать.</b> Гнаться с ВО по 3 500. Директ на главную. Пост без даты. Юрконсультация в боте.</div>
-      <div class="notebox"><b>Стоп Директа.</b> Реклама &gt;40% чека. Нет двух живых дат. Счёт дольше суток.</div>
+      <div class="alert"><b>Не делать.</b> Гнаться с ВО по 3 500. Директ на главную. Пост без даты. Юрконсультация в боте. Прятать B.</div>
+      <div class="notebox"><b>Стоп Директа.</b> Реклама больше 40% чека. Нет двух живых дат. Счёт дольше суток.</div>
     </div>
   </div>
 </section>
+
 
 <footer>
   <div class="wrap">
