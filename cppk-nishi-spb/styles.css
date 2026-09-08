@@ -256,6 +256,73 @@ table.heat-table td { text-align: center; font-weight: 700; width: 9%; }
 table.heat-table td:first-child { text-align: left; font-weight: 600; color: var(--muted); width: auto; }
 table.heat-table th { text-align: center; }
 table.heat-table th:first-child { text-align: left; }
+table.heat-table .hw {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  padding: 5px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.hw-main { background: #5c7f72; color: #fff; }
+.hw-yes { background: #8aa89c; color: #fff; }
+.hw-part { background: #d4c4a0; color: #3d382e; }
+.hw-text { background: #ece6d8; color: #3d382e; }
+.hw-no { background: #f3f0ea; color: #6b6964; }
+
+.map-quads {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.map-quad {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+  min-height: 180px;
+}
+.map-quad.tl { background: #e4eee8; }
+.map-quad.tr { background: #dce8e3; }
+.map-quad.bl { background: #eeeae2; }
+.map-quad.br { background: #f3ecd8; }
+.map-quad em {
+  display: block;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 700;
+  color: #5c7f72;
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+.map-quad.br em { color: #8a6a58; }
+.map-quad.bl em { color: #6b6964; }
+.map-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.map-chips a,
+.map-chips span {
+  display: inline-block;
+  background: #fff;
+  border: 1px solid rgba(44, 42, 38, 0.12);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.map-chips a { text-decoration: none; color: inherit; background: #fff; }
+.map-chips a:hover { border-color: #d4c4a0; background: #fffdf8; }
+.map-empty {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .map-quads { grid-template-columns: 1fr; }
+}
 
 .prio { display: grid; grid-template-columns: 36px 1fr; gap: 10px; align-items: center; margin-bottom: 10px; }
 .prio b { font-family: "Source Serif 4", ui-serif, Georgia, serif; font-weight: 600; color: var(--muted); }
