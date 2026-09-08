@@ -1088,9 +1088,20 @@ a.hub-row:hover { background: #4a453d; }
   margin-right: 6px;
   vertical-align: 3px;
 }
+.proof {
+  font-size: 13px;
+  color: var(--muted);
+  max-width: 42ch;
+}
+.proof q {
+  display: block;
+  margin: 4px 0;
+  color: var(--text);
+  quotes: "«" "»" "„" "“";
+}
+
 @media (max-width: 980px) {
   .pay-board { grid-template-columns: 1fr; }
-}
   .barline { grid-template-columns: 1fr; }
   .gantt .grow, .gantt .axis { grid-template-columns: 1fr; }
   .fn { grid-template-columns: 28px 1fr; }
