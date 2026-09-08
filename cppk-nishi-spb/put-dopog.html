@@ -327,7 +327,7 @@
     </div>
 
     <h2 id="market" style="margin-top:28px">Маркетинг и продвижение</h2>
-    <p class="prose">Без зарплат сотрудников. Полная таблица источников — на <a href="puti.html#market">хабе «Пути»</a>. Авито в этом варианте нет. Срок и люди по каналам — <a href="finansy.html#kanaly">«Деньги»</a>. Брать или нет — <a href="#itog">вывод</a>.</p>
+    <p class="prose">Без зарплат. Три пакета — <a href="#itog">минимум / среднее / максимум</a>. Авито нет. Источники — <a href="puti.html#market">хаб</a>. Каналы — <a href="finansy.html#kanaly">«Деньги»</a>.</p>
     <div class="table-wrap" style="margin-bottom:16px">
       <table class="data">
         <tr><th>Если вести ДОПОГ как единственный Директ</th><th>Месяц</th><th>Квартал</th><th>Год</th><th>Доказательство</th></tr>
@@ -511,63 +511,143 @@
 
 <section class="sec alt" id="itog">
   <div class="wrap">
-    <h2>Брать или нет</h2>
-    <p class="prose">Решение по этому упору. Доля с базового курса — 500 ₽. Тот же чужой темп людей, что у погрузчика: 3,89 договора/мес. На чеке 5 000 ₽ этого мало для Директа.</p>
-    <article class="itog">
-      <p class="stamp no">Бесплатное — да · отдельный Директ — нет</p>
-      <h3>ДОПОГ</h3>
-      <dl>
-        <dt>Окупаемость платного Директа</dt>
-        <dd>Нет. Доля 1 944 ₽/мес, пилот 30 000 ₽/мес</dd>
-        <dt>Срок до плюса</dt>
-        <dd>Пересечения нет. Чтобы закрыть 90 000 ₽ с доли, нужно 180 договоров; модель даёт 11,67 за квартал</dd>
-        <dt>Траты до окупаемости</dt>
-        <dd>Не сходятся</dd>
-        <dt>Квартал с пилотом</dt>
-        <dd>90 000 ₽ трат · 5 833 ₽ доли · <b>−84 167 ₽</b></dd>
-        <dt>Год, если не выключать</dt>
-        <dd>360 000 ₽ трат · 23 333 ₽ доли · <b>−336 667 ₽</b></dd>
-        <dt>Без пилота</dt>
-        <dd>Окупаемость не ставится. Две живые даты на сайте — условие, не касса</dd>
-      </dl>
-    </article>
-    <h3 style="margin:22px 0 10px">Кривая трат и доли</h3>
-    <p class="prose">Зелёная почти лежит на нуле: 10% с 5 000 ₽ не догоняет 30 000 ₽/мес. Пунктир без ведения — тоже ниже красной.</p>
-    <div class="pay-board one">
-      <div class="pay-card">
-        <h3>12 месяцев отдельного Директа ДОПОГ</h3>
-        <p class="hint">Та же шкала 360 тыс., чтобы минус был виден рядом с погрузчиком</p>
-        <svg viewBox="0 0 640 270" role="img" aria-label="Доля ДОПОГ почти не поднимается, траты пилота уходят вверх, пересечения нет">
+    <h2 id="budget">Бюджет: минимум, среднее, максимум</h2>
+    <p class="prose">Цикл 90 дней. Доля базового курса — 500 ₽. Отдельный Директ на этом чеке не делаем «средним»: 3 900 ₽ пола уже требуют 7,8 договора за цикл, это не быстро. Медиа 15 000 даёт CAC 7 714 ₽ против 500 ₽.</p>
+    <div class="bud">
+      <input class="bud-in bud-in-min" type="radio" name="bud-dop" id="bd-min" checked />
+      <input class="bud-in bud-in-mid" type="radio" name="bud-dop" id="bd-mid" />
+      <input class="bud-in bud-in-max" type="radio" name="bud-dop" id="bd-max" />
+      <div class="bud-nav">
+        <label class="bud-lab bud-lab-min" for="bd-min">Минимум<small>0 ₽ · брать</small></label>
+        <label class="bud-lab bud-lab-mid" for="bd-mid">Среднее<small>3 000 ₽ / 90 дн.</small></label>
+        <label class="bud-lab bud-lab-max" for="bd-max">Максимум<small>90 000 ₽ · не брать</small></label>
+      </div>
+      <div class="bud-pan bud-pan-min">
+        <p class="stamp yes" style="margin:0 0 8px">Брать. Две живые даты на сайте — условие, не касса</p>
+        <div class="bud-kpis">
+          <div class="stat"><b>0 ₽</b><span>старт</span></div>
+          <div class="stat"><b>0 ₽</b><span>следующий цикл</span></div>
+          <div class="stat"><b>—</b><span>договоров на кассу</span></div>
+          <div class="stat"><b>н/д</b><span>прогноз с рекламы</span></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <tr><th>Платный канал</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
+            <tr><td>Карточки офиса, даты, Telegram, бот</td><td>Да</td><td class="num">0 ₽</td><td>н/д</td></tr>
+            <tr><td>Подписка, Директ, ведение, 2ГИС, Авито</td><td>Нет</td><td>—</td><td>—</td></tr>
+          </table>
+        </div>
+        <div class="pay-board">
+          <div class="pay-card"><h3>Окупаемость цикла</h3><p class="hint">Трат нет</p><p class="prose">Касса не ставится, пока 0 ₽.</p></div>
+          <div class="pay-card"><h3>Люди</h3><p class="hint">Не клик</p><p class="prose">Прогноза заявок нет.</p></div>
+        </div>
+      </div>
+      <div class="bud-pan bud-pan-mid">
+        <p class="stamp mix" style="margin:0 0 8px">Брать после дат. Старт 3 000 ₽ закрывается 6 договорами. Пол Директа сюда не кладём: 7,8 договора за 3 900 ₽ — уже не «быстро» на чеке 5 000</p>
+        <div class="bud-kpis">
+          <div class="stat"><b>3 000 ₽</b><span>старт = подписка офиса, общий пол</span></div>
+          <div class="stat"><b>3 000 ₽</b><span>следующий цикл, если продлить</span></div>
+          <div class="stat"><b>6</b><span>договоров базового · 3 000 / 500</span></div>
+          <div class="stat"><b>н/д</b><span>заявок на пол 3 000 Яндекс не публикует</span></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <tr><th>Платный канал</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
+            <tr><td>Подписка Яндекс Бизнеса</td><td>Да, после дат</td><td class="num">от 3 000 ₽</td><td>н/д. <a href="https://business.yandex.ru/subscription/" target="_blank" rel="noopener noreferrer">Лендинг</a></td></tr>
+            <tr><td>Директ «ДОПОГ срочно»</td><td>Нет в среднем</td><td>—</td><td>Пол 300 ₽/нед потребовал бы 7,8 договора с доли 500</td></tr>
+            <tr><td>Ведение и медиа 15 000</td><td>Нет</td><td>—</td><td>—</td></tr>
+            <tr><td>Авито, 2ГИС пакет, Директ B</td><td>Нет</td><td>—</td><td>—</td></tr>
+          </table>
+        </div>
+        <p class="tiny">3 000 / 500 = 6. Год из четырёх циклов: 12 000 ₽ и 24 договора. Если офис уже оплатил подписку в пакете погрузчика, это тот же пол, не вторая 3 000.</p>
+        <div class="pay-board">
+          <div class="pay-card">
+            <h3>Окупаемость одного цикла</h3>
+            <p class="hint">Пересечение на 6</p>
+            <svg viewBox="0 0 640 270" role="img" aria-label="Подписка 3000 закрывается 6 договорами ДОПОГ">
           <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
-          <g stroke="#e6e0d6" stroke-width="1">
-            <line x1="56" y1="69" x2="616" y2="69" />
-            <line x1="56" y1="118" x2="616" y2="118" />
-            <line x1="56" y1="167" x2="616" y2="167" />
-            <line x1="196" y1="20" x2="196" y2="216" />
-            <line x1="336" y1="20" x2="336" y2="216" />
-            <line x1="476" y1="20" x2="476" y2="216" />
-          </g>
-          <line x1="196" y1="20" x2="196" y2="216" stroke="#c4a574" stroke-width="1.5" stroke-dasharray="4 3" />
-          <polyline fill="none" stroke="#b87a7a" stroke-width="3" points="56.0,216.0 102.7,199.7 149.3,183.3 196.0,167.0 242.7,150.7 289.3,134.3 336.0,118.0 382.7,101.7 429.3,85.3 476.0,69.0 522.7,52.7 569.3,36.3 616.0,20.0" />
-          <polyline fill="none" stroke="#b87a7a" stroke-width="2" stroke-dasharray="7 4" points="56.0,216.0 102.7,207.8 149.3,199.7 196.0,191.5 242.7,183.3 289.3,175.2 336.0,167.0 382.7,158.8 429.3,150.7 476.0,142.5 522.7,134.3 569.3,126.2 616.0,118.0" />
-          <polyline fill="none" stroke="#3d6b5a" stroke-width="3" points="56.0,216.0 102.7,214.9 149.3,213.9 196.0,212.8 242.7,211.8 289.3,210.7 336.0,209.6 382.7,208.6 429.3,207.5 476.0,206.5 522.7,205.4 569.3,204.4 616.0,203.3" />
-          <text x="8" y="24" font-size="11" fill="#5a625e">360 тыс.</text>
-          <text x="8" y="122" font-size="11" fill="#5a625e">180</text>
-          <text x="8" y="171" font-size="11" fill="#5a625e">90</text>
+          <g stroke="#e6e0d6" stroke-width="1"><line x1="56" y1="167.0" x2="616" y2="167.0" /><line x1="56" y1="118.0" x2="616" y2="118.0" /><line x1="56" y1="69.0" x2="616" y2="69.0" /><line x1="196.0" y1="20" x2="196.0" y2="216" /><line x1="336.0" y1="20" x2="336.0" y2="216" /><line x1="476.0" y1="20" x2="476.0" y2="216" /></g>
+          <line x1="56" y1="98.4" x2="616" y2="98.4" stroke="#b87a7a" stroke-width="2" stroke-dasharray="6 4" />
+          <polyline fill="none" stroke="#3d6b5a" stroke-width="3" points="56,216 616,20" />
+          <circle cx="392.0" cy="98.4" r="6" fill="#2c2a26" />
+          <text x="8" y="24" font-size="11" fill="#5a625e">5 тыс.</text>
+          <text x="8" y="102.4" font-size="11" fill="#b87a7a">3 тыс.</text>
           <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
-          <text x="188" y="16" font-size="11" fill="#8a6a32">кв.</text>
           <text x="50" y="246" font-size="11" fill="#5a625e">0</text>
-          <text x="328" y="246" font-size="11" fill="#5a625e">6 мес.</text>
-          <text x="575" y="246" font-size="11" fill="#5a625e">12</text>
+          <text x="382.0" y="246" font-size="11" fill="#2c2a26">6</text>
+          <text x="590" y="246" font-size="11" fill="#5a625e">10</text>
         </svg>
-        <p class="pay-leg"><span><i style="background:#b87a7a"></i>пилот 30 000 ₽/мес</span><span><i style="background:#b87a7a"></i>без ведения 15 000</span><span><i style="background:#3d6b5a"></i>доля 1 944 ₽/мес</span></p>
+            <p class="pay-leg"><span><i style="background:#3d6b5a"></i>500 × n</span><span><i style="background:#b87a7a"></i>3 000 ₽</span></p>
+          </div>
+          <div class="pay-card">
+            <h3>Люди за цикл</h3>
+            <p class="hint">Нужно 6. Прогноза с подписки нет</p>
+            <svg viewBox="0 0 640 270" role="img" aria-label="Нужно 6 договоров ДОПОГ, прогноза нет">
+          <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
+          <rect x="160" y="98.4" width="90" height="117.6" fill="#8a6a32" />
+          
+          <text x="8" y="24" font-size="11" fill="#5a625e">10</text>
+          <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
+          <text x="160" y="246" font-size="11" fill="#8a6a32">нужно 6</text>
+          <text x="360" y="130" font-size="14" fill="#5a625e">н/д</text><text x="360" y="246" font-size="11" fill="#5a625e">прогноз</text>
+        </svg>
+            <p class="pay-leg"><span><i style="background:#8a6a32"></i>нужно с доли</span><span><i style="background:#3d6b5a"></i>чужой прогноз</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="bud-pan bud-pan-max">
+        <p class="stamp no" style="margin:0 0 8px">Не брать. Даже медиа без ведения: 1 944 ₽ доли против 15 000 ₽. С ведением −84 167 ₽ за квартал</p>
+        <div class="bud-kpis">
+          <div class="stat"><b>90 000 ₽</b><span>если вести ДОПОГ как единственный Директ</span></div>
+          <div class="stat"><b>30 000 ₽/мес</b><span>последующие</span></div>
+          <div class="stat"><b>180</b><span>договоров на квартал · 90 000 / 500</span></div>
+          <div class="stat"><b>11,67</b><span>тот же чужой прогноз, доля только 5 833 ₽</span></div>
+        </div>
+        <div class="table-wrap">
+          <table class="data">
+            <tr><th>Платный канал</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
+            <tr><td>Медиа + ведение</td><td>Только если сознательный тест, не касса</td><td class="num">90 000 ₽</td><td>11,67 договора автошкол, не ДОПОГ. Статья TrafDealer</td></tr>
+            <tr><td>2ГИС, Директ B</td><td>Нет</td><td>—</td><td>—</td></tr>
+          </table>
+        </div>
+        <p class="tiny">11,67 × 500 = 5 833 доли против 90 000. CAC 7 714 уже больше 500. Последующие месяцы минус копится.</p>
+        <div class="pay-board">
+          <div class="pay-card">
+            <h3>Окупаемость квартала при заморозке трат</h3>
+            <p class="hint">180 договоров. На 11,67 далеко</p>
+            <svg viewBox="0 0 640 270" role="img" aria-label="Пилот 90000 закрывается 180 договорами ДОПОГ">
+          <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
+          <g stroke="#e6e0d6" stroke-width="1"><line x1="56" y1="167.0" x2="616" y2="167.0" /><line x1="56" y1="118.0" x2="616" y2="118.0" /><line x1="56" y1="69.0" x2="616" y2="69.0" /><line x1="196.0" y1="20" x2="196.0" y2="216" /><line x1="336.0" y1="20" x2="336.0" y2="216" /><line x1="476.0" y1="20" x2="476.0" y2="216" /></g>
+          <line x1="56" y1="39.6" x2="616" y2="39.6" stroke="#b87a7a" stroke-width="2" stroke-dasharray="6 4" />
+          <polyline fill="none" stroke="#3d6b5a" stroke-width="3" points="56,216 616,20" />
+          <circle cx="560.0" cy="39.6" r="6" fill="#2c2a26" />
+          <text x="8" y="24" font-size="11" fill="#5a625e">100 тыс.</text>
+          <text x="8" y="43.6" font-size="11" fill="#b87a7a">90 тыс.</text>
+          <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
+          <text x="50" y="246" font-size="11" fill="#5a625e">0</text>
+          <text x="550.0" y="246" font-size="11" fill="#2c2a26">180</text>
+          <text x="590" y="246" font-size="11" fill="#5a625e">200</text>
+        </svg>
+            <p class="pay-leg"><span><i style="background:#3d6b5a"></i>500 × n</span><span><i style="background:#b87a7a"></i>90 000 ₽</span></p>
+          </div>
+          <div class="pay-card">
+            <h3>Люди за квартал</h3>
+            <p class="hint">Нужно 180 против 11,67</p>
+            <svg viewBox="0 0 640 270" role="img" aria-label="Нужно 180, чужой прогноз 11,67">
+          <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
+          <rect x="160" y="20.0" width="90" height="196.0" fill="#8a6a32" />
+          <rect x="360" y="203.3" width="90" height="12.7" fill="#3d6b5a" />
+          <text x="8" y="24" font-size="11" fill="#5a625e">180</text>
+          <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
+          <text x="160" y="246" font-size="11" fill="#8a6a32">нужно 180</text>
+          <text x="360" y="246" font-size="11" fill="#3d6b5a">прогноз 11,67</text>
+        </svg>
+            <p class="pay-leg"><span><i style="background:#8a6a32"></i>нужно</span><span><i style="background:#3d6b5a"></i>прогноз 11,67</span></p>
+          </div>
+        </div>
       </div>
     </div>
-    <p class="tiny">1 944 = 15 000 / 1 350 × 0,35 × 5 000 × 0,10. Даже низ чужой вилки 720 ₽ и 40%: 15 000 / 720 × 0,4 × 500 = 4 167 ₽ против 15 000 медиа. Это не модель, и всё равно минус. <a href="finansy.html#krivaya">«Деньги»</a>.</p>
-    <div class="itog-cut">
-      <div class="alert"><b>Что вычесть</b> Отдельный Директ этого упора — не брать. Даже если ведение уже оплачено на погрузчик, плюс 15 000 ₽ медиа даёт те же 1 944 ₽ доли. Пакет 2ГИС, Авито «автошкола», Директ B — нет.</div>
-      <div class="okbox"><b>Что добавить</b> Две живые даты на сайте. Календарь в Telegram. Счёт за сутки. Карточки офиса склеить. Письма ФКУ без баннера. Подписка офиса — общий пол с B, не отдельная смета ДОПОГ.</div>
-    </div>
+    <p class="prose" style="margin-top:16px">Источники — <a href="puti.html#market">хаб</a>, <a href="finansy.html#kanaly">каналы</a>. Чек 5 000 — <a href="https://cppkspb.ru/study/consdopog/bazovyy-kurs/" target="_blank" rel="noopener noreferrer">базовый курс</a>.</p>
   </div>
 </section>
 
