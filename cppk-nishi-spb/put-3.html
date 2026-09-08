@@ -41,6 +41,7 @@
       <a href="put-b.html">B касса</a>
     </div>
     <div class="toc-path">
+      <a href="#dash">сразу главное</a>
       <a href="#pos">позиция</a>
       <a href="#b">категория B</a>
       <a href="#econ">смета</a>
@@ -51,7 +52,85 @@
   </div>
 </header>
 
-<section class="sec" style="padding-top:0" id="pos">
+<section class="sec" style="padding-top:0" id="dash">
+  <div class="wrap">
+    <div class="dash">
+      <h2>Сразу главное</h2>
+      <p class="sub">Здесь люди растут медленно: 20 писем ≠ 20 договоров. За 90 дней договор может быть ноль. Траты — бумага и семинар, не баннеры. Модель.</p>
+      <div class="aud">
+        <div class="box yes">
+          <em>Кто придёт</em>
+          <div class="chips">
+            <span>канцелярия ФКУ / ГБУ</span>
+            <span>Упрдор СЗ, дорожные колонны</span>
+            <span>нужен год на площадке, не вебинар</span>
+            <span>MAX и почта, не WhatsApp</span>
+          </div>
+        </div>
+        <div class="box no">
+          <em>Кто не придёт</em>
+          <div class="chips">
+            <span>зрители VK / Reels</span>
+            <span>Директ «обучение дорожников»</span>
+            <span>покупка «как автошкола B»</span>
+          </div>
+        </div>
+      </div>
+      <div class="dash-kpis">
+        <div class="kpi money">
+          <em>Траты min</em>
+          <b>2–8 тыс. ₽</b>
+          <div class="pair">конверт и доставка 20 писем</div>
+        </div>
+        <div class="kpi money">
+          <em>Траты max</em>
+          <b>30–90 тыс. ₽</b>
+          <div class="pair">плюс день семинара. Директ = 0</div>
+        </div>
+        <div class="kpi people">
+          <em>Договоры</em>
+          <b>0–1 / 90 дн.</b>
+          <div class="pair">за год модель 1–3. Цикл — месяцы</div>
+        </div>
+        <div class="kpi when">
+          <em>Первый ответ</em>
+          <b>нед. 3–6</b>
+          <div class="pair">договор часто позже квартала</div>
+        </div>
+      </div>
+      <div class="dash-charts">
+        <div class="chart-card">
+          <h3>Прирост людей</h3>
+          <p class="hint">Как читать: это не розница. Ступеньки — ответы, потом КП, потом редкий договор. Песочная — если был семинар: больше встреч, не сразу больше договоров.</p>
+          <svg viewBox="0 0 560 200" role="img" aria-label="Ответы и договоры ФКУ по неделям">
+            <text x="4" y="24" fill="#c9c2b4" font-size="11">встречи</text>
+            <text x="8" y="164" fill="#c9c2b4" font-size="11">0</text>
+            <line x1="40" y1="160" x2="540" y2="160" stroke="#6b6560"/>
+            <polyline fill="none" stroke="#8aa89c" stroke-width="3" points="40,160 85,160 131,146 176,139 221,132 267,125 312,125 358,118 403,118 448,111 494,111 539,111"/>
+            <polyline fill="none" stroke="#d4c4a0" stroke-width="3" points="40,160 85,160 131,146 176,132 221,118 267,104 312,90 358,76 403,70 448,64 494,58 539,52"/>
+            <text x="40" y="180" fill="#c9c2b4" font-size="11">нед. 1 письма</text>
+            <text x="267" y="180" fill="#c9c2b4" font-size="11">6 follow-up</text>
+            <text x="403" y="180" fill="#c9c2b4" font-size="11">8 семинар</text>
+            <text x="520" y="180" fill="#c9c2b4" font-size="11">12</text>
+          </svg>
+          <div class="chart-leg"><span><i style="background:#8aa89c"></i>ответы / КП, min</span><span><i style="background:#d4c4a0"></i>после семинара</span></div>
+        </div>
+        <div class="chart-card">
+          <h3>Когда сколько тратим</h3>
+          <p class="hint">Директа нет ни в одном отрезке.</p>
+          <div class="phase">
+            <div class="row"><span>нед. 1–4<br>MAX + письма</span><div class="pairbar"><em>2–5 тыс.</em><b>2–5 тыс.</b></div></div>
+            <div class="row"><span>нед. 5–8<br>follow-up</span><div class="pairbar"><em>0</em><b>0</b></div></div>
+            <div class="row"><span>нед. 9–12<br>семинар</span><div class="pairbar"><em>0</em><b>20–60 тыс.</b></div></div>
+          </div>
+        </div>
+      </div>
+      <p class="dash-note">B — строка в КП, если спросили права сотрудникам. Не герой письма. Кассу B не выключать.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="pos">
   <div class="wrap">
     <div class="pos">
       <div class="cell we">
@@ -373,5 +452,6 @@
     <p><a href="put-4.html">Дальше: ОТ + помощь →</a></p>
   </div>
 </footer>
+<script src="gloss.js" defer></script>
 </body>
 </html>

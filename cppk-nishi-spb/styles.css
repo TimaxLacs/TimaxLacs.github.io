@@ -760,8 +760,49 @@ footer { background: #e7eeea; color: var(--muted); padding: 32px 0 44px; font-si
   .rail .ph:not(:last-child)::after { display: none; }
 }
 
+.gloss {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  cursor: help;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-thickness: 1.5px;
+  text-decoration-color: var(--mark-deep);
+  text-underline-offset: 3px;
+}
+a .gloss {
+  background: transparent;
+  padding: 0;
+  font-weight: inherit;
+  color: inherit;
+}
+.gloss[aria-expanded="true"] {
+  background: rgba(201, 180, 138, 0.35);
+  border-radius: 3px;
+}
+.gloss-pop {
+  position: absolute;
+  z-index: 40;
+  max-width: 280px;
+  padding: 10px 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
 @media print {
   .top { position: static; }
   nav { display: none; }
   .sec { break-inside: avoid; }
+  .gloss { text-decoration: none; }
+  .gloss-pop { display: none; }
 }
