@@ -29,10 +29,7 @@
   <div class="wrap">
     <div class="kicker">Внутренняя справка · Петербург · срез 08.09.2026</div>
     <h1 style="margin-top:10px">Кто стоит в одном поиске</h1>
-    <p class="lead">Эта страница не добавляет новых цен. Она рисует то, что уже стоит на <a href="cppk.html">«Мы»</a>, <a href="nishi.html">«Нишах»</a> и <a href="konkurenty.html">«Игроках»</a>.</p>
-    <p class="tiny" style="margin-top:12px">Синее подчёркнутое — ссылка на источник. Открывается в новой вкладке.</p>
-    <p class="prose" style="margin-top:14px">Три типичных запроса. В одном запросе Догма и РОСДОРНИИ не встречаются.</p>
-    <p class="tiny">
+    <p class="tiny" style="margin-top:14px">
       <a href="https://yandex.ru/search/?text=%D0%B0%D0%B2%D1%82%D0%BE%D1%88%D0%BA%D0%BE%D0%BB%D0%B0%20%D0%9F%D0%B0%D1%80%D0%BD%D0%B0%D1%81" target="_blank" rel="noopener noreferrer">автошкола Парнас</a>
       ·
       <a href="https://yandex.ru/search/?text=%D0%BF%D1%80%D0%B0%D0%B2%D0%B0%20%D0%BF%D0%BE%D0%B3%D1%80%D1%83%D0%B7%D1%87%D0%B8%D0%BA%20%D0%A1%D0%9F%D0%B1" target="_blank" rel="noopener noreferrer">права погрузчик СПб</a>
@@ -42,80 +39,90 @@
   </div>
 </header>
 
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <h2>Слова на этой странице</h2>
-    <div class="table-wrap">
-      <table class="data">
-        <tr><th>Слово</th><th>Что это</th></tr>
-        <tr><td>Витрина</td><td>Цена, программа и адрес, которые человек видит на сайте до звонка. Не выручка и не число мест в группе</td></tr>
-        <tr><td>УТМ</td><td>Удостоверение тракториста-машиниста. Права на погрузчик, трактор и другую самоходку. Принимает <a href="https://www.gov.spb.ru/gov/otrasl/sl_nadzora/telefony-inspekcii/" target="_blank" rel="noopener noreferrer">Гостехнадзор</a>, не ГИБДД</td></tr>
-        <tr><td>ДОПОГ</td><td>Свидетельство на перевозку опасного груза. Сгорает по сроку. Регулятор — Ространснадзор</td></tr>
-        <tr><td>ФКУ / ГБУ</td><td>Федеральный или городской заказчик. Обычно письмо и договор, не объявление в поиске</td></tr>
-        <tr><td>ЦППК</td><td>Так коллеги зовут учебный центр Росавтодора. АО «ЦППК» — электрички, не мы</td></tr>
-        <tr><td>Основной / есть / часть / текст / нет</td><td>Шкала таблицы ниже. Смотрит только сайт, не скрытые договоры</td></tr>
-      </table>
-    </div>
-  </div>
-</section>
-
-<section class="sec alt">
-  <div class="wrap">
-    <h2>1. Четыре угла: кто с кем в одном запросе</h2>
-    <p class="prose">Зачем этот слой. Показать, кого человек видит вместе. Это не схема метро и не план, кем центр хочет стать.</p>
-    <p class="tiny" style="margin-bottom:14px">Слева — человек платит сам. Справа — платит организация. Вверху — на сайте есть площадка или заявлен экзамен. Внизу — в основном интернет, своей площадки в городе нет.</p>
-    <div class="map-quads">
-      <div class="map-quad tl">
-        <em>Розница · площадка или экзамен на сайте</em>
-        <div class="map-chips">
-          <a href="https://avtoshkola-dogma.ru/stoimost" target="_blank" rel="noopener noreferrer">Догма</a>
-          <a href="https://www.pobeda78.ru/" target="_blank" rel="noopener noreferrer">Победа</a>
-          <a href="https://fara-spb.ru/price/" target="_blank" rel="noopener noreferrer">Фара</a>
-          <a href="https://avtoshkolaritm.ru/" target="_blank" rel="noopener noreferrer">Ритм · B и УТМ</a>
-          <a href="https://autorally-spb.ru/stoimost" target="_blank" rel="noopener noreferrer">Авторалли</a>
-          <a href="https://megapolis-car.ru/spb/credit" target="_blank" rel="noopener noreferrer">Мегаполис</a>
-          <a href="https://kursy-traktorista.ru/spb/" target="_blank" rel="noopener noreferrer">1-я тракторная · только УТМ</a>
-          <a href="https://dopog-spb.ru/" target="_blank" rel="noopener noreferrer">«Перспектива», юг</a>
-          <a href="cppk.html">Мы · Болотная / Полюстровский</a>
+<section class="sec alt" style="padding-top:0">
+  <div class="wrap map-wide">
+    <h2>1. Карта запроса</h2>
+    <div class="plane" role="img" aria-label="Карта: слева платит человек, справа организация; вверху площадка или экзамен, внизу интернет без своей площадки">
+      <div class="plane-y plane-y-top">площадка или экзамен на сайте</div>
+      <div class="plane-mid">
+        <div class="plane-x">платит человек</div>
+        <div class="plane-cells">
+          <div class="plane-cell tl">
+            <em>розница · своя точка</em>
+            <div class="plane-group">
+              <span>сети B</span>
+              <div class="map-chips">
+                <a href="https://avtoshkola-dogma.ru/stoimost" target="_blank" rel="noopener noreferrer">Догма</a>
+                <a href="https://www.pobeda78.ru/" target="_blank" rel="noopener noreferrer">Победа</a>
+                <a href="https://fara-spb.ru/price/" target="_blank" rel="noopener noreferrer">Фара</a>
+              </div>
+            </div>
+            <div class="plane-group">
+              <span>B и УТМ</span>
+              <div class="map-chips">
+                <a href="https://avtoshkolaritm.ru/price/" target="_blank" rel="noopener noreferrer">Ритм · B 60 000 ₽</a>
+                <a href="https://autorally-spb.ru/stoimost" target="_blank" rel="noopener noreferrer">Авторалли</a>
+                <a href="https://megapolis-car.ru/spb/credit" target="_blank" rel="noopener noreferrer">Мегаполис</a>
+              </div>
+            </div>
+            <div class="plane-group">
+              <span>только УТМ</span>
+              <div class="map-chips">
+                <a href="https://kursy-traktorista.ru/spb/" target="_blank" rel="noopener noreferrer">1-я тракторная · от 10 000 ₽</a>
+              </div>
+            </div>
+            <div class="plane-group">
+              <span>ДОПОГ, точка в городе</span>
+              <div class="map-chips">
+                <a href="https://dopog-spb.ru/" target="_blank" rel="noopener noreferrer">«Перспектива», юг</a>
+              </div>
+            </div>
+            <div class="map-chips">
+              <a class="chip-us" href="cppk.html">Мы · Болотная / Полюстровский</a>
+            </div>
+          </div>
+          <div class="plane-cell tr">
+            <em>организация · своя точка</em>
+            <p class="plane-empty">Готового пакета «техника + БДД + охрана труда + площадка в Петербурге» на сайтах нет. В <a href="https://cppkspb.ru/study/" target="_blank" rel="noopener noreferrer">нашем каталоге</a> курсы по отдельности, годового договора ФКУ / ГБУ нет.</p>
+          </div>
+          <div class="plane-cell bl">
+            <em>розница · другой документ или дешёвый курс</em>
+            <div class="plane-group">
+              <span>не УТМ</span>
+              <div class="map-chips">
+                <a href="https://mv-spec.ru/rabochie-professii/voditel-pogruzchika/" target="_blank" rel="noopener noreferrer">«Профессия» от 5 500 ₽</a>
+                <a href="https://sankt-peterburg.aprofpk.ru/services/kursy-rabochikh-professiy/voditel-pogruzchika/" target="_blank" rel="noopener noreferrer">АПрофПК от 6 000 ₽</a>
+              </div>
+            </div>
+            <div class="map-chips">
+              <a href="https://ncpo.ru/spb" target="_blank" rel="noopener noreferrer">НЦПО</a>
+              <a href="https://profi-dpo.ru/spb/" target="_blank" rel="noopener noreferrer">Практикант · тот же офис</a>
+              <a href="https://kalinkom.ru/product/opasnye-gruzy/perevozka-opasnykh-gruzov-bazovyy-kurs-podgotovki/" target="_blank" rel="noopener noreferrer">Калинком · ДОПОГ от 3 600 ₽</a>
+              <a href="https://eduperspektiva.ru/napravleniya/dorozhnaya-perevozka-opasnyix-gruzov/" target="_blank" rel="noopener noreferrer">«Перспектива», В.О.</a>
+            </div>
+          </div>
+          <div class="plane-cell br">
+            <em>организация · интернет, без своей площадки</em>
+            <div class="map-chips">
+              <a href="https://rosdorspk.ru/" target="_blank" rel="noopener noreferrer">РОСДОРНИИ · дистантный ПК</a>
+              <a href="https://rosdornii.ru/contacts/" target="_blank" rel="noopener noreferrer">филиал · Ленинский, 144</a>
+              <a href="https://ipk.spbgasu.ru/programmy/povyshenie-kvalifikatsii/dorozhnoe-stroitelstvo/" target="_blank" rel="noopener noreferrer">СПбГАСУ ИДО · 6 000 ₽</a>
+              <a href="https://ot-sfera.ru/" target="_blank" rel="noopener noreferrer">ОТ-Сфера</a>
+              <a href="https://umcnord.ru/services/dopog/perevozki-opasnykh-gruzov-v-sootvetstvii-s-soglasheniem-o-mezhdunarodnoy-dorozhnoy-perevozke-opasnykh/" target="_blank" rel="noopener noreferrer">УМЦ Норд · ДОПОГ дистант</a>
+            </div>
+          </div>
         </div>
-        <p class="tiny" style="margin-top:10px">Сюда попадают и сети прав, и гибриды, и дешёвая самоходка. Их нельзя клеить в одну точку: у <a href="https://kursy-traktorista.ru/spb/" target="_blank" rel="noopener noreferrer">Первой тракторной</a> легковых прав B нет, у <a href="https://avtoshkolaritm.ru/price/" target="_blank" rel="noopener noreferrer">Ритма</a> категория B стоит 60 000 ₽.</p>
+        <div class="plane-x">платит организация</div>
       </div>
-      <div class="map-quad tr">
-        <em>Организация · площадка в городе</em>
-        <p class="map-empty">Готового пакета «права на технику + БДД + охрана труда + площадка в Петербурге» на открытых сайтах нет. У нас курсы продаются по отдельности, годового договора ФКУ / ГБУ в <a href="https://cppkspb.ru/study/" target="_blank" rel="noopener noreferrer">каталоге</a> нет.</p>
-      </div>
-      <div class="map-quad bl">
-        <em>Розница · дешёвый курс или другой документ</em>
-        <div class="map-chips">
-          <a href="https://mv-spec.ru/rabochie-professii/voditel-pogruzchika/" target="_blank" rel="noopener noreferrer">«Профессия» от 5 500 ₽</a>
-          <a href="https://sankt-peterburg.aprofpk.ru/services/kursy-rabochikh-professiy/voditel-pogruzchika/" target="_blank" rel="noopener noreferrer">АПрофПК от 6 000 ₽</a>
-          <a href="https://ncpo.ru/spb" target="_blank" rel="noopener noreferrer">НЦПО</a>
-          <a href="https://kalinkom.ru/product/opasnye-gruzy/perevozka-opasnykh-gruzov-bazovyy-kurs-podgotovki/" target="_blank" rel="noopener noreferrer">Калинком · ДОПОГ от 3 600 ₽</a>
-          <a href="https://eduperspektiva.ru/napravleniya/dorozhnaya-perevozka-opasnyix-gruzov/" target="_blank" rel="noopener noreferrer">«Перспектива», В.О.</a>
-        </div>
-        <p class="tiny" style="margin-top:10px">5 500–6 000 ₽ часто не те же права, что УТМ. «Практикант» на <a href="https://profi-dpo.ru/spb/" target="_blank" rel="noopener noreferrer">profi-dpo.ru/spb</a> — тот же НЦПО, тот же офис на Лиговском, не второй игрок.</p>
-      </div>
-      <div class="map-quad br">
-        <em>Организация · в основном интернет, без своей площадки</em>
-        <div class="map-chips">
-          <a href="https://rosdorspk.ru/" target="_blank" rel="noopener noreferrer">РОСДОРНИИ · дистантный ПК</a>
-          <a href="https://ipk.spbgasu.ru/programmy/povyshenie-kvalifikatsii/dorozhnoe-stroitelstvo/" target="_blank" rel="noopener noreferrer">СПбГАСУ ИДО · 6 000 ₽</a>
-          <a href="https://ot-sfera.ru/" target="_blank" rel="noopener noreferrer">ОТ-Сфера</a>
-          <a href="https://umcnord.ru/services/dopog/perevozki-opasnykh-gruzov-v-sootvetstvii-s-soglasheniem-o-mezhdunarodnoy-dorozhnoy-perevozke-opasnykh/" target="_blank" rel="noopener noreferrer">УМЦ Норд · ДОПОГ дистант</a>
-        </div>
-        <p class="tiny" style="margin-top:10px">Правый верх схемы не пустой целиком: его занимает другой продукт — отраслевое повышение квалификации по стране. Питерский адрес РОСДОРНИИ <a href="https://rosdornii.ru/contacts/" target="_blank" rel="noopener noreferrer">Ленинский пр., 144 к.1 стр. 2</a> — контакты филиала, не запись на технику.</p>
-      </div>
+      <div class="plane-y plane-y-bot">интернет, своей площадки в городе нет</div>
     </div>
-    <div class="notebox" style="margin-top:14px">
-      <b>НИИОТ на схему не ставим.</b> <a href="https://niiot.ru/" target="_blank" rel="noopener noreferrer">Сайт</a> открывается, последние новости — 2014. Юрлицо НУ «НИИОТ РГСУ», ИНН <a href="https://www.rusprofile.ru/search?query=7803039329" target="_blank" rel="noopener noreferrer">7803039329</a>, исключено из ЕГРЮЛ 10.01.2018.
-    </div>
+    <p class="tiny" style="margin-top:12px">НИИОТ на карте нет: <a href="https://niiot.ru/" target="_blank" rel="noopener noreferrer">сайт</a> открывается, юрлицо ИНН <a href="https://www.rusprofile.ru/search?query=7803039329" target="_blank" rel="noopener noreferrer">7803039329</a> исключено из ЕГРЮЛ 10.01.2018.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
     <h2>2. Что у кого на витрине</h2>
-    <p class="prose">Зачем этот слой. Одна таблица: продаёт ли школа эту программу на сайте. Цифра 1–5 здесь больше не стоит: четвёрка читалась как сила, хотя это была только строка каталога.</p>
     <div class="legend">
       <span><i style="background:#5c7f72"></i>основной — главный продукт в этом запросе</span>
       <span><i style="background:#8aa89c"></i>есть — курс и цена на сайте есть</span>
@@ -123,7 +130,6 @@
       <span><i style="background:#ece6d8"></i>текст — машина или курс названы в абзаце, карточки нет</span>
       <span><i style="background:#f3f0ea"></i>нет — отдельной программы на сайте нет</span>
     </div>
-    <p class="tiny" style="margin:0 0 12px">Это не выручка, не места в группе и не ответ на вопрос «приезжает ли инспектор». Статус нашей клетки совпадает с <a href="nishi.html">«Нишами»</a>.</p>
     <div class="table-wrap">
       <table class="data heat-table">
         <thead>
@@ -355,59 +361,72 @@
 
 <section class="sec alt">
   <div class="wrap">
-    <h2>3. Север города — адреса, не схема метро</h2>
-    <p class="prose">Зачем этот слой. Где физически стоят точки, которые попадают в один поиск с нашими двумя адресами. Это не расстояния и не «свободная клетка».</p>
-    <div class="geo-board">
-      <div class="geo-col">
-        <h3>У метро «Парнас»</h3>
-        <p class="tiny" style="margin-bottom:10px">В каталоге <a href="https://avtoshkoli.ru/sankt-peterburg/metro-parnas/" target="_blank" rel="noopener noreferrer">avtoshkoli.ru</a> 08.09 — 13 школ. Это карточки брендов, не юрлица и не реестр ГИБДД. Другой справочник по городу даёт уже <a href="https://avtoshkolareiting.ru/sankt-peterburg" target="_blank" rel="noopener noreferrer">157</a>.</p>
-        <div class="pin fight">
-          <b><a href="https://avtoshkola-dogma.ru/stoimost" target="_blank" rel="noopener noreferrer">Догма</a> · Фёдора Абрамова, 4</b>
-          Три тарифа B: 59 900 / 69 900 / 99 900 ₽
-        </div>
-        <div class="pin fight">
-          <b><a href="https://fara-spb.ru/branches" target="_blank" rel="noopener noreferrer">Фара</a> · Парнас есть</b>
-          B 60 / 65 / 70 тыс. ₽. Юг тоже есть: Ветеранов, Звёздная, Славы, Шушары
-        </div>
-        <div class="pin fight">
-          <b><a href="https://avtoshkola4kolesa.ru/lp/" target="_blank" rel="noopener noreferrer">4 Колеса</a> · Дудина, 23 к.1</b>
-          B 60 000 / 70 000 ₽ на своём прайсе
-        </div>
-        <div class="pin fight">
-          <b><a href="https://av1.ru/filiali/" target="_blank" rel="noopener noreferrer">Смольный</a></b>
-          На сайте есть Парнас / Просвещение
+    <h2>3. Север города</h2>
+    <div class="north-map" aria-label="Схема севера Петербурга, не масштаб">
+      <div class="north-map-head">
+        <span class="north-compass" aria-hidden="true">С</span>
+        <span>схема, не масштаб</span>
+      </div>
+      <div class="north-zone">
+        <h3>Парнас</h3>
+        <p class="tiny"><a href="https://avtoshkoli.ru/sankt-peterburg/metro-parnas/" target="_blank" rel="noopener noreferrer">avtoshkoli.ru</a> 08.09 — 13 школ у станции, карточки брендов. По городу тот же тип справочника даёт <a href="https://avtoshkolareiting.ru/sankt-peterburg" target="_blank" rel="noopener noreferrer">157</a>.</p>
+        <div class="north-pins">
+          <a class="north-pin fight" href="https://avtoshkola-dogma.ru/stoimost" target="_blank" rel="noopener noreferrer">
+            <b>Догма</b>
+            <span>Фёдора Абрамова, 4 · 59 900 / 69 900 / 99 900 ₽</span>
+          </a>
+          <a class="north-pin fight" href="https://fara-spb.ru/branches" target="_blank" rel="noopener noreferrer">
+            <b>Фара</b>
+            <span>Парнас · B 60 / 65 / 70 тыс. ₽ · есть и юг</span>
+          </a>
+          <a class="north-pin fight" href="https://avtoshkola4kolesa.ru/lp/" target="_blank" rel="noopener noreferrer">
+            <b>4 Колеса</b>
+            <span>Дудина, 23 к.1 · 60 000 / 70 000 ₽</span>
+          </a>
+          <a class="north-pin fight" href="https://av1.ru/filiali/" target="_blank" rel="noopener noreferrer">
+            <b>Смольный</b>
+            <span>на сайте — Парнас / Просвещение</span>
+          </a>
         </div>
       </div>
-      <div class="geo-col">
-        <h3>Наши два адреса</h3>
-        <p class="tiny" style="margin-bottom:10px">Путать нельзя: договор, практика и госэкзамен B — разные места.</p>
-        <div class="pin us">
-          <b>Офис · <a href="https://cppkspb.ru/contacts/" target="_blank" rel="noopener noreferrer">Болотная, 1</a></b>
-          Договоры и теория. <a href="https://2gis.ru/spb/firm/5348552838514995" target="_blank" rel="noopener noreferrer">2ГИС 08.09: 4,7 / 24</a>. <a href="https://zoon.ru/spb/trainings/uchebnyj_tsentr_mezhregionalnyj_tsppk_na_bolotnoj_ulitse/" target="_blank" rel="noopener noreferrer">Zoon</a> 04.09: 3,3 / 83; 08.09 страница закрыта капчей. Пн–чт 9:00–18:00, пятница до 17:00, суббота и воскресенье — выходной
+      <div class="north-split">
+        <div class="north-zone">
+          <h3>Пискарёвка / Гражданка</h3>
+          <div class="north-pins">
+            <a class="north-pin fight" href="https://avtoshkolaritm.ru/" target="_blank" rel="noopener noreferrer">
+              <b>Ритм</b>
+              <span>Пискаревский, 25 · ещё Литейный, 43 · B 60 000 ₽ · УТМ от 8 000 ₽ · утро и вечер, суббота</span>
+            </a>
+            <a class="north-pin fight" href="https://kursy-traktorista.ru/spb/" target="_blank" rel="noopener noreferrer">
+              <b>Первая тракторная</b>
+              <span>Жака Дюкло, 66 лит. А · от 10 000 ₽ · легковых B нет · пн–пт 8:00–20:00</span>
+            </a>
+            <a class="north-pin fight" href="https://autorally-spb.ru/stoimost" target="_blank" rel="noopener noreferrer">
+              <b>Авторалли</b>
+              <span>Пискаревский, 40 · B 63 000 ₽ · AI–F · пишут «выезд инспектора»</span>
+            </a>
+          </div>
         </div>
-        <div class="pin us">
-          <b>Автодром · <a href="https://cppkspb.ru/contacts/" target="_blank" rel="noopener noreferrer">Полюстровский пр., 41 к. 2</a></b>
-          Практика. Госэкзамен категории B сайт ставит на <a href="https://cppkspb.ru/study/avtoshkola/category-b/" target="_blank" rel="noopener noreferrer">ш. Революции, д. 85</a>. Отдельной карточки автодрома в Яндексе 08.09 нет. <a href="https://2gis.ru/spb/firm/70000001017497053" target="_blank" rel="noopener noreferrer">2ГИС 08.09: 2,8 / 10</a>
-        </div>
-        <div class="pin demand">
-          <b>Гостехнадзор, отдел экзаменов</b>
-          <a href="https://www.gov.spb.ru/gov/otrasl/sl_nadzora/telefony-inspekcii/" target="_blank" rel="noopener noreferrer">Куйбышева, 34</a>. На нашем разделе самоходки написано и «экзамен на территории», и «сопровождение в Гостехнадзоре». Кто к кому едет — не видно
-        </div>
-      </div>
-      <div class="geo-col">
-        <h3>Самоходка рядом</h3>
-        <p class="tiny" style="margin-bottom:10px">Два разных игрока. Общей колонки «Ритм / 1-я тракторная» больше нет.</p>
-        <div class="pin fight">
-          <b><a href="https://avtoshkolaritm.ru/" target="_blank" rel="noopener noreferrer">Ритм</a> · Пискаревский, 25</b>
-          Второй офис — Литейный, 43. B 60 000 ₽. УТМ от 8 000 ₽. Будни: утро 10:00–12:30 и вечер 19:00–21:30. Суббота — два слота. Где принимают экзамен — не видно
-        </div>
-        <div class="pin fight">
-          <b><a href="https://kursy-traktorista.ru/spb/" target="_blank" rel="noopener noreferrer">Первая тракторная</a> · Жака Дюкло, 66 лит. А</b>
-          От 10 000 ₽, зачёркнуто 13 000 ₽. Легковых прав B нет. Приёмка пн–пт 8:00–20:00. Вечерних и выходных групп на сайте нет
-        </div>
-        <div class="pin fight">
-          <b><a href="https://autorally-spb.ru/stoimost" target="_blank" rel="noopener noreferrer">Авторалли</a> · Пискаревский, 40</b>
-          Лесная. B 63 000 ₽ и Гостехнадзор AI–F. Сами пишут «выезд инспектора» — их слова
+        <div class="north-zone us">
+          <h3>Наши адреса</h3>
+          <div class="north-pins">
+            <div class="north-pin us">
+              <b>Офис · <a href="https://cppkspb.ru/contacts/" target="_blank" rel="noopener noreferrer">Болотная, 1</a></b>
+              <span>договор и теория · <a href="https://2gis.ru/spb/firm/5348552838514995" target="_blank" rel="noopener noreferrer">2ГИС 4,7 / 24</a> · <a href="https://zoon.ru/spb/trainings/uchebnyj_tsentr_mezhregionalnyj_tsppk_na_bolotnoj_ulitse/" target="_blank" rel="noopener noreferrer">Zoon</a> 3,3 / 83 на 04.09 · пн–чт 9–18, пт до 17, сб/вс выходной</span>
+            </div>
+            <div class="north-pin us">
+              <b>Автодром · <a href="https://cppkspb.ru/contacts/" target="_blank" rel="noopener noreferrer">Полюстровский, 41 к. 2</a></b>
+              <span>практика · карточки Яндекса 08.09 нет · <a href="https://2gis.ru/spb/firm/70000001017497053" target="_blank" rel="noopener noreferrer">2ГИС 2,8 / 10</a></span>
+            </div>
+            <a class="north-pin exam" href="https://cppkspb.ru/study/avtoshkola/category-b/" target="_blank" rel="noopener noreferrer">
+              <b>Госэкзамен B · ш. Революции, 85</b>
+              <span>не автодром</span>
+            </a>
+            <a class="north-pin demand" href="https://www.gov.spb.ru/gov/otrasl/sl_nadzora/telefony-inspekcii/" target="_blank" rel="noopener noreferrer">
+              <b>Гостехнадзор · Куйбышева, 34</b>
+              <span>на сайте и «экзамен на территории», и «сопровождение» — кто к кому едет, не видно</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -433,8 +452,7 @@
 
 <section class="sec">
   <div class="wrap">
-    <h2>Занятость теми же словами, что на «Нишах»</h2>
-    <p class="prose">Зелёного «открыто нам» здесь нет: учебная часть ещё не подтверждала парк, инспектора, комиссию ДОПОГ и места в группах.</p>
+    <h2>Занятость</h2>
     <div class="g3">
       <div class="card" style="background:#f0dcdc">
         <h3>Занято</h3>
