@@ -583,42 +583,43 @@ C 26 000 ₽ · CE 18 000 ₽ · погрузчик (ДД.ММ, если ест�
       <input class="bud-in bud-in-mid" type="radio" name="bud-b" id="bb-mid" />
       <input class="bud-in bud-in-max" type="radio" name="bud-b" id="bb-max" />
       <div class="bud-nav">
-        <label class="bud-lab bud-lab-min" for="bb-min">Минимум<small>0 ₽ · брать</small></label>
+        <label class="bud-lab bud-lab-min" for="bb-min">Минимум<small>0 ₽ медиа · своими</small></label>
         <label class="bud-lab bud-lab-mid" for="bb-mid">Среднее<small>3 000 ₽ · один договор</small></label>
         <label class="bud-lab bud-lab-max" for="bb-max">Максимум<small>тот же пол · Директ нет</small></label>
       </div>
       <div class="bud-pan bud-pan-min">
-        <p class="stamp yes" style="margin:0 0 8px">Брать. Склеить карточки, честный режим, бот</p>
+        <p class="stamp yes" style="margin:0 0 8px">Брать. Медиа нет: сотрудники ведут карточки офиса, VK, бот и честную цену</p>
         <div class="bud-kpis">
-          <div class="stat"><b>0 ₽</b><span>старт</span></div>
-          <div class="stat"><b>0 ₽</b><span>следующий цикл</span></div>
-          <div class="stat"><b>0</b><span>договоров на кассу · трат нет</span></div>
-          <div class="stat"><b>0</b><span>прогноз клика · Директ 0, медиа 0</span></div>
+          <div class="stat"><b>0 ₽</b><span>медиа, первый цикл</span></div>
+          <div class="stat"><b>0 ₽</b><span>медиа, следующий цикл</span></div>
+          <div class="stat"><b>0</b><span>договоров на кассу медиа · зарплаты не в смете</span></div>
+          <div class="stat"><b>н/д</b><span>люди с ведения сообществ. Директ 0</span></div>
         </div>
         <div class="table-wrap">
           <table class="data">
-            <tr><th>Платный канал</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
-            <tr><td>Карточки офиса, VK, бот</td><td>Да</td><td class="num">0 ₽</td><td>н/д</td></tr>
+            <tr><th>Работа своими</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
+            <tr><td>Склеить карточки офиса, отзывы</td><td>Да</td><td class="num">0 ₽</td><td>н/д. Главный канал B — карты офиса</td></tr>
+            <tr><td>Сообщества: VK, бот</td><td>Да, постоянно</td><td class="num">0 ₽ медиа</td><td>н/д. Входящие без цены заявки. Зарплату в кассу не ставим</td></tr>
             <tr><td>Подписка</td><td>Нет</td><td>—</td><td>—</td></tr>
             <tr><td>Директ «автошкола», Авито «автошколы», VK Ads, Telegram Ads, 2ГИС пакет</td><td>Нет</td><td>—</td><td>—</td></tr>
           </table>
         </div>
         <div class="pay-board">
-          <div class="pay-card"><h3>Окупаемость</h3><p class="prose">Трат нет.</p></div>
+          <div class="pay-card"><h3>Окупаемость</h3><p class="hint">Кассы медиа нет. Время сотрудников в таблицу не входит</p><p class="prose">Финмодель без зарплат. Директ B не покупаем. Работа — карточки, VK, бот.</p></div>
           <div class="pay-card">
             <h3>Люди за цикл</h3>
-            <p class="hint">Директ B = 0. Чужой CPL автошкол на этот упор не переносим. Прогноз клика 0</p>
-            <svg viewBox="0 0 640 270" role="img" aria-label="Нужно 0 договоров B, прогноз клика 0">
+            <p class="hint">Нужно с доли медиа: 0. С ведения сообществ — н/д, не ноль</p>
+            <svg viewBox="0 0 640 270" role="img" aria-label="Нужно 0 с доли медиа, люди с сообществ н/д">
           <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
           <rect x="160" y="213" width="90" height="3" fill="#8a6a32" />
-          <rect x="360" y="213" width="90" height="3" fill="#3d6b5a" />
           <text x="8" y="24" font-size="11" fill="#5a625e">3</text>
           <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
           <text x="160" y="246" font-size="11" fill="#8a6a32">нужно 0</text>
-          <text x="360" y="246" font-size="11" fill="#3d6b5a">прогноз 0</text>
+          <text x="360" y="130" font-size="14" fill="#5a625e">н/д</text>
+          <text x="360" y="246" font-size="11" fill="#5a625e">сообщества</text>
         </svg>
-            <p class="pay-leg"><span><i style="background:#8a6a32"></i>нужно с доли</span><span><i style="background:#3d6b5a"></i>прогноз клика</span></p>
-            <p class="tiny">Медиа 0, Директ 0 → 0. Входящие с карт и VK без цены заявки в столбик не ставим.</p>
+            <p class="pay-leg"><span><i style="background:#8a6a32"></i>нужно с доли медиа</span><span><i style="background:#3d6b5a"></i>ведение сообществ</span></p>
+            <p class="tiny">Директ 0, медиа 0. Входящие с карт и VK без цены заявки в столбик не ставим.</p>
           </div>
         </div>
       </div>
