@@ -1088,6 +1088,59 @@ a.hub-row:hover { background: #4a453d; }
   margin-right: 6px;
   vertical-align: 3px;
 }
+.itog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.itog {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 16px 14px;
+  box-shadow: var(--shadow);
+}
+.itog .stamp {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0 0 6px;
+}
+.itog .stamp.yes { color: #3d6b5a; }
+.itog .stamp.no { color: #b87a7a; }
+.itog .stamp.mix { color: #8a6a32; }
+.itog h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+.itog dl {
+  margin: 0;
+}
+.itog dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 8px 0 2px;
+}
+.itog dt:first-child { margin-top: 0; }
+.itog dd {
+  margin: 0;
+  font-size: 14px;
+}
+.itog-cut {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 16px;
+}
+@media (max-width: 980px) {
+  .itog-grid,
+  .itog-cut { grid-template-columns: 1fr; }
+}
 .proof {
   font-size: 13px;
   color: var(--muted);
