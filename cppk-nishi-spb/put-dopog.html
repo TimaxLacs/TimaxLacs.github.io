@@ -525,37 +525,53 @@
       <div class="bud-pan bud-pan-min">
         <p class="stamp yes" style="margin:0 0 8px">Брать. Медиа нет: сотрудники ведут даты, каналы, карточки офиса и бот</p>
         <div class="bud-kpis">
-          <div class="stat"><b>0 ₽</b><span>медиа, первый цикл</span></div>
-          <div class="stat"><b>0 ₽</b><span>медиа, следующий цикл</span></div>
-          <div class="stat"><b>0</b><span>договоров на кассу медиа · зарплаты не в смете</span></div>
-          <div class="stat"><b>н/д</b><span>люди с ведения сообществ. Клик 0</span></div>
+          <div class="stat"><b>0 ₽</b><span>медиа. Зарплаты не в смете</span></div>
+          <div class="stat"><b>0–1</b><span>договор за 30 дней, если две даты уже на сайте</span></div>
+          <div class="stat"><b>1–2</b><span>накопом к 60 дням</span></div>
+          <div class="stat"><b>2–4</b><span>договора за 90 дней · порядок, не кабинет</span></div>
         </div>
         <div class="table-wrap">
           <table class="data">
             <tr><th>Работа своими</th><th>В этом бюджете</th><th>Траты / 90 дн.</th><th>Привлечения</th></tr>
-            <tr><td>Две живые даты на сайте</td><td>Да, условие</td><td class="num">0 ₽</td><td>н/д. Без даты Директ не ставим</td></tr>
-            <tr><td>Карточки офиса, календарь, письма</td><td>Да</td><td class="num">0 ₽</td><td>н/д</td></tr>
-            <tr><td>Сообщества и каналы: Telegram, MAX, бот</td><td>Да, постоянно</td><td class="num">0 ₽ медиа</td><td>н/д. Зарплату в кассу не ставим</td></tr>
+            <tr><td>Две живые даты на сайте</td><td>Да, условие</td><td class="num">0 ₽</td><td>Без даты нижняя граница потока ближе к нулю</td></tr>
+            <tr><td>Карточки офиса, календарь, письма</td><td>Да</td><td class="num">0 ₽</td><td>В потоке ниже</td></tr>
+            <tr><td>Сообщества и каналы: Telegram, MAX, бот</td><td>Да, постоянно</td><td class="num">0 ₽ медиа</td><td>В потоке ниже. Зарплату в кассу не ставим</td></tr>
             <tr><td>Подписка, Директ, ведение, 2ГИС, Авито</td><td>Нет</td><td>—</td><td>—</td></tr>
           </table>
         </div>
-        <div class="pay-board">
-          <div class="pay-card"><h3>Окупаемость цикла</h3><p class="hint">Кассы медиа нет. Время сотрудников в таблицу не входит</p><p class="prose">Финмодель без зарплат. Пока медиа 0 ₽, касса клика не ставится. Работа — даты и каналы.</p></div>
+        <div class="pay-board one">
           <div class="pay-card">
-            <h3>Люди за цикл</h3>
-            <p class="hint">Нужно с доли медиа: 0. С ведения сообществ — н/д, не ноль</p>
-            <svg viewBox="0 0 640 270" role="img" aria-label="Нужно 0 с доли медиа, люди с сообществ н/д">
-          <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
-          <rect x="160" y="213" width="90" height="3" fill="#8a6a32" />
-          <text x="8" y="24" font-size="11" fill="#5a625e">10</text>
-          <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
-          <text x="160" y="246" font-size="11" fill="#8a6a32">нужно 0</text>
-          <text x="360" y="130" font-size="14" fill="#5a625e">н/д</text>
-          <text x="360" y="246" font-size="11" fill="#5a625e">сообщества</text>
-        </svg>
-            <p class="pay-leg"><span><i style="background:#8a6a32"></i>нужно с доли медиа</span><span><i style="background:#3d6b5a"></i>ведение сообществ</span></p>
-            <p class="tiny">Платный клик: 0 / 1 350 × 0,35 = 0. Даты, карточки и каналы в эту формулу не входят: цены заявки нет.</p>
+            <h3>Окупаемость медиа</h3>
+            <p class="hint">Медиа 0 ₽. Время сотрудников в кассу не входит</p>
+            <p class="prose">По клику окупать нечего. Срочный ДОПОГ всё равно ищет календарь: люди могут идти без Директа.</p>
           </div>
+        </div>
+        <div class="org-flow">
+          <h3>Люди без отдельного бюджета</h3>
+          <p class="hint">Только этот минимум. Шкала 30 / 60 / 90 дней. Не кабинет, не CPL 1 350</p>
+          <div class="org-rail">
+            <div class="org-step"><em>30 дней</em><b>0–1 договор</b><span>1–3 касания. Две даты на сайте, карточки офиса, письма</span></div>
+            <div class="org-step"><em>60 дней</em><b>1–2 накопом</b><span>ещё +1, если календарь живой. Telegram и MAX</span></div>
+            <div class="org-step"><em>90 дней</em><b>2–4 за цикл</b><span>~7–10 касаний накопом. Без дат — ближе к нулю</span></div>
+          </div>
+          <svg viewBox="0 0 640 270" role="img" aria-label="Накопление договоров ДОПОГ: к 90 дням порядок 2–4">
+          <rect x="56" y="20" width="560" height="196" fill="#f7f4ee" />
+          <g stroke="#e6e0d6" stroke-width="1"><line x1="56" y1="150.7" x2="616" y2="150.7" /><line x1="56" y1="85.3" x2="616" y2="85.3" /><line x1="242.7" y1="20" x2="242.7" y2="216" /><line x1="429.3" y1="20" x2="429.3" y2="216" /></g>
+          <polyline fill="none" stroke="#3d6b5a" stroke-width="3" points="56,216 242.7,199.7 429.3,150.7 616,118" />
+          <circle cx="242.7" cy="199.7" r="5" fill="#2c2a26" />
+          <circle cx="429.3" cy="150.7" r="5" fill="#2c2a26" />
+          <circle cx="616" cy="118" r="5" fill="#2c2a26" />
+          <text x="8" y="24" font-size="11" fill="#5a625e">6 дог.</text>
+          <text x="8" y="90" font-size="11" fill="#5a625e">4</text>
+          <text x="8" y="155" font-size="11" fill="#5a625e">2</text>
+          <text x="8" y="220" font-size="11" fill="#5a625e">0</text>
+          <text x="50" y="246" font-size="11" fill="#5a625e">0</text>
+          <text x="222" y="246" font-size="11" fill="#2c2a26">30 дн.</text>
+          <text x="408" y="246" font-size="11" fill="#2c2a26">60 дн.</text>
+          <text x="568" y="246" font-size="11" fill="#2c2a26">90 дн.</text>
+        </svg>
+          <p class="pay-leg"><span><i style="background:#3d6b5a"></i>накоп договоры, середина порядка</span></p>
+          <p class="tiny">Середина — 3 договора за 90 дней. Касания 3 / 0,35 ≈ 9, доля <a href="https://trafdealer.ru/kontekstnaya-reklama/privlechenie-klientov-avtoshkola-yandeks-direkt.html" target="_blank" rel="noopener noreferrer">TrafDealer</a>, не ДОПОГ. Платный клик 0. Это не 11,67 с медиа. Время — <a href="obzor-rynka-cppk-peterburg.html">обзор</a> нед. 1–3 и 4–8.</p>
         </div>
       </div>
       <div class="bud-pan bud-pan-mid">
