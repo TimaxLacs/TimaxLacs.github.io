@@ -1042,8 +1042,55 @@ a.hub-row:hover { background: #4a453d; }
   .hub-row { grid-template-columns: 36px 1fr 1fr; }
   .hub-row .w, .hub-row .who { grid-column: 2 / -1; }
 }
+.pay-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 16px 0;
+}
+.pay-board.one {
+  grid-template-columns: 1fr;
+}
+.pay-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px 16px 12px;
+  box-shadow: var(--shadow);
+}
+.pay-card h3 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+.pay-card .hint {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0 0 10px;
+}
+.pay-card svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.pay-leg {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 12.5px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.pay-leg i {
+  display: inline-block;
+  width: 16px;
+  height: 3px;
+  border-radius: 2px;
+  margin-right: 6px;
+  vertical-align: 3px;
+}
 @media (max-width: 980px) {
-  .scen, .plat-grid, .hours, .hub-paths, .ex-grid, .ex-grid.two, .aud, .dash-charts { grid-template-columns: 1fr; }
+  .pay-board { grid-template-columns: 1fr; }
+}
   .barline { grid-template-columns: 1fr; }
   .gantt .grow, .gantt .axis { grid-template-columns: 1fr; }
   .fn { grid-template-columns: 28px 1fr; }
