@@ -1,2 +1,2 @@
-:HL["/ai-bot-market-brief/_next/static/chunks/3tp4xmxu53p0-.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"EEX1WMmLk71CGG33fZbB3"}
+:HL["/ai-bot-market-brief/_next/static/chunks/39e_m7e27mwix.css","style"]
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"/_not-found","param":null,"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}},"staleTime":300,"buildId":"VRsLZ1vYhyAU_7-8vNIGc"}
