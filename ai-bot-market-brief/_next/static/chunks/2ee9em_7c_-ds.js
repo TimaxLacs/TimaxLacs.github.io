@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,75379,t=>{"use strict";t.s(["rub",0,function(t){return new Intl.NumberFormat("ru-RU").format(Math.round(t))+" ₽"},"scoreLabel",0,function(t){return t.toFixed(1).replace(".",",")}])}]);
