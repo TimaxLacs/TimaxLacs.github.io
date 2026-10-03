@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Авито — учебный центр Росавтодора, СПб</title>
+  <style>
+    :root {
+      --green: #00aa5b;
+      --green-dark: #008f4c;
+      --blue: #009cf0;
+      --text: #191919;
+      --muted: #6b6b6b;
+      --line: #e4e4e4;
+      --bg: #f4f4f4;
+      --warn: #8a5a00;
+      --warn-bg: #fff6e5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      padding-bottom: 48px;
+    }
+    button, input { font: inherit; }
+    .header {
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+      padding: 12px 20px;
+    }
+    .header-inner, .tabs, .wrap { max-width: 1180px; margin: 0 auto; }
+    .header-inner { display: flex; align-items: center; gap: 18px; }
+    .logo { display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 22px; letter-spacing: -0.4px; }
+    .dots { display: flex; gap: 4px; }
+    .dots i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+    .search {
+      flex: 1;
+      display: flex;
+      border: 2px solid var(--blue);
+      border-radius: 8px;
+      overflow: hidden;
+      max-width: 560px;
+    }
+    .search input { flex: 1; border: 0; padding: 8px 12px; outline: none; }
+    .search button { border: 0; background: var(--blue); color: #fff; padding: 0 16px; font-weight: 650; }
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 8px 0 10px;
+    }
+    .tab {
+      border: 0;
+      background: transparent;
+      color: #444;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-weight: 650;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .tab:hover { background: #ececec; }
+    .tab.active { background: #111; color: #fff; }
+    .tab.warn { color: var(--warn); }
+    .tab.warn.active { background: #5c3b00; color: #fff; }
+    .wrap { padding: 16px 20px 0; }
+    .page { display: none; }
+    .page.active { display: block; }
+    .note, .copybar, .card, .ad {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+    }
+    .note { padding: 12px 14px; margin-bottom: 12px; font-size: 14px; }
+    .note strong { display: block; margin-bottom: 4px; }
+    .warnbox { background: var(--warn-bg); border-color: #f0d7a2; }
+    .copybar {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 14px;
+      margin-bottom: 12px;
+    }
+    .copybar p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
+    .actions { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      border: 1px solid #cfcfcf;
+      background: #fff;
+      border-radius: 8px;
+      padding: 7px 10px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 650;
+    }
+    .btn:hover { border-color: #111; }
+    .btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+    .profile-hero {
+      height: 220px;
+      border-radius: 12px;
+      background: #123 center/cover no-repeat;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+    .profile-hero .shade {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(8,16,28,.82), rgba(8,16,28,.25));
+      color: #fff;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .profile-hero h1 { margin: 0 0 6px; font-size: 28px; }
+    .profile-hero p { margin: 0; max-width: 640px; }
+    .profile {
+      display: grid;
+      grid-template-columns: 92px 1fr 220px;
+      gap: 16px;
+      padding: 16px;
+      margin-bottom: 12px;
+    }
+    .avatar {
+      width: 92px;
+      height: 92px;
+      border-radius: 16px;
+      background: #f3f6f8 url("avito-photos/logo.png") center/contain no-repeat;
+      border: 1px solid var(--line);
+    }
+    .profile h2 { margin: 0 0 6px; font-size: 22px; }
+    .meta { color: var(--muted); font-size: 13px; margin-bottom: 8px; }
+    .pills { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .pill { background: #f2f3f5; border-radius: 999px; padding: 4px 8px; font-size: 12px; }
+    .side { border-left: 1px solid var(--line); padding-left: 16px; display: flex; flex-direction: column; gap: 8px; }
+    .call {
+      background: var(--green);
+      color: #fff;
+      border: 0;
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 700;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+    }
+    .card { overflow: hidden; cursor: pointer; }
+    .card img { width: 100%; height: 168px; object-fit: cover; display: block; background: #ddd; }
+    .card .body { padding: 10px 12px 12px; }
+    .price { font-size: 20px; font-weight: 800; }
+    .card h3 { margin: 4px 0; font-size: 15px; }
+    .card p { margin: 0; color: var(--muted); font-size: 13px; }
+    .layout { display: grid; grid-template-columns: 1fr 320px; gap: 12px; }
+    .gallery img.main {
+      width: 100%;
+      height: 380px;
+      object-fit: cover;
+      background: #ddd;
+      border-radius: 12px 12px 0 0;
+      display: block;
+    }
+    .thumbs { display: flex; gap: 6px; padding: 8px; overflow-x: auto; }
+    .thumbs button {
+      border: 2px solid transparent;
+      padding: 0;
+      border-radius: 8px;
+      background: none;
+      cursor: pointer;
+    }
+    .thumbs button.on { border-color: var(--blue); }
+    .thumbs img { width: 84px; height: 64px; object-fit: cover; display: block; border-radius: 6px; }
+    .cap { font-size: 12px; color: var(--muted); padding: 0 12px 10px; }
+    .ad h1 { margin: 0; font-size: 26px; padding: 14px 14px 0; }
+    .ad .sub { color: var(--muted); font-size: 13px; padding: 4px 14px 0; }
+    .chars { font-variant-numeric: tabular-nums; }
+    .chars.ok { color: var(--green-dark); }
+    .chars.bad { color: #c62828; }
+    .desc, .params, .manager { padding: 4px 14px 14px; }
+    .desc { white-space: pre-wrap; }
+    .params { display: grid; gap: 6px; }
+    .param { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; border-bottom: 1px solid #f1f1f1; padding: 6px 0; }
+    .param span { color: var(--muted); }
+    .buy { padding: 14px; position: sticky; top: 72px; }
+    .buy .price { font-size: 28px; margin-bottom: 8px; }
+    .buy .addr { font-size: 14px; margin: 8px 0; }
+    .ghost {
+      width: 100%;
+      margin-top: 8px;
+      background: #fff;
+      border: 1px solid var(--blue);
+      color: var(--blue);
+      border-radius: 10px;
+      padding: 10px;
+      font-weight: 700;
+    }
+    .guide h2 { margin: 8px 0 10px; }
+    .guide h3 { margin: 18px 0 6px; }
+    .guide p, .guide li { font-size: 14.5px; }
+    .guide table { width: 100%; border-collapse: collapse; font-size: 14px; background: #fff; }
+    .guide th, .guide td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+    .guide th { background: #f7f7f7; }
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%) translateY(20px);
+      background: #111;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transition: .2s;
+    }
+    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+    @media (max-width: 860px) {
+      .profile, .layout, .copybar { display: block; }
+      .side { border-left: 0; padding-left: 0; margin-top: 12px; }
+      .gallery img.main { height: 220px; }
+      .bar { display: block; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="dots"><i style="background:#ff4765"></i><i style="background:#00aa5b"></i><i style="background:#009cf0"></i><i style="background:#191919"></i></span>
+        Авито
+      </div>
+      <div class="search">
+        <input value="погрузчик ДОПОГ права СПб" readonly>
+        <button type="button">Найти</button>
+      </div>
+    </div>
+    <div class="tabs" id="tabs"></div>
+  </header>
+
+  <main class="wrap">
+    <section id="profile" class="page active"></section>
+    <section id="ads" class="page"></section>
+  </main>
+  <div class="toast" id="toast">Скопировано</div>
+
+  <script>
+    const PHOTOS = {
+      forklift: ["avito-photos/samo-2.jpg", "Учебный погрузчик"],
+      forklift2: ["avito-photos/exam1.jpg", "Погрузчик на упражнении"],
+      forklift3: ["avito-photos/feb-1.jpg", "Погрузчик зимой на площадке"],
+      dopog: ["avito-photos/dopog-1.jpg", "Занятие по ДОПОГ"],
+      excavator: ["avito-photos/samo-3.jpg", "Учебный экскаватор"],
+      excavator2: ["avito-photos/feb-2.jpg", "Экскаватор на площадке"],
+      tractor: ["avito-photos/samo-1.jpg", "Учебный трактор с прицепом"],
+      tractor2: ["avito-photos/tech9.jpg", "Трактор с отвалом"],
+      tractor3: ["avito-photos/samo-5.jpg", "Трактор Кировец"],
+      ot: ["avito-photos/sem-1.jpg", "Занятие для организаций"],
+      bdd: ["avito-photos/exam3.jpg", "Компьютерный класс"],
+      bdd2: ["avito-photos/n2.jpg", "Учебный класс"],
+      truck: ["avito-photos/p1.jpg", "Учебный грузовик"],
+      ce: ["avito-photos/p5.jpg", "Грузовик с прицепом"],
+      ce2: ["avito-photos/p3.jpg", "Сцепка грузовика и прицепа"],
+      bus: ["avito-photos/cat-d.jpg", "Категория D"],
+      car: ["avito-photos/n3.jpg", "Выпускники с водительскими удостоверениями"],
+      car2: ["avito-photos/news-b.jpg", "Ученики после экзамена на категорию B"],
+      car3: ["avito-photos/gibdd-3.jpg", "Группа перед экзаменом"]
+    };
+
+    const LISTINGS = [
+      {
+        id: "forklift",
+        tab: "Погрузчик",
+        hero: true,
+        title: "Права на погрузчик, УТМ, СПб",
+        price: "18 000 ₽",
+        priceNote: "подготовка без прав. С правами — 15 000 ₽",
+        category: "Услуги → Обучение, курсы → Профессии",
+        address: "Практика: Полюстровский пр., 41, к. 2. Запись: ул. Болотная, 1",
+        photos: ["forklift", "forklift2", "forklift3"],
+        params: [
+          ["Документ", "Свидетельство центра и удостоверение тракториста-машиниста после экзамена Гостехнадзора"],
+          ["Срок", "480 часов подготовка, 240 часов переподготовка, 120 часов повышение на D"],
+          ["Кому", "С 17 лет, очно"],
+          ["Площадка", "Полюстровский пр., 41, к. 2"]
+        ],
+        body: `Если нужны права на погрузчик, сумма в договоре зависит от того, есть ли уже российское водительское удостоверение.
+
+Подготовка, когда прав ещё нет: 18 000 ₽, 480 часов. Категория B или C — одна цена.
+
+Переподготовка, если права уже есть: 15 000 ₽ за B или за C, 240 часов. B и C вместе — 20 000 ₽. Повышение на категорию D — 11 000 ₽, 120 часов. Эту сумму называют только тем, кому нужно именно повышение на D.
+
+Занятия очные. Практика на закрытой площадке: Полюстровский пр., 41, к. 2. Запись и теория: ул. Болотная, 1, метро «Площадь Мужества». Учебная часть работает пн–чт 9:00–18:00, пт до 17:00. Суббота и воскресенье — выходной.
+
+Экзамен принимает Гостехнадзор. На сайте написано, что он проходит на территории центра и что группу сопровождают. Свидетельство о курсе выдаёт центр. Удостоверение тракториста-машиниста — по результату экзамена.
+
+С собой: паспорт, два фото 3×4 на матовой бумаге, медсправка 071/у на самоходные машины. Если водительское или удостоверение тракториста уже есть — их копии тоже.
+
+28 сентября во ВКонтакте написали, что группы по самоходным машинам уже занимаются, набор в следующую — на конец октября. Место лучше подтвердить сообщением.
+
+Напишите, есть ли права и какая категория нужна: B, C или D. Ответим, какая программа и какая сумма.`,
+        manager: "В шапку цены ставить 18 000 ₽, не «от 11 000». 11 000 ₽ — только повышение на D. Пакет с экскаватором на карточке погрузчика — 24 000 ₽. Телефон и ссылку на сайт в текст не класть: в чат после первого сообщения. Учебная часть в постах VK: +7 (911) 928-14-78 и +7 (812) 297-57-82.",
+        source: "https://cppkspb.ru/study/samokhodnaya-tekhnika/voditeli-pogruzchika-kategoriy-v-s-d/"
+      },
+      {
+        id: "dopog",
+        tab: "ДОПОГ",
+        hero: true,
+        title: "ДОПОГ: базовый курс, 4 дня",
+        price: "5 000 ₽",
+        priceNote: "базовый, очно. Цистерны, 1 и 7 класс — по 3 000 ₽",
+        category: "Услуги → Обучение, курсы → Повышение квалификации",
+        address: "ул. Болотная, 1, метро «Площадь Мужества»",
+        photos: ["dopog"],
+        params: [
+          ["Базовый", "5 000 ₽, 4 дня, очно"],
+          ["Цистерны, класс 1, класс 7", "по 3 000 ₽, по 2 дня, каждый курс отдельно"],
+          ["Документ водителя", "Свидетельство о профессии рабочего, должности служащего"],
+          ["Ближайшая группа", "5 октября 2026 — так написано в VK 2 октября"]
+        ],
+        body: `Базовый курс ДОПОГ — 5 000 ₽, 4 дня, очно. Он закрывает перевозку грузов всех классов, кроме 1 и 7, и кроме цистерн.
+
+Дальше идут отдельные курсы, каждый по 3 000 ₽ и 2 дня: цистерны, класс 1, класс 7. Это три разные программы, не один комплект.
+
+Ближайшая группа — 5 октября. На сайте группы идут раз в две недели.
+
+Экзамен на сайте указан на территории центра, комиссия МТУ Ространснадзора. Площадку называют при записи.
+
+Водителю по итогам выдают свидетельство о профессии рабочего, должности служащего.
+
+Консультант по ДОПОГ — другая программа. Повышение квалификации — 10 000 ₽, 2 недели. Подготовка — 20 000 ₽, 1,5 месяца. В каталоге рядом стоят сроки 39, 78 и 268 часов: какой срок к какой цене, на одной строке не сведено.
+
+Занятия на ул. Болотная, 1. Напишите, что нужно: базовый, цистерны, 1 класс, 7 класс или консультант, первое свидетельство или продление. На карточке базового для продления указаны 15 часов, отдельная цена продления там не выделена — её назовём в ответе.`,
+        manager: "Не писать «от 8 500», «международный диплом» и «полностью онлайн». Водительский курс на сайте очный. Телефон в сегодняшнем посте VK: +7 (911) 928-14-78. Ссылку на cppkspb.ru отправлять в чате.",
+        source: "https://cppkspb.ru/study/consdopog/"
+      },
+      {
+        id: "excavator",
+        tab: "Экскаватор",
+        title: "Права на экскаватор, УТМ",
+        price: "20 000 ₽",
+        priceNote: "подготовка на C без прав. С правами переподготовка C — 15 000 ₽",
+        category: "Услуги → Обучение, курсы → Профессии",
+        address: "Практика: Полюстровский пр., 41, к. 2. Запись: ул. Болотная, 1",
+        photos: ["excavator", "excavator2"],
+        params: [
+          ["Подготовка C", "20 000 ₽, 640 часов, если российских прав нет"],
+          ["Переподготовка C", "15 000 ₽, 320 часов"],
+          ["Повышение E", "12 000 ₽, 160 часов"],
+          ["Вместе с погрузчиком C", "24 000 ₽"]
+        ],
+        body: `Права машиниста экскаватора — это удостоверение тракториста-машиниста, экзамен в Гостехнадзоре.
+
+Если российских водительских прав ещё нет: подготовка на категорию C, 20 000 ₽, 640 часов.
+
+Если права уже есть: переподготовка на C, 15 000 ₽, 320 часов. Повышение на E — 12 000 ₽, 160 часов. Отдельной цены категории B на карточке нет, хотя в заголовке страницы стоят B, C и E.
+
+Экскаватор C и погрузчик C вместе — 24 000 ₽.
+
+В каталоге срок 1–2 месяца, старт групп заявлен каждый месяц. 28 сентября в VK написали, что набор самоходных машин в следующую группу — на конец октября.
+
+Практика на площадке Полюстровский пр., 41, к. 2. Запись: ул. Болотная, 1.
+
+Напишите, есть ли права и какая категория нужна. Посчитаем программу по карточке, без «от 12 000» вслепую: 12 000 ₽ — это повышение на E.`,
+        manager: "Страница курса на сайте обрывается ошибкой шаблона после блока цен. В объявление брать только цены, которые успели отрисоваться: 20 / 15 / 12 / 24 тысячи.",
+        source: "https://cppkspb.ru/study/samokhodnaya-tekhnika/mashinisty-ekskavatora-kategoriy-v-s-e/"
+      },
+      {
+        id: "tractor",
+        tab: "Трактор",
+        title: "Права тракториста B и C, СПб",
+        price: "15 000 ₽",
+        priceNote: "категория B или C. Обе сразу — 20 000 ₽",
+        category: "Услуги → Обучение, курсы → Профессии",
+        address: "Практика: Полюстровский пр., 41, к. 2. Запись: ул. Болотная, 1",
+        photos: ["tractor", "tractor2", "tractor3"],
+        params: [
+          ["B или C", "по 15 000 ₽, 240 часов"],
+          ["B и C вместе", "20 000 ₽"],
+          ["Срок в каталоге", "1 месяц, группы раз в месяц"],
+          ["Документ", "Свидетельство центра, удостоверение — после Гостехнадзора"]
+        ],
+        body: `Переподготовка тракториста на категорию B или C — 15 000 ₽, 240 часов. Обе категории сразу — 20 000 ₽.
+
+В каталоге срок — 1 месяц, набор заявлен каждый месяц. Практика на площадке центра, теория в компьютерном классе. Экзамен Гостехнадзора на сайте указан на территории центра.
+
+Площадка: Полюстровский пр., 41, к. 2. Офис: ул. Болотная, 1.
+
+28 сентября в VK тракторист стоит в том же наборе самоходных машин, следующая группа — на конец октября.
+
+Напишите, одна категория нужна или обе. В ответ пришлём сумму 15 000 или 20 000 ₽.`,
+        manager: "В тексте карточки есть фраза «скидка 30%». В ценнике обе категории стоят 20 000 ₽. В объявление кладём 20 000 ₽, процент не считаем сами.",
+        source: "https://cppkspb.ru/study/samokhodnaya-tekhnika/traktoristy-kategoriy-v-s/"
+      },
+      {
+        id: "ot",
+        tab: "Охрана труда",
+        title: "Охрана труда для организаций",
+        price: "1 500 ₽",
+        priceNote: "от 2 до 6 дней, заочно",
+        category: "Услуги → Обучение, курсы → Повышение квалификации",
+        address: "ул. Болотная, 1. Форма в каталоге — заочно, с дистанционными технологиями",
+        photos: ["ot"],
+        params: [
+          ["Цена в каталоге", "1 500 ₽"],
+          ["Срок", "от 2 до 6 дней"],
+          ["Форма", "заочно, с применением дистанционных технологий"],
+          ["Документ", "Протокол проверки знаний и удостоверение"]
+        ],
+        body: `Охрана труда для руководителей и специалистов: в каталоге 1 500 ₽, срок от 2 до 6 дней. Форма — заочно, с дистанционными технологиями. Группа по запросу.
+
+По окончании — протокол проверки знаний и удостоверение.
+
+На главной сайта есть слоган пакета с первой помощью за 2 500 ₽. Отдельной карточки такого пакета в каталоге нет, в договор эту сумму не ставим.
+
+Запись через учебную часть, ул. Болотная, 1. Напишите, сколько человек и какие должности: посчитаем по карточке, не по слогану на главной.`,
+        manager: "С 31 августа 2026 постановление Правительства № 805: практику первой помощи и работу со средствами защиты нельзя закрыть только через интернет. В каталоге охрана труда помечена как заочная. Если заказчику нужна очная практика, это отдельный разговор учебной части, в текст объявления обещание очной практики не добавлять.",
+        source: "https://cppkspb.ru/study/programmy-obucheniya-dlya-rukovoditeley-i-spetsialistov/"
+      },
+      {
+        id: "bdd",
+        tab: "Специалист БДД",
+        title: "Обучение специалиста по БДД",
+        price: "от 9 000 ₽",
+        priceNote: "72 или 256 часов",
+        category: "Услуги → Обучение, курсы → Повышение квалификации",
+        address: "ул. Болотная, 1. Аттестация на территории центра",
+        photos: ["bdd", "bdd2"],
+        params: [
+          ["Срок", "72 часа — 2,5 недели, или 256 часов — 9 недель"],
+          ["Форма", "заочно, с дистанционными технологиями"],
+          ["Цена", "от 9 000 ₽, без разбивки по часам"],
+          ["Документ", "Удостоверение о повышении квалификации или диплом о переподготовке"]
+        ],
+        body: `Обучение специалиста, ответственного за безопасность дорожного движения.
+
+На карточке два срока: 72 часа, 2,5 недели, и 256 часов, 9 недель. Цена указана одной строкой — от 9 000 ₽. Какая сумма за 72 часа, а какая за 256, на странице не разделена. Точную цифру называем после вопроса, какой документ нужен: удостоверение или диплом о переподготовке.
+
+Форма в каталоге — заочно, с дистанционными технологиями. Аттестация — на территории центра, ул. Болотная, 1. Старт групп на сайте: каждый понедельник.
+
+Напишите, повышение квалификации или переподготовка, и сколько человек в заявке.`,
+        manager: "Не обещать одну цену 9 000 ₽ на оба срока. Контролёр технического состояния в каталоге тоже «от 9 000 ₽» — это соседняя карточка, в это объявление её не смешивать.",
+        source: "https://cppkspb.ru/study/bezopasnost-dorozhnogo-dvizheniya/spetsialist-otvetstvennyy-za-obespechenie-bezopasnosti-dorozhnogo-dvizheniya/"
+      },
+      {
+        id: "catc",
+        tab: "Категория C",
+        title: "Переподготовка с B на C, СПб",
+        price: "26 000 ₽",
+        priceNote: "2 месяца. Госпошлина ГИБДД отдельно",
+        category: "Услуги → Обучение, курсы → Вождение",
+        address: "Теория: ул. Болотная, 1. Практика и экзамен на площадке: Полюстровский пр., 41, к. 2",
+        photos: ["truck"],
+        params: [
+          ["Условие", "Открытая категория B, возраст старше 18 лет"],
+          ["Срок", "2 месяца, есть вечерние группы"],
+          ["Цена", "26 000 ₽"],
+          ["Экзамен", "ГИБДД, на машине и площадке центра"]
+        ],
+        body: `Переподготовка с категории B на C: грузовой автомобиль массой больше 3,5 тонн, без прицепа.
+
+26 000 ₽, 2 месяца, очно. Вечерние группы на сайте указаны. В эту сумму входят теория, практика и внутренний экзамен. Госпошлину за удостоверение платят отдельно, по реквизитам ГИБДД.
+
+Нужны открытые права категории B и возраст старше 18 лет. Документы: паспорт, СНИЛС, медсправка с разрешёнными B и C, два фото 3×4, водительское, личная карточка водителя — если она есть.
+
+Теория: ул. Болотная, 1, метро «Площадь Мужества». Практический экзамен ГИБДД сайт ставит на грузовик центра и площадку Полюстровский пр., 41, к. 2.
+
+Напишите, когда открыта категория B. Скажем, есть ли место в ближайшей группе.`,
+        manager: "2 октября VK сообщил об отдельной группе безработных по направлению центра занятости, занятия до начала декабря. Это не розничная цена 26 000 ₽. В объявление программу ЦЗН не подмешивать. Марку грузовика сайт не называет — КАМАЗ в текст не писать.",
+        source: "https://cppkspb.ru/study/avtoshkola/category-c/"
+      },
+      {
+        id: "ce",
+        tab: "Категория CE",
+        title: "Категория CE: грузовик с прицепом",
+        price: "18 000 ₽",
+        priceNote: "1,5 месяца. Нужен стаж категории C от 1 года",
+        category: "Услуги → Обучение, курсы → Вождение",
+        address: "Теория: ул. Болотная, 1. Площадка: Полюстровский пр., 41, к. 2",
+        photos: ["ce", "ce2"],
+        params: [
+          ["Условие", "Категория C открыта не меньше года"],
+          ["Срок", "1,5 месяца, вечерние группы возможны"],
+          ["Цена", "18 000 ₽"],
+          ["Вторая программа", "На сайте скидка 15% на вторую, если записываются сразу на две"]
+        ],
+        body: `Категория CE — грузовик категории C с прицепом тяжелее 750 кг.
+
+18 000 ₽, 1,5 месяца, очно. Нужна открытая категория C не меньше года: срок считают от даты открытия C в правах. Медсправка — с разрешённой категорией CE.
+
+Практика на площадке центра. Экзамен ГИБДД сайт указывает на тех же машинах, на которых идёт обучение. Теория: ул. Болотная, 1. Новые курсы — примерно раз в месяц, по мере группы. Вечерние группы на карточке есть.
+
+Если человек записывается сразу на две программы, на вторую сайт даёт скидку 15%.
+
+В договор входят теория, практика и экзамен в автошколе. Госпошлина ГИБДД — отдельно.
+
+Напишите дату открытия категории C. По ней сразу видно, можно ли стартовать.`,
+        manager: "Зарплату дальнобойщика и «сцепку за два занятия» не обещать: на карточке этого нет.",
+        source: "https://cppkspb.ru/study/avtoshkola/category-e/"
+      },
+      {
+        id: "catd",
+        tab: "Категория D",
+        title: "Права на автобус, категория D",
+        price: "26 000 / 40 000 ₽",
+        priceNote: "с C — 26 000 ₽, с B — 40 000 ₽",
+        category: "Услуги → Обучение, курсы → Вождение",
+        address: "Теория: ул. Болотная, 1. Площадка: Полюстровский пр., 41, к. 2",
+        photos: ["bus"],
+        params: [
+          ["С категории C", "26 000 ₽"],
+          ["С категории B", "40 000 ₽"],
+          ["Срок", "2–3 месяца"],
+          ["Возраст", "от 21 года и водительский стаж от 1 года — так написано на карточке"]
+        ],
+        body: `Переподготовка на категорию D: автобус, больше 8 пассажирских мест.
+
+С категории C — 26 000 ₽. С категории B — 40 000 ₽. Срок 2–3 месяца, очно, вечерние группы на сайте есть. В общем списке курсов обе дороги показаны одной ценой 26 000 ₽. Для договора берём страницу курса: с B дороже.
+
+На карточке прямо сказано: чтобы управлять категорией D, должно быть 21 год и общий водительский стаж не меньше года.
+
+Практика на закрытой площадке, Полюстровский пр., 41, к. 2. Теория: ул. Болотная, 1. При записи сразу на две программы каталог указывает скидку 15% на вторую.
+
+Напишите, какая категория уже открыта, B или C, и сколько лет стажа. Назовём 26 000 или 40 000 ₽.`,
+        manager: "Не публиковать одну цену 26 000 ₽ без оговорки. Иначе человек с категорией B придёт на сумму, которой на странице курса нет.",
+        source: "https://cppkspb.ru/study/avtoshkola/cat-d/"
+      },
+      {
+        id: "catb",
+        tab: "Категория B",
+        title: "Автошкола, категория B, СПб",
+        price: "45 000 ₽",
+        priceNote: "3 месяца, механика",
+        category: "В платную рубрику «автошколы» по плану не ставим. Текст — если решат оставить органику",
+        address: "Теория: ул. Болотная, 1. Площадка: Полюстровский пр., 41, к. 2. Экзамен ГИБДД: ш. Революции, 85",
+        photos: ["car", "car2", "car3"],
+        params: [
+          ["Цена", "45 000 ₽"],
+          ["Срок", "3 месяца, вечерние группы 2 раза в неделю"],
+          ["Коробка", "На карточке указана механика"],
+          ["Экзамен", "ГИБДД, ш. Революции, 85"]
+        ],
+        body: `Подготовка на категорию B — 45 000 ₽, 3 месяца, очно.
+
+Теория два раза в неделю вечером. Классы на ул. Болотная, 1, метро «Площадь Мужества». Вождение на закрытой площадке Полюстровский пр., 41, к. 2 и по маршрутам в Выборгском и Калининском районах. На карточке указан автомобиль с механической коробкой.
+
+Рассрочка на сайте есть, график платежей на карточке не расписан. Его называют при записи.
+
+Свидетельство выдаёт центр. Права выдаёт ГИБДД после экзамена. В Петербурге экзамен на карточке указан по адресу ш. Революции, 85.
+
+Зачисление с 17 лет. Если ученику ещё нет 18, нужно согласие родителя или опекуна. Документы: паспорт, СНИЛС, медсправка 003-В/у, два фото 3×4.
+
+Учебная часть: пн–чт 9:00–18:00, пт до 17:00, суббота и воскресенье выходные.
+
+Напишите возраст и удобные дни для вождения.`,
+        manager: "Платную выдачу в рубрике автошкол не включать, пока витрина на картах и отзывы автодрома не выровнены. «От 32 000», автомат, онлайн-теория, материнский капитал и вычет 13% на карточке курса не написаны.",
+        source: "https://cppkspb.ru/study/avtoshkola/category-b/"
+      }
+    ];
+
+    const PROFILE_NAME = "Учебный центр Росавтодора, СПб";
+    const PROFILE_SHORT = "Учебный центр Росавтодора в Петербурге. Погрузчик и другая самоходная техника, ДОПОГ, категории C, CE и D. Для организаций — охрана труда и специалист по безопасности дорожного движения. Офис: ул. Болотная, 1. Площадка: Полюстровский пр., 41, к. 2.";
+    const PROFILE_ABOUT = `ФГАОУ ДПО «Межрегиональный центр профессиональной подготовки и повышения квалификации кадров им. В.К. Артюха». Учредитель — Федеральное дорожное агентство (Росавтодор).
+
+Офис и теория: Санкт-Петербург, ул. Болотная, 1, метро «Площадь Мужества».
+Учебная площадка: Полюстровский пр., 41, к. 2.
+Часы: пн–чт 9:00–18:00, пт 9:00–17:00, сб и вс выходной.
+Почта: mail@cppkspb.ru, учебная часть edu@cppkspb.ru.
+Телефоны с раздела «Контакты»: приёмная +7 (812) 297-57-36, учебная часть +7 (911) 928-14-78 и +7 (812) 297-57-82.
+Сайт cppkspb.ru, сообщество vk.ru/cppkspb.
+
+Программы:
+— погрузчик, подготовка без прав 18 000 ₽;
+— ДОПОГ базовый 5 000 ₽, 4 дня;
+— экскаватор, подготовка на C 20 000 ₽;
+— тракторист B или C 15 000 ₽;
+— охрана труда 1 500 ₽;
+— специалист по БДД от 9 000 ₽;
+— с B на C 26 000 ₽;
+— CE 18 000 ₽;
+— категория D: с C 26 000 ₽, с B 40 000 ₽;
+— категория B 45 000 ₽.
+
+Свидетельство о курсе выдаёт центр. Удостоверение тракториста-машиниста выдаёт Гостехнадзор, водительское — ГИБДД, свидетельство ДОПОГ — по итогам экзамена комиссии.`;
+
+    function toast(message) {
+      const el = document.getElementById("toast");
+      el.textContent = message;
+      el.classList.add("show");
+      clearTimeout(toast._t);
+      toast._t = setTimeout(() => el.classList.remove("show"), 1800);
+    }
+
+    function copy(text, message) {
+      const done = () => toast(message || "Скопировано");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
+        return;
+      }
+      fallbackCopy(text, done);
+    }
+
+    function fallbackCopy(text, done) {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.style.position = "fixed";
+      document.body.appendChild(area);
+      area.select();
+      document.execCommand("copy");
+      area.remove();
+      done();
+    }
+
+    function photo(key) {
+      return PHOTOS[key];
+    }
+
+    function charClass(title) {
+      return title.length <= 46 ? "ok" : "bad";
+    }
+
+    function renderTabs() {
+      const tabs = document.getElementById("tabs");
+      const bits = [`<button class="tab active" data-tab="profile" type="button">Профиль</button>`];
+      LISTINGS.forEach((item) => {
+        bits.push(`<button class="tab" data-tab="${item.id}" type="button">${item.tab}</button>`);
+      });
+      tabs.innerHTML = bits.join("");
+      tabs.addEventListener("click", (event) => {
+        const button = event.target.closest("button");
+        if (!button) return;
+        openTab(button.dataset.tab);
+      });
+    }
+
+    function openTab(id) {
+      document.querySelectorAll(".tab").forEach((button) => {
+        button.classList.toggle("active", button.dataset.tab === id);
+      });
+      document.getElementById("profile").classList.toggle("active", id === "profile");
+      const ads = document.getElementById("ads");
+      const isAd = id !== "profile";
+      ads.classList.toggle("active", isAd);
+      if (isAd) ads.innerHTML = renderAd(LISTINGS.find((item) => item.id === id));
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function renderProfile() {
+      const cards = LISTINGS.map((item) => {
+        const shot = photo(item.photos[0]);
+        return `<article class="card" data-open="${item.id}">
+          <img src="${shot[0]}" alt="${shot[1]}">
+          <div class="body">
+            <div class="price">${item.price}</div>
+            <h3>${item.title}</h3>
+            <p>${item.priceNote.replace(/(\d) (\d{3})/g, "$1\u00a0$2").replace(/ ₽/g, "\u00a0₽")}</p>
+          </div>
+        </article>`;
+      }).join("");
+
+      document.getElementById("profile").innerHTML = `
+        <div class="profile-hero" style="background-image:url('avito-photos/samo-2.jpg')">
+          <div class="shade">
+            <h1>Учебный центр Росавтодора</h1>
+            <p>Погрузчик, ДОПОГ и подготовка водителей. Площадка на Полюстровском, офис на Болотной.</p>
+          </div>
+        </div>
+        <div class="profile">
+          <div class="avatar" role="img" aria-label="Логотип Росавтодора"></div>
+          <div>
+            <h2>${PROFILE_NAME}</h2>
+            <div class="meta">ФГАОУ ДПО МЦППК им. В.К. Артюха · ИНН 7802030919</div>
+            <div class="pills">
+              <span class="pill">Учредитель — Росавтодор</span>
+              <span class="pill">Болотная, 1</span>
+              <span class="pill">Полюстровский, 41 к. 2</span>
+              <span class="pill">Пн–чт до 18:00, пт до 17:00</span>
+            </div>
+            <p>${PROFILE_SHORT}</p>
+          </div>
+          <div class="side">
+            <button class="call" type="button">Показать телефон</button>
+            <div class="meta">+7 (911) 928-14-78</div>
+            <button class="ghost" type="button">Написать</button>
+          </div>
+        </div>
+        <div class="ad" style="margin-bottom:12px">
+          <div class="desc" id="about-text"></div>
+        </div>
+        <div class="grid">${cards}</div>`;
+
+      document.getElementById("about-text").textContent = PROFILE_ABOUT;
+      document.querySelectorAll("[data-open]").forEach((card) => {
+        card.onclick = () => openTab(card.dataset.open);
+      });
+    }
+
+    function renderAd(item) {
+      const shots = item.photos.map(photo);
+      const thumbs = shots.map((shot, index) => `
+        <button type="button" class="${index === 0 ? "on" : ""}" data-src="${shot[0]}" data-cap="${shot[1]}">
+          <img src="${shot[0]}" alt="">
+        </button>`).join("");
+      const params = item.params.map(([name, value]) => `<div class="param"><span>${name}</span><b>${value}</b></div>`).join("");
+      const note = item.priceNote.replace(/(\d) (\d{3})/g, "$1\u00a0$2").replace(/ ₽/g, "\u00a0₽");
+      return `
+        <div class="layout">
+          <article class="ad">
+            <div class="gallery">
+              <img class="main" id="main-photo" src="${shots[0][0]}" alt="${shots[0][1]}">
+              <div class="thumbs">${thumbs}</div>
+            </div>
+            <h1>${item.title}</h1>
+            <div class="params">${params}</div>
+            <div class="desc" id="ad-body"></div>
+          </article>
+          <aside class="ad buy">
+            <div class="price">${item.price}</div>
+            <div>${note}</div>
+            <div class="addr">${item.address}</div>
+            <button class="call" type="button">Написать</button>
+            <button class="ghost" type="button">Показать телефон</button>
+          </aside>
+        </div>`;
+    }
+
+    function bindAd(item) {
+      const root = document.getElementById("ads");
+      const body = root.querySelector("#ad-body");
+      if (!body) return;
+      body.textContent = item.body;
+      root.querySelectorAll(".thumbs button").forEach((button) => {
+        button.onclick = () => {
+          root.querySelectorAll(".thumbs button").forEach((el) => el.classList.remove("on"));
+          button.classList.add("on");
+          root.querySelector("#main-photo").src = button.dataset.src;
+          root.querySelector("#main-photo").alt = button.dataset.cap;
+        };
+      });
+    }
+
+    const adsRoot = document.getElementById("ads");
+    renderTabs();
+    renderProfile();
+
+    const observer = new MutationObserver(() => {
+      const id = document.querySelector(".tab.active")?.dataset.tab;
+      const item = LISTINGS.find((entry) => entry.id === id);
+      if (item) bindAd(item);
+    });
+    observer.observe(adsRoot, { childList: true });
+  </script>
+</body>
+</html>
