@@ -11,263 +11,441 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#151515;
-  --bg-2:#1b1b1a;
-  --ink:#d8d2c5;
-  --ink-strong:#ece6d8;
-  --mute:#8b867b;
-  --line:#2b2a27;
-  --accent:#b08d57;
-  --accent-soft:rgba(176,141,87,.16);
+  --bg:#151515; --bg-2:#1b1b1a; --ink:#d8d2c5; --ink-strong:#ece6d8; --mute:#8b867b;
+  --line:#2b2a27; --line-2:#3a3833; --accent:#b08d57; --accent-soft:rgba(176,141,87,.14);
   --serif:"Cormorant Garamond","EB Garamond",Georgia,serif;
   --text:"EB Garamond",Georgia,serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:24px}
 body{
-  margin:0;background:var(--bg);color:var(--ink);
-  font-family:var(--text);font-size:19px;line-height:1.6;
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--text);font-size:19px;line-height:1.6;
   background-image:
-    radial-gradient(1100px 520px at 50% -160px,rgba(176,141,87,.07),transparent 70%),
+    radial-gradient(1100px 520px at 60% -160px,rgba(176,141,87,.07),transparent 70%),
     url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .5 0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='.035'/></svg>");
 }
 ::selection{background:var(--accent);color:#151515}
-a{color:var(--ink-strong);text-decoration:none;border-bottom:1px solid var(--line);transition:border-color .2s,color .2s}
+a{color:var(--ink-strong);text-decoration:none;border-bottom:1px solid var(--line-2);transition:border-color .2s,color .2s}
 a:hover,a:focus-visible{color:var(--accent);border-color:var(--accent)}
 a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+code{font-family:var(--mono);font-size:.82em;color:var(--accent);background:var(--accent-soft);padding:1px 5px}
+p{margin:0 0 1em}
 
-.wrap{max-width:720px;margin:0 auto;padding:0 16px}
-
-/* top bar */
-.bar{display:flex;justify-content:space-between;align-items:center;padding:22px 0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-.bar nav{display:flex;gap:22px}
-.bar a{color:var(--mute);border:0}
-.bar a:hover{color:var(--accent)}
-.lang{display:inline-flex;gap:0;border:1px solid var(--line)}
-.lang button{all:unset;cursor:pointer;padding:4px 9px;color:var(--mute);font:inherit;letter-spacing:.14em}
+.shell{display:grid;grid-template-columns:196px minmax(0,1fr);gap:64px;max-width:1060px;margin:0 auto;padding:0 24px}
+.rail{position:sticky;top:0;align-self:start;height:100vh;display:flex;flex-direction:column;justify-content:space-between;padding:40px 0 32px}
+.mark{font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--mute);text-transform:uppercase}
+.rail nav{display:flex;flex-direction:column;gap:2px;margin-top:28px}
+.rail nav a{display:flex;gap:12px;align-items:baseline;border:0;padding:6px 0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.rail nav a .rn{min-width:2.6em;color:var(--line-2);transition:color .2s}
+.rail nav a:hover,.rail nav a.on{color:var(--ink-strong)}
+.rail nav a.on .rn,.rail nav a:hover .rn{color:var(--accent)}
+.lang{display:inline-flex;border:1px solid var(--line);font-family:var(--mono);font-size:12px;letter-spacing:.14em;width:max-content}
+.lang button{all:unset;cursor:pointer;padding:5px 10px;color:var(--mute)}
 .lang button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.lang button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.topbar{display:none}
 
-/* hero */
-.hero{display:grid;grid-template-columns:132px 1fr;gap:34px;align-items:end;padding:56px 0 52px;border-bottom:1px solid var(--line)}
+main{min-width:0;padding-bottom:40px}
+.hero{display:grid;grid-template-columns:132px 1fr;gap:34px;align-items:end;padding:56px 0 44px}
 .portrait{width:132px;height:172px;border-radius:66px 66px 2px 2px;overflow:hidden;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:5px;background:var(--bg-2)}
 .portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) sepia(.28) contrast(1.05) brightness(.92)}
 .kicker{font-family:var(--mono);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin:0 0 14px}
-h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,8vw,64px);line-height:1.02;letter-spacing:-.01em;margin:0;color:var(--ink-strong)}
-.role{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3.4vw,25px);color:var(--ink);margin:14px 0 0;line-height:1.3}
+h1{font-family:var(--serif);font-weight:500;font-size:clamp(40px,7vw,64px);line-height:1.02;letter-spacing:-.01em;margin:0;color:var(--ink-strong)}
+.role-line{font-family:var(--serif);font-style:italic;font-size:clamp(20px,3vw,25px);margin:14px 0 0;line-height:1.3}
 .meta{margin:18px 0 0;font-family:var(--mono);font-size:12.5px;color:var(--mute);letter-spacing:.04em}
-.meta a{color:var(--ink);border-color:var(--line)}
-.meta .dot{padding:0 8px;color:var(--line)}
+.meta a{color:var(--ink)}
+.meta .dot{padding:0 8px;color:var(--line-2)}
 
-/* sections */
-section{padding:46px 0 12px}
-h2{display:flex;align-items:baseline;gap:16px;font-family:var(--serif);font-weight:500;font-size:30px;color:var(--ink-strong);margin:0 0 26px;letter-spacing:.005em}
-h2 .n{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:400;min-width:2.4em}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);margin:0 0 8px}
+.stat{padding:20px 20px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px}
+.stat b{font-family:var(--serif);font-weight:500;font-size:46px;line-height:1;color:var(--ink-strong)}
+.stat>span{font-size:16.5px;line-height:1.3;color:var(--ink)}
+.stat small{font-family:var(--mono);font-size:11px;letter-spacing:.05em;color:var(--mute)}
+.note{font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.04em;margin:10px 0 0}
+
+section{padding:52px 0 8px}
+h2{display:flex;align-items:baseline;gap:16px;font-family:var(--serif);font-weight:500;font-size:32px;color:var(--ink-strong);margin:0 0 28px}
+h2 .n{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--accent);font-weight:400;min-width:2.8em}
 h2::after{content:"";flex:1;height:1px;background:var(--line);transform:translateY(-6px)}
-p{margin:0 0 1em}
-.lede{font-size:21px;line-height:1.55;color:var(--ink-strong)}
-.lede em{font-style:italic;color:var(--accent)}
+.lede{font-size:22px;line-height:1.5;color:var(--ink-strong)}
+.lede em{color:var(--accent)}
+.mute{color:var(--mute)}
 
-.row{display:grid;grid-template-columns:128px 1fr;gap:6px 26px;padding:0 0 26px}
-.when{font-family:var(--mono);font-size:12.5px;color:var(--mute);padding-top:7px;letter-spacing:.03em}
-.row h3{font-family:var(--serif);font-weight:600;font-size:22px;line-height:1.25;margin:0;color:var(--ink-strong)}
-.row h3 small{font-family:var(--text);font-weight:400;font-size:16px;color:var(--mute);font-style:italic;margin-left:6px}
-.row p{margin:6px 0 0;color:var(--ink)}
+/* work */
+.job{display:grid;grid-template-columns:132px 1fr;gap:6px 26px;padding:0 0 38px}
+.when{font-family:var(--mono);font-size:12.5px;color:var(--mute);padding-top:8px;letter-spacing:.03em}
+.job h3{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.2;margin:0;color:var(--ink-strong)}
+.role{font-family:var(--mono);font-size:12px;letter-spacing:.04em;color:var(--accent);margin:6px 0 12px}
+.b{list-style:none;margin:0 0 14px;padding:0}
+.b li{position:relative;padding:0 0 10px 20px;font-size:18px;line-height:1.55}
+.b li::before{content:"";position:absolute;left:2px;top:.72em;width:7px;height:1px;background:var(--accent)}
+.b b{color:var(--ink-strong);font-weight:500}
+.tags{display:flex;flex-wrap:wrap;gap:6px 6px}
+.tags>span,.sg p>span{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;color:var(--ink);border:1px solid var(--line-2);padding:2px 8px;background:rgba(255,255,255,.012)}
 
-.list{list-style:none;margin:0;padding:0}
-.list li{padding:0 0 20px 22px;position:relative}
-.list li::before{content:"§";position:absolute;left:0;top:0;font-family:var(--serif);color:var(--accent);font-size:19px;line-height:1.6}
-.list b{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--ink-strong)}
-.list span{color:var(--ink)}
+/* gantt */
+.gantt{display:grid;gap:9px;margin:0 0 8px}
+.g-row{display:grid;grid-template-columns:150px 1fr;gap:14px;align-items:center}
+.g-l{font-family:var(--mono);font-size:12px;color:var(--mute);letter-spacing:.04em}
+.g-track{position:relative;height:12px;border-bottom:1px solid var(--line);background:linear-gradient(to right,var(--line) 1px,transparent 1px) 0 0/16.6667% 100%}
+.g-track i{position:absolute;top:2px;bottom:2px;background:var(--accent);opacity:.82}
+.g-axis{display:grid;grid-template-columns:repeat(6,1fr);font-family:var(--mono);font-size:11px;color:var(--mute);letter-spacing:.04em}
 
-.kv{display:grid;grid-template-columns:128px 1fr;gap:10px 26px;margin:0}
+/* path */
+.path{list-style:none;margin:0;padding:0;border-left:1px solid var(--line-2)}
+.path li{display:grid;grid-template-columns:66px 1fr;gap:10px;padding:0 0 18px 22px;position:relative}
+.path li::before{content:"";position:absolute;left:-4px;top:.75em;width:7px;height:7px;border-radius:50%;background:var(--bg);border:1px solid var(--accent)}
+.path b{font-family:var(--mono);font-weight:500;font-size:13px;color:var(--accent);padding-top:3px}
+
+/* projects */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.chips button{all:unset;cursor:pointer;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);padding:5px 12px}
+.chips button:hover{color:var(--ink-strong);border-color:var(--line-2)}
+.chips button[aria-pressed="true"]{color:var(--accent);border-color:var(--accent);background:var(--accent-soft)}
+.chips button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.card{border:1px solid var(--line);background:var(--bg-2);padding:16px 18px 6px;transition:border-color .2s,transform .2s}
+.card:hover{border-color:var(--line-2)}
+.card[hidden]{display:none}
+.cm{display:flex;justify-content:space-between;font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--mute);text-transform:uppercase}
+.card h3{font-family:var(--serif);font-weight:600;font-size:21px;margin:6px 0 6px;color:var(--ink-strong);line-height:1.2}
+.card h3 a{border:0}
+.card h3 a::after{content:" ↗";color:var(--accent);font-family:var(--text);font-size:.8em}
+.card p{font-size:16.5px;line-height:1.5;color:var(--ink)}
+.priv{font-family:var(--mono);font-style:normal;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line-2);padding:0 6px;margin-left:8px;vertical-align:middle}
+
+/* activity */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.two h4,.sg h4{font-family:var(--mono);font-weight:400;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin:0 0 14px}
+.bar{display:grid;grid-template-columns:78px 1fr 40px;gap:12px;align-items:center;margin:0 0 9px;font-family:var(--mono);font-size:12.5px}
+.bar .k{color:var(--ink)}
+.bar .t{height:8px;background:var(--bg-2);border:1px solid var(--line);display:block}
+.bar .t i{display:block;height:100%;background:var(--accent);opacity:.85}
+.bar .v{color:var(--mute);text-align:right}
+
+/* stack */
+.stackgrid{display:grid;grid-template-columns:1fr 1fr;gap:6px 34px}
+.sg{padding:0 0 18px}
+.sg p{display:flex;flex-wrap:wrap;gap:6px;margin:0}
+
+/* method */
+.method{list-style:none;margin:0;padding:0;counter-reset:m}
+.method li{display:grid;grid-template-columns:48px 1fr;gap:12px;padding:0 0 22px}
+.method li>b{font-family:var(--serif);font-weight:400;font-size:38px;line-height:1;color:var(--accent);opacity:.85}
+.method h4{font-family:var(--serif);font-weight:600;font-size:21px;margin:0 0 4px;color:var(--ink-strong)}
+.method p{margin:0;font-size:17.5px}
+
+/* misc */
+.kv{display:grid;grid-template-columns:132px 1fr;gap:12px 26px;margin:0}
 .kv dt{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);padding-top:6px}
 .kv dd{margin:0}
+.contact{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 28px}
+.btn{font-family:var(--mono);font-size:13.5px;letter-spacing:.04em;padding:12px 20px;background:var(--accent);color:#151515;border:1px solid var(--accent)}
+.btn:hover{background:transparent;color:var(--accent)}
+.btn.ghost{background:transparent;color:var(--ink-strong);border-color:var(--line-2)}
+.btn.ghost:hover{color:var(--accent);border-color:var(--accent)}
+footer{margin-top:40px;padding:26px 0 56px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.1em;text-transform:uppercase;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px}
 
-.quote{border-left:2px solid var(--accent);padding:2px 0 2px 22px;margin:0;font-family:var(--serif);font-size:21px;font-style:italic;line-height:1.5;color:var(--ink-strong)}
-.quote + p{margin-top:18px}
-
-footer{margin-top:44px;padding:30px 0 56px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:baseline}
-footer .links{display:flex;flex-wrap:wrap;gap:8px 24px;font-family:var(--mono);font-size:13px}
-footer small{font-family:var(--mono);font-size:11.5px;color:var(--mute);letter-spacing:.12em;text-transform:uppercase}
-
-/* language switch */
 html[lang="ru"] [data-l="en"],html[lang="en"] [data-l="ru"]{display:none!important}
 
-/* motion */
 @media (prefers-reduced-motion:no-preference){
   .hero>*,section{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
   .hero>div{animation-delay:.08s}
-  section:nth-of-type(1){animation-delay:.14s}
-  section:nth-of-type(2){animation-delay:.2s}
   @keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 }
 
-@media (max-width:620px){
+@media (max-width:980px){
+  .shell{grid-template-columns:1fr;gap:0;padding:0 16px}
+  .rail{display:none}
+  .topbar{display:flex;justify-content:space-between;align-items:center;padding:20px 0;font-family:var(--mono);font-size:12px;letter-spacing:.2em;color:var(--mute)}
+  .topbar .lang{display:inline-flex}
+}
+@media (max-width:700px){
   body{font-size:18px}
-  .bar nav{display:none}
-  .hero{grid-template-columns:1fr;gap:26px;padding:34px 0 38px;align-items:start}
+  .hero{grid-template-columns:1fr;gap:26px;padding:30px 0 34px;align-items:start}
   .portrait{width:104px;height:136px;border-radius:52px 52px 2px 2px}
-  .row,.kv{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat b{font-size:40px}
+  .job,.kv{grid-template-columns:1fr}
   .when,.kv dt{padding-top:0}
-  .row{padding-bottom:22px}
+  .cards,.two,.stackgrid{grid-template-columns:1fr}
+  .g-row{grid-template-columns:1fr;gap:4px}
+  .g-l:empty{display:none}
+  .path li{grid-template-columns:1fr;gap:0}
+  h2{font-size:28px}
 }
 @media print{
-  :root{--bg:#fff;--ink:#222;--ink-strong:#000;--mute:#666;--line:#ccc;--accent:#7a5a2b}
-  body{background:#fff;font-size:12.5pt}
-  .bar,.lang{display:none}
+  :root{--bg:#fff;--ink:#222;--ink-strong:#000;--mute:#666;--line:#ccc;--line-2:#bbb;--accent:#7a5a2b}
+  body{background:#fff;font-size:11.5pt}
+  .rail,.topbar,.chips,.contact{display:none}
+  .shell{display:block;padding:0}
+  .card{background:#fff;break-inside:avoid}.card[hidden]{display:block}
   .portrait img{filter:grayscale(1)}
-  section{break-inside:avoid-page}
+  section,.job{break-inside:avoid-page}
 }
 </style>
 </head>
 <body>
-<div class="wrap">
+<div class="shell">
 
-  <header class="bar">
-    <span>T · S</span>
-    <nav>
-      <a href="#about"><span data-l="ru">Кратко</span><span data-l="en">About</span></a>
-      <a href="#work"><span data-l="ru">Опыт</span><span data-l="en">Work</span></a>
-      <a href="#projects"><span data-l="ru">Проекты</span><span data-l="en">Projects</span></a>
-      <a href="#stack"><span data-l="ru">Стек</span><span data-l="en">Stack</span></a>
-    </nav>
+  <aside class="rail">
+    <div>
+      <div class="mark">T · S</div>
+      <nav aria-label="Sections"><a href="#about" data-s="about"><span class="rn">I</span><span data-l="ru">Кратко</span><span data-l="en">About</span></a><a href="#work" data-s="work"><span class="rn">II</span><span data-l="ru">Опыт</span><span data-l="en">Work</span></a><a href="#path" data-s="path"><span class="rn">III</span><span data-l="ru">Путь</span><span data-l="en">Path</span></a><a href="#projects" data-s="projects"><span class="rn">IV</span><span data-l="ru">Проекты</span><span data-l="en">Projects</span></a><a href="#activity" data-s="activity"><span class="rn">V</span><span data-l="ru">Активность</span><span data-l="en">Activity</span></a><a href="#stack" data-s="stack"><span class="rn">VI</span><span data-l="ru">Инструменты</span><span data-l="en">Tools</span></a><a href="#method" data-s="method"><span class="rn">VII</span><span data-l="ru">Метод</span><span data-l="en">Method</span></a><a href="#knowledge" data-s="knowledge"><span class="rn">VIII</span><span data-l="ru">Знания</span><span data-l="en">Education</span></a><a href="#contact" data-s="contact"><span class="rn">IX</span><span data-l="ru">Контакты</span><span data-l="en">Contact</span></a></nav>
+    </div>
     <div class="lang" role="group" aria-label="Language">
       <button type="button" data-set="ru" aria-pressed="true">RU</button>
       <button type="button" data-set="en" aria-pressed="false">EN</button>
     </div>
-  </header>
+  </aside>
 
-  <main>
-    <div class="hero">
-      <div class="portrait"><img src="portrait.jpg" alt="Тимур Шакиров" width="480" height="480"></div>
-      <div>
-        <p class="kicker"><span data-l="ru">Резюме · MMXXVI</span><span data-l="en">Curriculum · MMXXVI</span></p>
-        <h1><span data-l="ru">Тимур Шакиров</span><span data-l="en">Timur Shakirov</span></h1>
-        <p class="role">
-          <span data-l="ru">Fullstack-разработчик. Языковые модели в продуктовых системах.</span>
-          <span data-l="en">Fullstack developer. Language models inside production systems.</span>
-        </p>
-        <p class="meta">
-          <span data-l="ru">Санкт-Петербург · удалённо</span><span data-l="en">Saint Petersburg · remote</span>
-          <span class="dot">/</span>
-          <a href="mailto:chakirov.timyr@gmail.com">chakirov.timyr@gmail.com</a>
-        </p>
+  <div>
+    <div class="topbar">
+      <span>T · S</span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set="ru" aria-pressed="true">RU</button>
+        <button type="button" data-set="en" aria-pressed="false">EN</button>
       </div>
     </div>
 
-    <section id="about">
-      <h2><span class="n">I</span><span data-l="ru">Кратко</span><span data-l="en">About</span></h2>
-      <p class="lede" data-l="ru">Встраиваю языковые модели в работающие продукты. Написал первую версию <em>LLM-шлюза</em> для коммерческого агрегатора нейросетей: маршрутизация между поставщиками, фолбэк, биллинг по токенам.</p>
-      <p class="lede" data-l="en">I put language models into products that are already running. I wrote the first version of an <em>LLM gateway</em> for a commercial AI aggregator: provider routing, fallback, token billing.</p>
-      <p data-l="ru">Сейчас по контракту веду клиентскую часть e-commerce платформы и строю собственные инструменты вокруг агентов. Программирую с 2021 года, коммерческие проекты веду с 2024-го. Всё описанное ниже сделано на практике и открыто для проверки по репозиториям.</p>
-      <p data-l="en">Right now I lead the client side of an e-commerce platform on contract and build my own tooling around agents. I have been programming since 2021 and shipping commercial projects since 2024. Everything below was done in practice and can be checked in the repositories.</p>
-    </section>
-
-    <section id="work">
-      <h2><span class="n">II</span><span data-l="ru">Опыт</span><span data-l="en">Work</span></h2>
-
-      <div class="row">
-        <div class="when">2026</div>
+    <main>
+      <div class="hero">
+        <div class="portrait"><img src="portrait.jpg" alt="Тимур Шакиров" width="480" height="480"></div>
         <div>
-          <h3>Matreshka <small data-l="ru">публичный сайт</small><small data-l="en">public website</small></h3>
-          <p data-l="ru">Фронтенд и запуск: React, Vite, TypeScript, Tailwind. nginx с SSL, DNS и почта.</p>
-          <p data-l="en">Frontend and launch: React, Vite, TypeScript, Tailwind. nginx with SSL, DNS and mail.</p>
+          <p class="kicker"><span data-l="ru">Резюме · MMXXVI</span><span data-l="en">Curriculum · MMXXVI</span></p>
+          <h1><span data-l="ru">Тимур Шакиров</span><span data-l="en">Timur Shakirov</span></h1>
+          <p class="role-line">
+            <span data-l="ru">Fullstack-разработчик. Языковые модели в продуктовых системах.</span>
+            <span data-l="en">Fullstack developer. Language models inside production systems.</span>
+          </p>
+          <p class="meta">
+            <span data-l="ru">Санкт-Петербург · удалённо</span><span data-l="en">Saint Petersburg · remote</span>
+            <span class="dot">/</span><a href="mailto:chakirov.timyr@gmail.com">chakirov.timyr@gmail.com</a>
+          </p>
         </div>
       </div>
 
-      <div class="row">
-        <div class="when"><span data-l="ru">дек 2025 — н. в.</span><span data-l="en">Dec 2025 — now</span></div>
-        <div>
-          <h3><span data-l="ru">E-commerce платформа</span><span data-l="en">E-commerce platform</span> <small data-l="ru">под NDA</small><small data-l="en">under NDA</small></h3>
-          <p data-l="ru">Маркетплейс с каталогом и картами на React, TypeScript и Hasura. Витрина, двуязычные карточки с автопереводом, конвейер наполнения каталога. Единый слой над Яндекс.Картами, Google Maps и 2ГИС: смена поставщика — один параметр.</p>
-          <p data-l="en">Marketplace with a catalog and maps on React, TypeScript and Hasura. Storefront, bilingual product cards with auto-translation, a catalog ingestion pipeline. One layer over Yandex Maps, Google Maps and 2GIS: switching provider is a single setting.</p>
+      <div class="stats"><div class="stat"><b>5</b><span><span data-l="ru">лет в разработке</span><span data-l="en">years in development</span></span><small><span data-l="ru">с 2021 года</span><span data-l="en">since 2021</span></small></div><div class="stat"><b>37</b><span><span data-l="ru">моделей за одним API</span><span data-l="en">models behind one API</span></span><small><span data-l="ru">6 поставщиков, Deep.Assistant</span><span data-l="en">6 providers, Deep.Assistant</span></small></div><div class="stat"><b>4</b><span><span data-l="ru">коммерческих проекта</span><span data-l="en">commercial projects</span></span><small><span data-l="ru">с 2024 года</span><span data-l="en">since 2024</span></small></div><div class="stat"><b>8</b><span><span data-l="ru">сервисов в платформе</span><span data-l="en">services in one platform</span></span><small><span data-l="ru">e-commerce, под NDA</span><span data-l="en">e-commerce, under NDA</span></small></div><div class="stat"><b>61</b><span><span data-l="ru">публичный репозиторий</span><span data-l="en">public repositories</span></span><small><span data-l="ru">2 аккаунта, без форков</span><span data-l="en">2 accounts, no forks</span></small></div><div class="stat"><b>26</b><span><span data-l="ru">пакетов в npm</span><span data-l="en">npm packages</span></span><small><span data-l="ru">включая scope Deep</span><span data-l="en">incl. the Deep scope</span></small></div></div>
+      <p class="note"><span data-l="ru">Снимок на 2026-11-11. Цифры из описаний проектов и публичных данных GitHub.</span><span data-l="en">Snapshot of 2026-11-11. Figures come from project descriptions and public GitHub data.</span></p>
+
+      <section id="about">
+<h2><span class="n">I</span><span data-l="ru">Кратко</span><span data-l="en">About</span></h2>
+<p class="lede"><span data-l="ru">Встраиваю языковые модели в работающие продукты. Написал первую версию <em>LLM-шлюза</em> для коммерческого агрегатора нейросетей: маршрутизация между поставщиками, фолбэк, биллинг по токенам.</span><span data-l="en">I put language models into products that are already running. I wrote the first version of an <em>LLM gateway</em> for a commercial AI aggregator: provider routing, fallback, token billing.</span></p>
+<p><span data-l="ru">Сейчас по контракту веду клиентскую часть e-commerce платформы и строю собственные инструменты вокруг агентов: редакционный стол для сообществ, MCP-сервер к базе знаний, процессы с независимой проверкой. Программирую с 2021 года, коммерческие проекты веду с 2024-го. Всё описанное ниже сделано на практике и открыто для проверки по репозиториям.</span><span data-l="en">Right now I lead the client side of an e-commerce platform on contract and build my own tooling around agents: an editorial desk for communities, an MCP server for a knowledge base, workflows with independent review. I have been programming since 2021 and shipping commercial projects since 2024. Everything below was done in practice and can be checked in the repositories.</span></p>
+<p><span data-l="ru">Образование: СПбПУ Петра Великого, техническая специальность; институт СПО СПбПУ, базовый инженерно-технический курс. Дальше ушёл в продуктовую разработку.</span><span data-l="en">Education: Peter the Great St. Petersburg Polytechnic University, a technical degree track; the SPbPU college institute, a basic engineering course. After that I moved into product development.</span></p>
+</section>
+
+      <section id="work">
+        <h2><span class="n">II</span><span data-l="ru">Опыт</span><span data-l="en">Work</span></h2>
+        <div class="gantt"><div class="g-row"><div class="g-l"><span data-l="ru">Deep.Foundation</span><span data-l="en">Deep.Foundation</span></div><div class="g-track"><i style="left:16.67%;width:81.00%"></i></div></div><div class="g-row"><div class="g-l"><span data-l="ru">Deep.Assistant</span><span data-l="en">Deep.Assistant</span></div><div class="g-track"><i style="left:50.00%;width:33.33%"></i></div></div><div class="g-row"><div class="g-l">ManyAir</div><div class="g-track"><i style="left:76.33%;width:14.00%"></i></div></div><div class="g-row"><div class="g-l"><span data-l="ru">E-commerce</span><span data-l="en">E-commerce</span></div><div class="g-track"><i style="left:82.00%;width:15.67%"></i></div></div><div class="g-row"><div class="g-l">Matreshka</div><div class="g-track"><i style="left:83.33%;width:14.33%"></i></div></div><div class="g-row"><div class="g-l"></div><div class="g-axis"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div></div></div>
+        <div style="height:30px"></div>
+        <article class="job">
+  <div class="when"><span data-l="ru">дек 2025 — н. в.</span><span data-l="en">Dec 2025 — now</span></div>
+  <div class="body">
+    <h3><span data-l="ru">E-commerce платформа</span><span data-l="en">E-commerce platform</span></h3>
+    <p class="role"><span data-l="ru">Фронтенд, гео-модуль, мобильные сборки, смежный бэкенд · контракт · под NDA</span><span data-l="en">Frontend, geo module, mobile builds, adjacent backend · contract · under NDA</span></p>
+    <p><span data-l="ru">Маркетплейс с каталогом и картами. Веду клиентское приложение, участвую в проектировании; на бэкенде — платежи, баланс, обработчики событий. Детали продукта под NDA, о модулях рассказываю свободно.</span><span data-l="en">A marketplace with a catalog and maps. I lead the client app and take part in design; on the backend I own payments, balance and event handlers. Product details are under NDA, but I can talk about the modules freely.</span></p>
+    <ul class="b"><li><span data-l="ru"><b>Витрина:</b> каталог, карточка товара, поиск с автодополнением, фильтры, регистрация нескольких типов аккаунтов с MFA, библиотека UI-компонентов.</span><span data-l="en"><b>Storefront:</b> catalog, product page, search with autocomplete, filters, sign-up for several account types with MFA, a UI component library.</span></li><li><span data-l="ru"><b>Двуязычность RU/EN и автоперевод карточек:</b> словари вынесены из компонентов, перевод идёт через хук, серверный роут и CLI-скрипт, который прогоняет каталог пачкой.</span><span data-l="en"><b>RU/EN and auto-translation of cards:</b> dictionaries moved out of components; translation goes through a hook, a server route and a CLI script that runs the catalog in batches.</span></li><li><span data-l="ru"><b>Конвейер наполнения каталога:</b> источники за общим контрактом, дедупликация по внешнему id, штрихкоду и отпечатку характеристик. Нейросети работают после сбора, отдельными очередями для текста и изображений. Факты карточки модель не переписывает, иначе ломается дедупликация; упавший воркер оставляет товар на витрине с исходными данными.</span><span data-l="en"><b>Catalog ingestion pipeline:</b> sources behind a common contract, deduplication by external id, barcode and a characteristics fingerprint. Models run after collection, in separate queues for text and images. A model never rewrites card facts, otherwise deduplication breaks; a failed worker leaves the item on the storefront with its original data.</span></li><li><span data-l="ru"><b>Кошелёк и заказы:</b> сервисы баланса и платежей, внешний эквайринг, обработчики смены статуса. Сборки Capacitor под iOS и Android, выкладка через Docker и systemd.</span><span data-l="en"><b>Wallet and orders:</b> balance and payment services, external acquiring, status-change handlers. Capacitor builds for iOS and Android, deployment via Docker and systemd.</span></li><li><span data-l="ru"><b>Гео-модуль:</b> единый интерфейс поверх Яндекс.Карт, Google Maps и 2ГИС. Компоненты карты, маркера и зоны не знают о поставщике, смена поставщика — один параметр. Геометрия зон: буферы вдоль маршрута, объединение полигонов с отверстиями, валидация, кэширование. Геокодинг на серверном роуте, чтобы ключи API не попадали в браузер; хранение в PostGIS, поиск по радиусу.</span><span data-l="en"><b>Geo module:</b> one interface over Yandex Maps, Google Maps and 2GIS. Map, marker and zone components know nothing about the provider; switching provider is a single setting. Zone geometry: route buffers, polygon union with holes, validation, caching. Geocoding runs on a server route so API keys never reach the browser; PostGIS storage, radius search.</span></li></ul>
+    <div class="tags"><span>React</span><span>TypeScript</span><span>Hasura GraphQL</span><span>PostgreSQL / PostGIS</span><span>Redis</span><span>MinIO</span><span>Docker</span><span>Capacitor</span></div>
+  </div>
+</article><article class="job">
+  <div class="when"><span data-l="ru">авг 2025 — май 2026</span><span data-l="en">Aug 2025 — May 2026</span></div>
+  <div class="body">
+    <h3><span data-l="ru">ManyAir — международные переводы</span><span data-l="en">ManyAir — international transfers</span></h3>
+    <p class="role"><span data-l="ru">Фронтенд, смежный бэкенд и сервер · проект заказчика</span><span data-l="en">Frontend, adjacent backend and server · client project</span></p>
+    <p><span data-l="ru">Платформа для управления международными денежными переводами, монорепозиторий на TypeScript.</span><span data-l="en">A platform for managing international money transfers, a TypeScript monorepo.</span></p>
+    <ul class="b"><li><span data-l="ru">Микросервисы вокруг Hasura GraphQL: router, обработчик событий, рассылка, Telegram-бот, генератор документов, курсы валют.</span><span data-l="en">Microservices around Hasura GraphQL: router, event handler, mailing, Telegram bot, document generator, exchange rates.</span></li><li><span data-l="ru"><b>Устойчивая доставка уведомлений:</b> при недоступном канале статус возвращает «не отправлено», приглашение не помечается доставленным.</span><span data-l="en"><b>Resilient notification delivery:</b> when a channel is down the status returns “not sent” and the invitation is never marked as delivered.</span></li><li><span data-l="ru">Изоляция данных между ролями, скрипты генерации HTML-гайдов и тестовой документации, выкладка сервисов, настройка почты и DNS.</span><span data-l="en">Data isolation between roles, scripts that generate HTML guides and test documentation, service deployment, mail and DNS setup.</span></li></ul>
+    <div class="tags"><span>TypeScript</span><span>Hasura</span><span>PostgreSQL</span><span>Redis</span><span>MinIO</span><span>Playwright</span><span>Docker</span></div>
+  </div>
+</article><article class="job">
+  <div class="when">2026</div>
+  <div class="body">
+    <h3><span data-l="ru">Matreshka — публичный сайт</span><span data-l="en">Matreshka — public website</span></h3>
+    <p class="role"><span data-l="ru">Фронтенд и запуск · тот же заказчик</span><span data-l="en">Frontend and launch · same client</span></p>
+    <p><span data-l="ru">Публичный сайт AI/e-commerce платформы: React, Vite, TypeScript, Tailwind. nginx с SSL, DNS и почта.</span><span data-l="en">Public website of an AI/e-commerce platform: React, Vite, TypeScript, Tailwind. nginx with SSL, DNS and mail.</span></p>
+    
+    <div class="tags"><span>React</span><span>Vite</span><span>Tailwind</span><span>nginx</span><span>SSL</span></div>
+  </div>
+</article><article class="job">
+  <div class="when">2024 — 2025</div>
+  <div class="body">
+    <h3><span data-l="ru">Deep.Assistant — агрегатор нейросетей</span><span data-l="en">Deep.Assistant — an AI aggregator</span></h3>
+    <p class="role"><span data-l="ru">Основатель, backend и DevOps · команда из трёх человек</span><span data-l="en">Founder, backend and DevOps · a team of three</span></p>
+    <p><span data-l="ru">Коммерческий продукт: чат с моделями, генерация изображений, музыки и голоса, API-шлюз, мини-приложения в Telegram и VK.</span><span data-l="en">A commercial product: chat with models, image, music and voice generation, an API gateway, Telegram and VK mini-apps.</span></p>
+    <ul class="b"><li><span data-l="ru"><b>LLM-шлюз.</b> Спроектировал и написал первую версию; шлюз вырос в инфраструктуру всех запросов продукта. Около 37 моделей от шести поставщиков за одним OpenAI-совместимым интерфейсом.</span><span data-l="en"><b>LLM gateway.</b> I designed and wrote the first version; it grew into the infrastructure behind every request in the product. About 37 models from six providers behind one OpenAI-compatible interface.</span></li><li><span data-l="ru"><b>Таблица деградации вместо простого ретрая:</b> у каждой модели цепочка из 12–16 замен, подобранных так, чтобы ответ оставался пригодным для того же сценария. Недоступность одного поставщика не останавливает продукт.</span><span data-l="en"><b>A degradation table instead of a plain retry:</b> every model has a chain of 12–16 replacements chosen so the answer stays usable for the same scenario. One provider going down does not stop the product.</span></li><li><span data-l="ru"><b>Единый счёт поверх несопоставимых прайсов:</b> у каждой модели свой коэффициент пересчёта токенов во внутреннюю валюту, от 1.7 до 40. Продукт считает себестоимость запроса и наценку.</span><span data-l="en"><b>One balance over incomparable price lists:</b> every model has its own coefficient converting tokens to the internal currency, from 1.7 to 40. The product computes request cost and margin.</span></li><li><span data-l="ru"><b>Идемпотентные переводы между счетами:</b> эксклюзивные блокировки с распознаванием зависших, атомарная запись, восстановление незавершённых операций при старте.</span><span data-l="en"><b>Idempotent transfers between accounts:</b> exclusive locks that recognise stale ones, atomic writes, recovery of unfinished operations on startup.</span></li><li><span data-l="ru"><b>Скорость подключения моделей:</b> o1-preview и o1-mini — 27 сентября 2024, deepseek-reasoner — 30 января 2025, сразу с тарификацией и фолбэком.</span><span data-l="en"><b>Speed of onboarding models:</b> o1-preview and o1-mini on 27 Sep 2024, deepseek-reasoner on 30 Jan 2025, each with billing and fallback from day one.</span></li><li><span data-l="ru"><b>Telegram-бот:</b> переводы внутренней валюты на конечном автомате (модуль с нуля), синхронизация пользователей с ограничением параллелизма под лимиты Telegram, транскрибация аудио с отдельным коэффициентом тарификации, оплата через Telegram Stars, окружения TEST и PROD.</span><span data-l="en"><b>Telegram bot:</b> internal-currency transfers on a state machine (a module from scratch), user sync with bounded concurrency for Telegram limits, audio transcription with its own billing coefficient, Telegram Stars payments, TEST and PROD environments.</span></li></ul>
+    <div class="tags"><span>Node.js</span><span>Python</span><span>OpenAI API</span><span>Telegram</span><span>Docker</span><span>LLM routing</span></div>
+  </div>
+</article><article class="job">
+  <div class="when"><span data-l="ru">2022 — н. в.</span><span data-l="en">2022 — now</span></div>
+  <div class="body">
+    <h3><span data-l="ru">Deep.Foundation — open source</span><span data-l="en">Deep.Foundation — open source</span></h3>
+    <p class="role"><span data-l="ru">Участник организации</span><span data-l="en">Organisation member</span></p>
+    <p><span data-l="ru">Экосистема ассоциативного хранилища. Пакеты ИИ-тулинга в официальном скоупе: <code>@deep-foundation/ai</code>, <code>ai-models</code>, <code>ai-templates</code>, <code>ai-tasks</code> и соседние.</span><span data-l="en">An ecosystem around associative storage. AI tooling packages in the official scope: <code>@deep-foundation/ai</code>, <code>ai-models</code>, <code>ai-templates</code>, <code>ai-tasks</code> and neighbours.</span></p>
+    <ul class="b"><li><span data-l="ru"><b>deep-files-sync</b> (13 версий): проецирует граф связей на файловую систему, содержимое базы читается и правится через grep, редактор и git.</span><span data-l="en"><b>deep-files-sync</b> (13 releases): projects the link graph onto the file system, so database content can be read and edited with grep, an editor and git.</span></li></ul>
+    <div class="tags"><span>JavaScript</span><span>TypeScript</span><span>npm</span><span>GraphQL</span></div>
+  </div>
+</article><article class="job">
+  <div class="when">2026</div>
+  <div class="body">
+    <h3><span data-l="ru">Сайты и аналитика: организации и малый бизнес</span><span data-l="en">Websites and analysis: organisations and small business</span></h3>
+    <p class="role"><span data-l="ru">Разработка и исследования</span><span data-l="en">Development and research</span></p>
+    <p><span data-l="ru">Сайт Центра патриотического воспитания «Чкалов Парк» (React, TypeScript, Vite). Шаблон клиентских сайтов для малого бизнеса: Next.js и Payload CMS в одном процессе, локали hy / ru / en, деплой на один VPS через Docker.</span><span data-l="en">The website of a patriotic education centre, Chkalov Park (React, TypeScript, Vite). A template for small-business client sites: Next.js and Payload CMS in one process, hy / ru / en locales, deployed to a single VPS with Docker.</span></p>
+    <ul class="b"><li><span data-l="ru">Для ЦППК: обзор рынка и цифровых площадок, публичный макет диагностики на фасаде cppkspb.ru, предложения по цифровому присутствию.</span><span data-l="en">For CPPK: a market and digital-platform review, a public mock-up of the facade diagnostics on cppkspb.ru, proposals for a digital presence.</span></li></ul>
+    <div class="tags"><span>Next.js</span><span>Payload CMS</span><span>React</span><span>Vite</span><span>Docker</span></div>
+  </div>
+</article>
+      </section>
+
+      <section id="path">
+        <h2><span class="n">III</span><span data-l="ru">Путь</span><span data-l="en">Path</span></h2>
+        <ol class="path"><li><b>2021</b><span><span data-l="ru">Начал программировать: приложения на Java и C++, бот замерзания Онежского озера по кадрам камеры.</span><span data-l="en">Started programming: Java and C++ apps, a Lake Onega freezing bot working from camera frames.</span></span></li><li><b>2022</b><span><span data-l="ru">Присоединился к open-source-экосистеме Deep.Foundation.</span><span data-l="en">Joined the Deep.Foundation open-source ecosystem.</span></span></li><li><b>2024</b><span><span data-l="ru">Первые коммерческие проекты: LLM-шлюз и Telegram-бот Deep.Assistant, пакет deep-files-sync.</span><span data-l="en">First commercial projects: the Deep.Assistant LLM gateway and Telegram bot, the deep-files-sync package.</span></span></li><li><b>2025</b><span><span data-l="ru">Голосовой ассистент InnerEcho, reasoning-конвейер, ai-lector. С августа ManyAir, с декабря e-commerce платформа.</span><span data-l="en">The InnerEcho voice assistant, a reasoning pipeline, ai-lector. ManyAir from August, the e-commerce platform from December.</span></span></li><li><b>2026</b><span><span data-l="ru">Matreshka, tg-runner, vk-tg-parser, Предложка, ai-post-generator, lightrag-mcp, cursor-agent-workflows, работа для ЦППК.</span><span data-l="en">Matreshka, tg-runner, vk-tg-parser, the Predlozhka editorial desk, ai-post-generator, lightrag-mcp, cursor-agent-workflows, work for CPPK.</span></span></li></ol>
+      </section>
+
+      <section id="projects">
+        <h2><span class="n">IV</span><span data-l="ru">Проекты</span><span data-l="en">Projects</span></h2>
+        <div class="chips" role="group" aria-label="Filter"><button type="button" data-f="all" aria-pressed="true"><span data-l="ru">Все</span><span data-l="en">All</span></button><button type="button" data-f="ai" aria-pressed="false"><span data-l="ru">ИИ и агенты</span><span data-l="en">AI and agents</span></button><button type="button" data-f="bots" aria-pressed="false"><span data-l="ru">Боты и парсеры</span><span data-l="en">Bots and parsers</span></button><button type="button" data-f="web" aria-pressed="false"><span data-l="ru">Веб и исследования</span><span data-l="en">Web and research</span></button><button type="button" data-f="tools" aria-pressed="false"><span data-l="ru">Инструменты</span><span data-l="en">Tools</span></button></div>
+        <div class="cards"><article class="card" data-cat="ai">
+  <div class="cm"><span>2026</span><span>Python · TS</span></div>
+  <h3><span>Предложка</span><em class="priv"><span data-l="ru">закрытый</span><span data-l="en">private</span></em></h3>
+  <p><span data-l="ru">Редакционный стол для сообществ: нейросети пишут и перепроверяют посты, материал проходит гейты, встаёт в слот и уходит в ВК, Telegram и MAX. Пять независимых частей с HTTP-контрактом.</span><span data-l="en">An editorial desk for communities: models write and re-check posts, the material passes gates, takes a slot and goes out to VK, Telegram and MAX. Five independent parts behind an HTTP contract.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2026</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/ai-post-generator" target="_blank" rel="noopener">ai-post-generator</a></h3>
+  <p><span data-l="ru">Одна модель пишет черновик, вторая проверяет отдельным вызовом, замечания возвращаются на правку до трёх кругов. Состояние в SQLite переживает падение процесса.</span><span data-l="en">One model drafts, a second reviews in a separate call, remarks go back for up to three rounds. State lives in SQLite and survives a crash.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2026</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/lightrag-mcp" target="_blank" rel="noopener">lightrag-mcp</a></h3>
+  <p><span data-l="ru">MCP-сервер к self-hosted LightRAG: режимы поиска, реранкинг, ответы со ссылками. Даёт агентам постоянную базу знаний.</span><span data-l="en">An MCP server for self-hosted LightRAG: search modes, reranking, answers with citations. Gives agents a persistent knowledge base.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2026</span><span>Markdown</span></div>
+  <h3><a href="https://github.com/TimaxLacs/cursor-agent-workflows" target="_blank" rel="noopener">cursor-agent-workflows</a></h3>
+  <p><span data-l="ru">Спецификации агентных процессов: конвейер безопасного изменения кода из пяти агентов, бутстрап проекта, процесс исследования. Проверка отделена от исполнения.</span><span data-l="en">Specs for agent workflows: a safe code-change pipeline of five agents, project bootstrap, a research process. Review is separated from execution.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2025</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/test-resorning" target="_blank" rel="noopener">test-resorning</a></h3>
+  <p><span data-l="ru">Reasoning-конвейер поверх обычных чат-моделей: предсказание намерения, пошаговое решение, состязательная критика, доработка, синтез. Режим рассуждений воспроизведён оркестрацией промптов.</span><span data-l="en">A reasoning pipeline on top of ordinary chat models: intent prediction, step-by-step solving, adversarial critique, refinement, synthesis. The reasoning mode is reproduced by prompt orchestration.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2025</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/InnerEcho" target="_blank" rel="noopener">InnerEcho</a></h3>
+  <p><span data-l="ru">Локальный голосовой ассистент: распознавание речи, языковая модель, синтез с клонированием голоса. Рядом npm-клиенты синтеза xtts-v2-js и zonosjs.</span><span data-l="en">A local voice assistant: speech recognition, a language model, voice-cloning synthesis. Alongside it, the npm synthesis clients xtts-v2-js and zonosjs.</span></p>
+</article><article class="card" data-cat="ai">
+  <div class="cm"><span>2025</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/ai-lector" target="_blank" rel="noopener">ai-lector</a></h3>
+  <p><span data-l="ru">Бот, который перерабатывает аудиолекции под нужный формат. Для обхода лимита на размер файла собран локальный Telegram Bot API server.</span><span data-l="en">A bot that reworks audio lectures into the format you need. A local Telegram Bot API server was built to get around the file-size limit.</span></p>
+</article><article class="card" data-cat="bots">
+  <div class="cm"><span>2026</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/tg-runner-orchestrator" target="_blank" rel="noopener">tg-runner</a></h3>
+  <p><span data-l="ru">Оркестрация Telegram-ботов: конечный автомат на Redis, воркер в Docker, SDK и CLI. Пять репозиториев: orchestrator, worker, worker-sdk, cli.</span><span data-l="en">Orchestration of Telegram bots: a state machine on Redis, a Docker worker, an SDK and a CLI. Five repositories: orchestrator, worker, worker-sdk, cli.</span></p>
+</article><article class="card" data-cat="bots">
+  <div class="cm"><span>2026</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/vk-tg-parser" target="_blank" rel="noopener">vk-tg-parser</a></h3>
+  <p><span data-l="ru">Pip-пакет: единый парсер Telegram через MTProto и VK через API с общей моделью данных и мониторингом в реальном времени.</span><span data-l="en">A pip package: one parser for Telegram via MTProto and VK via API, with a shared data model and real-time monitoring.</span></p>
+</article><article class="card" data-cat="bots">
+  <div class="cm"><span>2026</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/tg-hashtag-commenter" target="_blank" rel="noopener">tg-hashtag-commenter</a></h3>
+  <p><span data-l="ru">Поиск публичных постов по хэштегам в Telegram и VK и комментирование. Три файла: ядро, Telegram на Pyrogram, VK по HTTP API.</span><span data-l="en">Search for public posts by hashtag in Telegram and VK and commenting. Three files: core, Telegram on Pyrogram, VK over the HTTP API.</span></p>
+</article><article class="card" data-cat="bots">
+  <div class="cm"><span>2026</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxLacs/avtomatika-worker" target="_blank" rel="noopener">avtomatika-worker</a></h3>
+  <p><span data-l="ru">Worker SDK для оркестратора Avtomatika (организация avtomatika-ai).</span><span data-l="en">A Worker SDK for the Avtomatika orchestrator (the avtomatika-ai organisation).</span></p>
+</article><article class="card" data-cat="bots">
+  <div class="cm"><span>2026</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/max-bot" target="_blank" rel="noopener">max-bot</a></h3>
+  <p><span data-l="ru">Тестовый бот для мессенджера MAX: polling и webhook.</span><span data-l="en">A test bot for the MAX messenger: polling and webhook.</span></p>
+</article><article class="card" data-cat="web">
+  <div class="cm"><span>2026</span><span>TypeScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/chkalov-park" target="_blank" rel="noopener">chkalov-park</a></h3>
+  <p><span data-l="ru">Сайт Центра патриотического воспитания «Чкалов Парк» (Сиверский).</span><span data-l="en">The website of the Chkalov Park patriotic education centre.</span></p>
+</article><article class="card" data-cat="web">
+  <div class="cm"><span>2026</span><span>HTML</span></div>
+  <h3><a href="https://github.com/TimaxLacs/diagnostika-fasad" target="_blank" rel="noopener">diagnostika-fasad</a></h3>
+  <p><span data-l="ru">Публичный макет диагностики авто на фасаде cppkspb.ru.</span><span data-l="en">A public mock-up of car diagnostics on the facade of cppkspb.ru.</span></p>
+</article><article class="card" data-cat="web">
+  <div class="cm"><span>2026</span><span>TypeScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/cppk-strelka" target="_blank" rel="noopener">cppk-strelka</a></h3>
+  <p><span data-l="ru">Предложения по цифровому присутствию ЦППК и сообщества «Стрелка».</span><span data-l="en">Proposals for the digital presence of CPPK and the Strelka community.</span></p>
+</article><article class="card" data-cat="web">
+  <div class="cm"><span>2026</span><span>Research</span></div>
+  <h3><a href="https://github.com/TimaxLacs/free-messenger-ideas" target="_blank" rel="noopener">free-messenger-ideas</a></h3>
+  <p><span data-l="ru">Идеи для мессенджера с максимальной доступностью в условиях блокировок.</span><span data-l="en">Ideas for a messenger with maximum availability under network blocking.</span></p>
+</article><article class="card" data-cat="tools">
+  <div class="cm"><span>2024</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/deep-files-sync" target="_blank" rel="noopener">deep-files-sync</a></h3>
+  <p><span data-l="ru">Граф связей Deep как файловая система: правка базы через grep, редактор и git. 13 версий в npm.</span><span data-l="en">The Deep link graph as a file system: edit the database with grep, an editor and git. 13 releases on npm.</span></p>
+</article><article class="card" data-cat="tools">
+  <div class="cm"><span>2025</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxLacs/xtts-v2-js" target="_blank" rel="noopener">xtts-v2-js</a></h3>
+  <p><span data-l="ru">npm-пакет для XTTS-v2: синтез речи с клонированием голоса.</span><span data-l="en">An npm package for XTTS-v2: speech synthesis with voice cloning.</span></p>
+</article><article class="card" data-cat="tools">
+  <div class="cm"><span>2025</span><span>JavaScript</span></div>
+  <h3><a href="https://github.com/TimaxHack/zonosJS" target="_blank" rel="noopener">zonosJS</a></h3>
+  <p><span data-l="ru">npm-клиент синтеза речи Zonos.</span><span data-l="en">An npm client for Zonos speech synthesis.</span></p>
+</article><article class="card" data-cat="tools">
+  <div class="cm"><span>2021</span><span>Python</span></div>
+  <h3><a href="https://github.com/TimaxHack/ghj" target="_blank" rel="noopener">ghj</a></h3>
+  <p><span data-l="ru">Компьютерное зрение: бот определяет уровень замерзания Онежского озера по кадрам с уличной камеры.</span><span data-l="en">Computer vision: a bot estimating how frozen Lake Onega is from street-camera frames.</span></p>
+</article></div>
+      </section>
+
+      <section id="activity">
+        <h2><span class="n">V</span><span data-l="ru">Активность</span><span data-l="en">Activity</span></h2>
+        <div class="two">
+          <div>
+            <h4><span data-l="ru">Вклады на GitHub по годам</span><span data-l="en">GitHub contributions by year</span></h4>
+            <div class="bar"><span class="k">2021</span><span class="t"><i style="width:3.6%"></i></span><span class="v">10</span></div><div class="bar"><span class="k">2022</span><span class="t"><i style="width:1.1%"></i></span><span class="v">3</span></div><div class="bar"><span class="k">2023</span><span class="t"><i style="width:3.2%"></i></span><span class="v">9</span></div><div class="bar"><span class="k">2024</span><span class="t"><i style="width:100.0%"></i></span><span class="v">281</span></div><div class="bar"><span class="k">2025</span><span class="t"><i style="width:38.1%"></i></span><span class="v">107</span></div><div class="bar"><span class="k">2026</span><span class="t"><i style="width:69.0%"></i></span><span class="v">194</span></div>
+          </div>
+          <div>
+            <h4><span data-l="ru">Репозитории по языкам</span><span data-l="en">Repositories by language</span></h4>
+            <div class="bar"><span class="k">Python</span><span class="t"><i style="width:100.0%"></i></span><span class="v">16</span></div><div class="bar"><span class="k">JavaScript</span><span class="t"><i style="width:62.5%"></i></span><span class="v">10</span></div><div class="bar"><span class="k">HTML</span><span class="t"><i style="width:31.2%"></i></span><span class="v">5</span></div><div class="bar"><span class="k">TypeScript</span><span class="t"><i style="width:18.8%"></i></span><span class="v">3</span></div><div class="bar"><span class="k">Java</span><span class="t"><i style="width:18.8%"></i></span><span class="v">3</span></div><div class="bar"><span class="k">C++</span><span class="t"><i style="width:18.8%"></i></span><span class="v">3</span></div><div class="bar"><span class="k">Docker</span><span class="t"><i style="width:6.2%"></i></span><span class="v">1</span></div>
+          </div>
         </div>
-      </div>
+        <p class="note"><span data-l="ru">Публичный граф TimaxLacs на 2026-11-11 и собственные репозитории двух аккаунтов без форков. Значительная часть работы лежит в закрытых репозиториях заказчиков, поэтому граф показывает её лишь частично.</span><span data-l="en">The public TimaxLacs graph as of 2026-11-11, plus the own non-fork repositories of both accounts. A large part of the work sits in clients' private repositories, so the graph shows it only partially.</span></p>
+      </section>
 
-      <div class="row">
-        <div class="when"><span data-l="ru">авг 2025 — май 2026</span><span data-l="en">Aug 2025 — May 2026</span></div>
-        <div>
-          <h3>ManyAir <small data-l="ru">международные переводы</small><small data-l="en">international transfers</small></h3>
-          <p data-l="ru">Фронтенд, смежный бэкенд и сервер. Микросервисы вокруг Hasura GraphQL, устойчивая доставка уведомлений, изоляция данных между ролями.</p>
-          <p data-l="en">Frontend, adjacent backend and server. Microservices around Hasura GraphQL, resilient notification delivery, data isolation between roles.</p>
-        </div>
-      </div>
+      <section id="stack">
+        <h2><span class="n">VI</span><span data-l="ru">Инструменты</span><span data-l="en">Tools</span></h2>
+        <div class="stackgrid"><div class="sg"><h4><span data-l="ru">Языки</span><span data-l="en">Languages</span></h4><p><span>Python</span><span>TypeScript</span><span>JavaScript</span><span>SQL</span><span>Bash</span><span>Java</span><span>C++</span></p></div><div class="sg"><h4><span data-l="ru">Фронтенд</span><span data-l="en">Frontend</span></h4><p><span>React</span><span>Vite</span><span>Next.js</span><span>Tailwind</span><span>Capacitor</span><span>Payload CMS</span><span>shadcn/ui</span></p></div><div class="sg"><h4><span data-l="ru">Бэкенд</span><span data-l="en">Backend</span></h4><p><span>Node.js</span><span>Express</span><span>FastAPI</span><span>Hasura GraphQL</span><span>REST</span><span>Pyrogram</span></p></div><div class="sg"><h4><span data-l="ru">Данные</span><span data-l="en">Data</span></h4><p><span>PostgreSQL / PostGIS</span><span>Redis</span><span>SQLite</span><span>MinIO / S3</span></p></div><div class="sg"><h4><span data-l="ru">ИИ</span><span data-l="en">AI</span></h4><p><span><span data-l="ru">маршрутизация и фолбэк</span><span data-l="en">routing and fallback</span></span><span><span data-l="ru">биллинг токенов</span><span data-l="en">token billing</span></span><span><span data-l="ru">очереди генерации</span><span data-l="en">generation queues</span></span><span>RAG</span><span>MCP</span><span><span data-l="ru">распознавание речи</span><span data-l="en">speech recognition</span></span><span><span data-l="ru">синтез голоса</span><span data-l="en">voice synthesis</span></span><span><span data-l="ru">компьютерное зрение</span><span data-l="en">computer vision</span></span></p></div><div class="sg"><h4><span data-l="ru">Прод</span><span data-l="en">Ops</span></h4><p><span>Docker</span><span>nginx</span><span>systemd</span><span>Linux</span><span>Git</span><span>CI</span><span><span data-l="ru">DNS и почта</span><span data-l="en">DNS and mail</span></span><span>SSL</span></p></div><div class="sg"><h4><span data-l="ru">Среда с моделями</span><span data-l="en">Model tooling</span></h4><p><span>Cursor</span><span>Claude Code</span><span>ClawCode</span><span>subagents</span></p></div><div class="sg"><h4><span data-l="ru">Предметные области</span><span data-l="en">Domains</span></h4><p><span><span data-l="ru">боты</span><span data-l="en">bots</span></span><span>e-commerce</span><span><span data-l="ru">гео-сервисы</span><span data-l="en">geo services</span></span><span><span data-l="ru">платежи</span><span data-l="en">payments</span></span><span><span data-l="ru">контент-конвейеры</span><span data-l="en">content pipelines</span></span><span><span data-l="ru">парсинг</span><span data-l="en">parsing</span></span></p></div></div>
+      </section>
 
-      <div class="row">
-        <div class="when">2024 — 2025</div>
-        <div>
-          <h3>Deep.Assistant <small data-l="ru">агрегатор нейросетей</small><small data-l="en">AI aggregator</small></h3>
-          <p data-l="ru">Основатель, backend и DevOps, команда из трёх человек. LLM-шлюз: около 37 моделей от шести поставщиков за одним OpenAI-совместимым API, цепочки замен при сбое, единый внутренний счёт. Telegram-бот и мини-приложения.</p>
-          <p data-l="en">Founder, backend and DevOps, a team of three. LLM gateway: about 37 models from six providers behind one OpenAI-compatible API, replacement chains on failure, a single internal balance. Telegram bot and mini-apps.</p>
-        </div>
-      </div>
-    </section>
+      <section id="method">
+        <h2><span class="n">VII</span><span data-l="ru">Метод</span><span data-l="en">Method</span></h2>
+        <ol class="method"><li><b>1</b><div><h4><span data-l="ru">Рамка</span><span data-l="en">Frame</span></h4><p><span data-l="ru">Исследование, ограничения и критерии приёмки фиксирую сам, до того как подключаю модель.</span><span data-l="en">I fix the research, constraints and acceptance criteria myself before a model gets involved.</span></p></div></li><li><b>2</b><div><h4><span data-l="ru">Правила</span><span data-l="en">Rules</span></h4><p><span data-l="ru">Перед работой записываю в репозиторий полный набор правил: как гонять проверки, чего не трогать. Те же ограничения дублирую в CI и хуках, чтобы их нельзя было обойти.</span><span data-l="en">Before any work I put a complete rule set into the repository: how to run checks, what not to touch. The same limits are duplicated in CI and hooks so they cannot be bypassed.</span></p></div></li><li><b>3</b><div><h4><span data-l="ru">Узкие шаги</span><span data-l="en">Narrow steps</span></h4><p><span data-l="ru">Код с моделью пишу узкими шагами и через отдельных субагентов: план, правка, прогон тестов и линтеров. Скоуп файлов фиксирую заранее, параллельные правки изолирую.</span><span data-l="en">I write code with a model in narrow steps and through separate subagents: plan, edit, tests and linters. The file scope is fixed in advance; parallel edits are isolated.</span></p></div></li><li><b>4</b><div><h4><span data-l="ru">Независимая проверка</span><span data-l="en">Independent review</span></h4><p><span data-l="ru">Проверка идёт отдельно и не принимает код, который только что написал исполнитель. Тесты, написанные моделью вместе с реализацией, доказательством не считаю: смотрю негативные и граничные случаи, секреты и зависимости. Без собственного ревью код не отдаю.</span><span data-l="en">Review runs separately and rejects code the executor has just written. Tests a model wrote together with the implementation are not proof: I check negative and edge cases, secrets and dependencies. Nothing leaves my hands without my own review.</span></p></div></li></ol>
+      </section>
 
-    <section id="projects">
-      <h2><span class="n">III</span><span data-l="ru">Свои проекты</span><span data-l="en">Own projects</span></h2>
-      <ul class="list">
-        <li>
-          <b>Предложка</b> <span data-l="ru">— редакционный стол для сообществ: нейросети пишут и перепроверяют посты, материал проходит гейты, встаёт в слот и уходит в ВК, Telegram и MAX.</span>
-          <span data-l="en">— an editorial desk for communities: models write and re-check posts, the material passes gates, takes a slot and goes out to VK, Telegram and MAX.</span>
-        </li>
-        <li>
-          <b>ai-post-generator</b> <span data-l="ru">— одна модель пишет черновик, вторая проверяет отдельным вызовом, до трёх кругов правок. Состояние в SQLite переживает падение процесса.</span>
-          <span data-l="en">— one model drafts, a second reviews in a separate call, up to three revision rounds. State lives in SQLite and survives a crash.</span>
-        </li>
-        <li>
-          <b>lightrag-mcp</b> <span data-l="ru">— MCP-сервер к self-hosted LightRAG: режимы поиска, реранкинг, ответы со ссылками.</span>
-          <span data-l="en">— an MCP server for self-hosted LightRAG: search modes, reranking, answers with citations.</span>
-        </li>
-        <li>
-          <b>cursor-agent-workflows</b> <span data-l="ru">— спецификации агентных процессов. Пять агентов меняют код безопасно: проверка отделена от исполнения и не принимает то, что только что написал исполнитель.</span>
-          <span data-l="en">— specs for agent workflows. Five agents change code safely: review is separated from execution and rejects what the executor has just written.</span>
-        </li>
-        <li>
-          <b>tg-runner</b> <span data-l="ru">— оркестрация Telegram-ботов: конечный автомат на Redis, воркер в Docker, SDK и CLI.</span>
-          <span data-l="en">— Telegram bot orchestration: a state machine on Redis, a Docker worker, an SDK and a CLI.</span>
-        </li>
-        <li>
-          <b>deep-files-sync</b> <span data-l="ru">— граф связей Deep как файловая система: содержимое базы читается и правится через grep, редактор и git. 26 пакетов в npm.</span>
-          <span data-l="en">— the Deep link graph as a file system: database content can be read and edited with grep, an editor and git. 26 packages on npm.</span>
-        </li>
-      </ul>
-    </section>
+      <section id="knowledge">
+<h2><span class="n">VIII</span><span data-l="ru">Знания</span><span data-l="en">Education</span></h2>
+<dl class="kv">
+  <dt><span data-l="ru">Образование</span><span data-l="en">Education</span></dt>
+  <dd><span data-l="ru">Санкт-Петербургский политехнический университет Петра Великого — техническая специальность. Институт СПО СПбПУ — базовый инженерно-технический курс.</span><span data-l="en">Peter the Great St. Petersburg Polytechnic University — a technical degree track. SPbPU college institute — a basic engineering course.</span></dd>
+  <dt><span data-l="ru">Языки</span><span data-l="en">Languages</span></dt>
+  <dd><span data-l="ru">Русский — родной. Английский — технический и письменный, профессиональный уровень.</span><span data-l="en">Russian — native. English — technical and written, professional level.</span></dd>
+  <dt><span data-l="ru">Формат</span><span data-l="en">Format</span></dt>
+  <dd><span data-l="ru">Санкт-Петербург, удалённо. Контрактная разработка, продуктовые команды.</span><span data-l="en">Saint Petersburg, remote. Contract development, product teams.</span></dd>
+  <dt><span data-l="ru">Open source</span><span data-l="en">Open source</span></dt>
+  <dd><span data-l="ru">Участник организации Deep.Foundation с 2022 года, 61 публичный репозиторий на двух аккаунтах.</span><span data-l="en">A Deep.Foundation organisation member since 2022, 61 public repositories across two accounts.</span></dd>
+</dl>
+</section>
+      <section id="contact">
+<h2><span class="n">IX</span><span data-l="ru">Контакты</span><span data-l="en">Contact</span></h2>
+<div class="contact">
+  <a class="btn" href="mailto:chakirov.timyr@gmail.com">chakirov.timyr@gmail.com</a>
+  <a class="btn ghost" href="/resume.pdf"><span data-l="ru">Скачать PDF</span><span data-l="en">Download PDF</span></a>
+</div>
+<dl class="kv links">
+  <dt>Telegram</dt><dd><a href="https://t.me/TimaxLacs">@TimaxLacs</a></dd>
+  <dt>GitHub</dt><dd><a href="https://github.com/TimaxLacs">TimaxLacs</a> · <a href="https://github.com/TimaxHack">TimaxHack</a> <span class="mute">— <span data-l="ru">основной TimaxLacs; под TimaxHack лежит большинство коммитов в LLM-шлюзе</span><span data-l="en">main account TimaxLacs; most commits in the LLM gateway sit under TimaxHack</span></span></dd>
+  <dt>npm</dt><dd><a href="https://www.npmjs.com/~timax">~timax</a></dd>
+  <dt><span data-l="ru">Продукт</span><span data-l="en">Product</span></dt><dd><a href="https://t.me/DeepGPTBot">@DeepGPTBot</a> · <a href="https://t.me/gptDeep">@gptDeep</a></dd>
+</dl>
+</section>
+    </main>
 
-    <section id="stack">
-      <h2><span class="n">IV</span><span data-l="ru">Инструменты</span><span data-l="en">Tools</span></h2>
-      <dl class="kv">
-        <dt><span data-l="ru">Языки</span><span data-l="en">Languages</span></dt><dd>Python, TypeScript, JavaScript</dd>
-        <dt><span data-l="ru">Фронтенд</span><span data-l="en">Frontend</span></dt><dd>React, Vite, Next.js, Tailwind, Capacitor</dd>
-        <dt><span data-l="ru">Бэкенд</span><span data-l="en">Backend</span></dt><dd>Node.js, FastAPI, Hasura GraphQL, PostgreSQL / PostGIS, Redis</dd>
-        <dt><span data-l="ru">ИИ</span><span data-l="en">AI</span></dt>
-        <dd><span data-l="ru">маршрутизация и фолбэк, RAG и MCP, очереди генерации, распознавание речи</span><span data-l="en">routing and fallback, RAG and MCP, generation queues, speech recognition</span></dd>
-        <dt><span data-l="ru">Прод</span><span data-l="en">Ops</span></dt><dd>Docker, nginx, Linux, CI</dd>
-      </dl>
-    </section>
-
-    <section id="method">
-      <h2><span class="n">V</span><span data-l="ru">Как работаю с моделями</span><span data-l="en">Working with models</span></h2>
-      <blockquote class="quote">
-        <span data-l="ru">Правила, проверки и ограничения записываю в репозиторий и дублирую в CI, чтобы их нельзя было обойти.</span>
-        <span data-l="en">Rules, checks and constraints go into the repository and are duplicated in CI, so they cannot be bypassed.</span>
-      </blockquote>
-      <p data-l="ru">Cursor и Claude Code. Код пишу узкими шагами, проверку отдаю отдельному агенту. Тесты, которые модель написала вместе с реализацией, доказательством не считаю. Без собственного ревью код не отдаю.</p>
-      <p data-l="en">Cursor and Claude Code. I write code in narrow steps and hand review to a separate agent. Tests that a model wrote together with the implementation do not count as proof. Nothing leaves my hands without my own review.</p>
-      <p style="color:var(--mute);font-size:17px" data-l="ru">Образование: СПбПУ Петра Великого, техническая специальность. Английский: технический и письменный, профессиональный уровень.</p>
-      <p style="color:var(--mute);font-size:17px" data-l="en">Education: Peter the Great St. Petersburg Polytechnic University, technical degree track. English: technical and written, professional level.</p>
-    </section>
-  </main>
-
-  <footer>
-    <div class="links">
-      <a href="mailto:chakirov.timyr@gmail.com">e-mail</a>
-      <a href="https://t.me/TimaxLacs">Telegram</a>
-      <a href="https://github.com/TimaxLacs">GitHub</a>
-      <a href="https://www.npmjs.com/~timax">npm</a>
-    </div>
-    <small>© 2026 · <span data-l="ru">Тимур Шакиров</span><span data-l="en">Timur Shakirov</span></small>
-  </footer>
+    <footer>
+      <span>© 2026 · <span data-l="ru">Тимур Шакиров</span><span data-l="en">Timur Shakirov</span></span>
+      <span>MMXXVI</span>
+    </footer>
+  </div>
 </div>
 
 <script>
@@ -283,6 +461,22 @@ html[lang="ru"] [data-l="en"],html[lang="en"] [data-l="ru"]{display:none!importa
   if(!saved){saved=/^ru|^uk|^be/i.test(navigator.language||'')?'ru':'en'}
   set(saved);
   btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
+
+  // project filter
+  var chips=document.querySelectorAll('.chips button'), cards=document.querySelectorAll('.card');
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.setAttribute('aria-pressed',String(x===c))});
+    cards.forEach(function(k){k.hidden=!(c.dataset.f==='all'||k.dataset.cat===c.dataset.f)});
+  })});
+
+  // active section in the rail
+  var links={}; document.querySelectorAll('.rail nav a').forEach(function(a){links[a.dataset.s]=a});
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){
+      if(en.isIntersecting){Object.keys(links).forEach(function(k){links[k].classList.toggle('on',k===en.target.id)})}
+    })},{rootMargin:'-30% 0px -60% 0px'});
+    document.querySelectorAll('main section').forEach(function(s){io.observe(s)});
+  }
 })();
 </script>
 </body>
