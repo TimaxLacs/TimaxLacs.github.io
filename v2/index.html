@@ -69,8 +69,7 @@ sup.ast{color:var(--accent);font-family:var(--mono);font-size:.7em;margin-left:2
 main{min-width:0;padding-bottom:40px}
 .hero{display:grid;grid-template-columns:132px 1fr;gap:34px;align-items:end;padding:52px 0 36px}
 .portrait{width:132px;height:172px;border-radius:66px 66px 2px 2px;overflow:hidden;border:1px solid var(--line);outline:1px solid var(--line);outline-offset:5px;background:var(--bg-2)}
-.portrait img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) sepia(.28) contrast(1.05) brightness(.92)}
-html[data-theme="light"] .portrait img{filter:grayscale(1) sepia(.3) contrast(1.02) brightness(1)}
+.portrait img{width:100%;height:100%;object-fit:cover;display:block}
 .badge{display:inline-flex;align-items:center;gap:9px;font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);border:1px solid var(--line-2);padding:5px 12px;margin:0 0 18px}
 .badge i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block}
 @media (prefers-reduced-motion:no-preference){.badge i{animation:pulse 2.4s ease-in-out infinite}@keyframes pulse{50%{opacity:.25}}}
@@ -241,7 +240,6 @@ html[lang="ru"] [data-l="en"],html[lang="en"] [data-l="ru"]{display:none!importa
   .rail,.topbar,.chips,.cta,.contact,.calwrap,.months,.calfoot,.theme{display:none}
   .shell{display:block;padding:0}
   .card{background:#fff;break-inside:avoid}.card[hidden],.job[hidden]{display:block}
-  .portrait img{filter:grayscale(1)}
   @page{size:A4;margin:13mm 14mm}
   .shell{padding:0 3mm}
   section{padding-top:22px}
