@@ -419,7 +419,7 @@ html[lang="ru"] [data-l="en"],html[lang="en"] [data-l="ru"]{display:none!importa
   }
   var saved=null; try{saved=localStorage.getItem(key)}catch(e){}
   var q=/[?&]lang=(ru|en)/.exec(location.search); if(q) saved=q[1];
-  if(!saved){saved=/^ru|^uk|^be/i.test(navigator.language||'')?'ru':'en'}
+  if(saved!=='en')saved='ru';
   set(saved);
   btns.forEach(function(b){b.addEventListener('click',function(){set(b.dataset.set)})});
 
